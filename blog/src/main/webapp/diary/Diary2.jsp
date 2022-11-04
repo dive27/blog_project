@@ -11,7 +11,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
-	<style type="text/css">
+<style type="text/css">
 		@font-face {
 	    font-family: 'Humanbumsuk';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
@@ -22,16 +22,9 @@
 		*{
 			box-sizing: border-box;
 			font-family: 'Humanbumsuk';
-			border: solid 1px olive;
-		}
-		
-		body{
-			position: relative;
 		}
 		
 		.mainbox{
-			position: absolute;
-			left: 5%;
 			width: 900px;
 			height: 40vh;
 		}
@@ -189,14 +182,14 @@
 			margin-left: 5%;
 		}
 		
-		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? */
+		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? 
 		
 		.c_emobox tr > .emotioninput , .emoji{
 			opacity: 0.8;
 			background-color: red;
 			color: red;
 		}
-		
+		*/
 		/*
 		{
 		
@@ -228,20 +221,20 @@
 		</th>
 		
 		<th rowspan="2" class="diary">
-			<img class="stamp" src="/blog/img/투명.png">
-			<img class="diatytextbox" src="/blog/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
+			<img class="stamp" src="/team3/img/투명.png">
+			<img class="diatytextbox" src="/team3/img/레이스종이.png">
+			<img ondblclick="change_back_img()" class="diary_img" src="/team3/img/배경1.png">
 			<h3 class="todaydate"></h3>
-			<img class="choice_emo" src="/blog/img/투명.png">
+			<img class="choice_emo" src="/team3/img/투명.png">
 			<textarea id="content"></textarea> 
 		</th>
 		
-		<th rowspan="2" class="pencil"> <img onclick="writediary()" class="clickbtn" src="/blog/img/연필.png"> </th>
+		<th rowspan="2" class="pencil"> <img onclick="writediary()" class="clickbtn" src="/team3/img/연필.png"> </th>
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
-			<img class="emotabletextbox" src="/blog/img/레이스종이.png">
+			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotabletextbox" src="/team3/img/레이스종이.png">
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 

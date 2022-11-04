@@ -29,8 +29,8 @@ public class Diary extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
 		String content = request.getParameter("content");
 		int emono = Integer.parseInt(request.getParameter("emono")); // 만들어둔 다오 여기서 써야하나?
 		System.out.println(emono);
@@ -72,15 +72,32 @@ public class Diary extends HttpServlet {
 	}
 
 	
-	@Override
+	@Override	// 오늘 일기 수정 관련
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String today = request.getParameter("to_day");
+		String type = request.getParameter("type");
+		boolean result = false;
 		
-		System.out.println(today);
+		if( type == "1" ) {
+			String today = request.getParameter("today");
+			System.out.println("이미 일기가 있는지 확인 서블릿 이게 왜 널일까요"+today);
 		
-		boolean result = DiaryDao.getInstance().ifalreadywr(today);
+			result = DiaryDao.getInstance().ifalreadywr(today);
+		}
 		
-		response.getWriter().print(result);
+		if( type == "2" ) {
+			System.out.println("일기수정 풋에 들어왔어요");
+			String content = request.getParameter("content");
+			String date = request.getParameter("date");
+			int emono = Integer.parseInt(request.getParameter("emo_no")) ;
+			
+			System.out.println(content);
+			System.out.println("오늘 일기 수정하는 서블릿 이게 왜 널이냐고~"+date);
+			System.out.println(emono);
+			
+			result = DiaryDao.getInstance().update_today_di(content, date, emono);
+		}
+		response.getWriter().print(result);	
+
 	}
 }
