@@ -72,6 +72,7 @@ function viewload( bno ){
 		data : { "bno" : bno },
 		success : function( re ){
 			$(".mainbox").load("/blog/board/tview.jsp");
+								// 이동할 페이지 경로
 		}
 	})
 }

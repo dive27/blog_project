@@ -19,7 +19,6 @@ function bwrite(){
 	let form = document.querySelector('form') 	// 1. form 태그 호출
 	console.log( form )
 	
-	alert('ddd');
 	let formdata = new FormData( form )			// 2. 객체화된 form 정보 호출	
 	console.log( formdata )						// [ form안에 입력받은 데이터 input 모두 가져오기 ] 
 	

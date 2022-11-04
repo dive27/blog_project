@@ -43,8 +43,8 @@ create table reply(
     rcontent 	varchar(1000) not null , -- 댓글내용
     rdate		datetime  default now(),  -- 댓글작성일
     rindex		int default 0 , -- 댓글 과 대댓글 식별 필드 [ 0:상위댓글 , 숫자:상위댓글번호 ] 
-    mno			int not null,-- 작성자 회원번호
-    cy_num			int not null,-- 게시물번호 
+    cy_num			int not null,-- 작성자 회원번호
+    bno			int not null,-- 게시물번호 
     constraint rno_pk primary key(rno) ,
     constraint rmno_fk foreign key (cy_num) references cywold_signup(cy_num) on delete cascade, -- 회원탈퇴시 댓글도 같이 삭제
     constraint rbno_fk foreign key (bno ) references board(bno) on delete cascade -- 게시물삭제시 댓글도 같이 삭제

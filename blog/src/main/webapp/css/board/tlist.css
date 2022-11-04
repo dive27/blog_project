@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/*
+	#FFE6E6 : 연한분훈
+	#F2D1D1
+	#DAEAF1 : 연한 하늘
+	#C6DCE4
+
+*/
+
+
+/* css 초기화 */
+*{
+	margin:0; 
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;	/* 텍스트 밑줄 제거 */
+	list-style: none;		/* 글머리 기호 제거 */
+	text-decoration: none;
+}
+
+/* 웹박스 전체 */
+.webbox{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* 글 목록 전체 박스권 */
+.all_list_box{
+	border: solid 2px red;
+	margin: 0 auto;
+}
+.list_sbox{
+	border: solid 2px red;
+	margin: 10px;
+}
+/* 검색창 */
+.search_box{
+	border: solid 2px blue;
+	display: flex;
+}
+/* 검색처리 구역 */
+.search_list{
+	border: solid 2px red;
+	margin: 10px;
+}
+/* 게시물 표시 전체 박스 */
+.post_box{
+	border: solid 3px black;
+}
+.post_list{
+	border: solid 2px skyblue;
+	margin: 10px;
+	
+}
+/* 게시물 수 + 글쓰기 박스 */
+.dd{
+	border: solid 1px red;
+}
+/* 게시물 수 표현 박스 */
+.dd_box{
+	border: solid 2px blue;
+	margin: 15px;
+}
+.w_box{
+	border: solid 1px black;
+	margin: 15px;
+}
+/* 페이징처리 박스 */
+.pagebox{
+	border: solid 3px skyblue;
+	margin: 25px;
+}
+
