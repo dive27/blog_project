@@ -50,3 +50,44 @@ create table reply(
     constraint rbno_fk foreign key (bno ) references board(bno) on delete cascade -- 게시물삭제시 댓글도 같이 삭제
 );
 
+
+
+--  다이어리 관련 --
+
+-- 다이어리 
+drop table if exists diary;
+create table diary(
+	di_no int auto_increment primary key,	
+    di_date date default (current_date) ,
+    di_content text not null, 
+    emo_no int ,
+    constraint emo_no_fk foreign key (emo_no) references emotion (emo_no)
+);
+select * from diary;
+
+-- 감정
+drop table if exists emotion;
+create table emotion(
+	emo_no int auto_increment primary key,
+    emotion varchar(20) , 
+    emo_img longtext
+);
+select * from emotion;
+
+-- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
+insert into emotion value( null , '슬픈 날' , '입체하트1.png');
+insert into emotion value( null , '즐거운 날' , '입체하트2.png');
+insert into emotion value( null , '우울한 날' , '입체하트3.png');
+insert into emotion value( null , '화나는 날' , '입체하트4.png');
+insert into emotion value( null , '행복한 날' , '입체하트5.png');
+
+-- 다이어리 배경 이미지
+drop table if exists backimg;
+create table backimg(
+	back_no int ,
+    back_img varchar(20) ,
+    di_no int ,
+    constraint di_no_fk foreign key (di_no) references diary (di_no)
+);
+select * from backimg;
+
