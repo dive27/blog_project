@@ -78,7 +78,7 @@ function rwrite(){
 				alert('로그인후 작성가능합니다.')
 				$(".mainbox").load("/blog/member/tlogin.jsp");
 			}else{
-				alert('댓글실패')
+				alert('댓글 등록실패...')
 			}
 		}
 	})

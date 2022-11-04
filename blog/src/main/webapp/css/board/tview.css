@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+/*
+	#FFE6E6 : 연한분훈
+	#F2D1D1
+	#DAEAF1 : 연한 하늘
+	#C6DCE4
+
+*/
+
+/* css 초기화 */
+*{
+	margin:0; 
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;	/* 텍스트 밑줄 제거 */
+	list-style: none;		/* 글머리 기호 제거 */
+	text-decoration: none;
+}
+
+/* 웹박스 전체 */
+.webbox{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* 글 조회 전체 박스권 */
+.view_box{
+	border: solid 4px red;
+	margin: 45px;
+	
+}
+.title_box{
+	border: solid 1px red;
+	margin: 5px;
+}
+
+
+/* 글 조회 테이블 */
+.view_list{
+	border: solid 1px blue;
+}
+.v_table{
+	border: solid 1px red;
+	margin: 20px;
+}
+
+/* 댓글입력창 */
+.replybox{
+	border: solid 1px black;
+}
+.r_box{
+	border: solid 3ps red;
+}
+
+/* 이전/ 다음글 이동 박스 */
+.list_box{
+	border: solid 3px skyblue;
+}
+.l_box{
+	border: solid 1px red;
+}
+.before_list{
+	border: solid 1px black;
+	margin: 20px;
+}
+.after_list{
+	border: solid 1px black;
+	margin: 20px;
+}
+
+
+/* 버튼 */
+.b_btn{
+	border: solid 2px black;
+	margin: 10px;
+}
+.btnbox{
+	border: solid 2px blue;
+	margin: 20px;
+}
+
+
