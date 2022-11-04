@@ -115,4 +115,22 @@ a{
 	cursor: pointer;
 }
 
+.hd_top{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px 10px 0px;
+	background-color: #F2D1D1;
+	padding: 15px;
+}
+.hd_title a{
+	font-size: 30px;
+}
+.hd_sub{
+	display: flex;
+	font-size: 15px;
+	margin: 10px;
+}
+.hd_sub li{
+	margin-left: 20px;
+}
 

@@ -16,7 +16,7 @@ function login(){
 			if( re === '0' ){
 				 alert("회원이 아닙니다.")
 			}else if( re ==='1'){
-				/*alert("로그인성공");*/ location.href="/blog/index.jsp";
+				/*alert("로그인성공");*/ location.href="/blog/main.jsp";
 			}else if(re==='2'){
 				alert("비밀번호틀림")				
 			}else if(re==='3'){

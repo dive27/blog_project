@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/*reset */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;	
+}
+
+/*전체*/
+
+.wrap{
+	width: 100%;
+	margin:0 auto;	
+}
+
+.infor_wrap{
+	width: 1200px;
+	margin: 0 auto;
+	margin-top:100px;
+}
+
+
+.infor_box{
+    width: 800px;
+    margin: 30px auto;
+    padding:40px;
+    border: 1px solid;
+}
+
+.my_infor{
+	width: 100%;
+	display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.profile_img{
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: lightblue;
+	
+}
+.my_blog_name{	
+	margin: 0 10px;
+	text-align: center;
+}
+.visit_num_box{
+	width: 50%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+	
+}
+.num_box{
+	
+}
+.my_blog_visit{
+	width: 200px;
+    background: #DAEAF1;;
+    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+}
+.today_box{}
+.total_box{}
+.num_text{
+	font-size: 30px;
+}
+.num{
+	font-size: 18px;
+}
+
+/*//////////////////친구////////////////*/
+
+.friend_news_wrap{
+	width: 1200px;
+	margin:0 auto;	
+}
+
+
+.friend_news_wrap h2{
+	font-size: 30px;
+	margin-top:100px;
+}
+
+.friend_news{
+	display: flex;
+    align-items: center;  
+    justify-content: space-between;	
+}
+
+.front_info{
+
+}
+.intro_section{
+	display: flex;
+    align-items: center;
+}
+
+
+.friend_profile_img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: pink;
+}
+.info_author{
+	display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+.friend_name{}
+.date_time{
+	font-size: 12px;
+}
+
+.main_title{
+	
+}
+
+.main_title h3{
+	font-size: 20px;
+    margin: 20px 0px;
+}
+
+.sub_title{
+	max-width: 500px; 
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	white-space: nowrap;	
+}
+.sub_title_text{}
+.title_img_section{
+	width: 200px;
+	height: 200px;
+	border:1px solid #000;
+}
+
