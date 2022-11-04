@@ -25,8 +25,7 @@
 		}
 		
 		.mainbox{
-			width: 900px;
-			height: 40vh;
+			height: 30vh;
 		}
 		
 		#calendar{
@@ -34,7 +33,7 @@
 		}
 		
 		#date{
-			font-size: 3vh;
+			font-size: 2vh;
 		}
 		
 		.diary{
