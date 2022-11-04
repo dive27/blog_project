@@ -40,7 +40,6 @@
 			</div><!-- login_section -->
 		</div><!-- login_wrap -->
 	</div><!-- wrap -->
-
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src ="/blog/js/member/login.js"></script>
 
