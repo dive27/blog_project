@@ -30,7 +30,7 @@ public class emotion extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<EmotionDto> list = DiaryDao.getInstance().getemotion();
 		
