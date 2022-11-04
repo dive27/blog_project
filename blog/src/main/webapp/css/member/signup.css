@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+/*reset*/
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'GangwonEdu_OTFBoldA';
+}
+/*font*/
+
+/*카페24*/
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*강원교육모두체*/
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*전체영역*/
+.wrap{
+	width:100%;
+	height: auto;
+	margin:0 auto;
+}
+
+/*logo section*/
+
+.logo_section{
+	text-align: center;
+	padding: 20px 0;
+}
+
+
+/*signup section*/
+
+.signup_section{
+	width:1200px;;
+	margin:0 auto;
+}
+
+.signup_section h2{
+	text-align: center;
+	padding:30px;
+	font-size: 36px;
+	letter-spacing: 20px;
+}
+.signup_section h4{
+	font-size: 27px;
+	letter-spacing: 9px;
+	margin:10px 0;
+}
+
+.signupinfo{
+	font-size: 14px;
+	letter-spacing: 3px;
+}
+/*signup table*/
+
+table{
+	border-collapse: collapse;
+	margin-top:20px;
+}
+
+table tr{}
+
+
+
+table td{
+	padding:30px 20px;
+	border-bottom: #d8d8d8 1px solid;
+}
+
+ table .td1{ 
+	width: 20%;
+	background: #DAEAF1;
+}
+table .td2{
+	width:50%;
+	
+}
+table .td3{
+	width:30%;
+	text-align: center;
+	font-size:20px;
+	border-bottom:none;
+	
+}
+
+.form_text{
+	color: #1d1d1d;
+	font-size: 20px;
+}
+
+.inputbox{
+	display: inline-block;
+    width: 50%;
+    height: 30px;    
+    border-bottom: 1px solid #d8d8d8;
+}
+
+
+ .tdinput{ 
+	height: 25px;
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.form_check{}
+
+.btn_section{
+	margin:60px 0;
+	text-align: center;
+}
+
+/*버튼 공통사항*/
+.btn_section button{
+
+	outline:none;
+	cursor:pointer;
+	padding:20px 40px;
+	margin:0 30px;
+	font-size: 18px;
+}
+
+.cancelbtn{	
+	 
+	background: #1d1d1d;
+	color: #DAEAF1;
+    border: 1px solid #DAEAF1;
+   
+}
+
+.signupbtn{
+	background: #DAEAF1;		
+	color: #1d1d1d;
+	border: 1px solid #DAEAF1;	
+}

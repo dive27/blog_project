@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/*
+	#FFE6E6 : 연한분훈
+	#F2D1D1
+	#DAEAF1 : 연한 하늘
+	#C6DCE4
+
+*/
+
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;	/* 텍스트 밑줄 제거 */
+	list-style: none;		/* 글머리 기호 제거 */
+	color: black;
+	font-family: 'twayair';	/* 폰트 설정 */
+	text-decoration: none;
+}
+
+/* 웹박스 전체 */
+.webbox{
+	width: 1200px;
+	margin: 0 auto;
+}
+.boox{
+	border: solid 3px black;
+}
+.boox1{
+	border: solid 3px black;
+}
+
+/*---------------------------------- 상단 헤더 ------------------------------------*/
+.hd_top{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px 10px 0px;
+	background-color: #F2D1D1;
+	padding: 15px;
+}
+.hd_title a{
+	font-size: 30px;
+}
+.hd_sub{
+	display: flex;
+	font-size: 15px;
+	margin: 10px;
+}
+.hd_sub li{
+	margin-left: 20px;
+}
+
+/*---------------------------------- 하단 헤더 ---------------------------------*/
+/*
+ .box{
+ 	margin : 10px 0 20px 0px
+ 	border: solid 1px black;
+ 	width: 930px;
+	height: 500px;
+	float: right;
+ }
+ 
+*/
+
+
+.hd_menu{ /* 하단 헤더 */
+	width: 250px;
+	height: auto; 
+	border: solid 1px blue;
+	margin: 10px 0 20px 0px;
+	padding: 15px;
+	text-align: left;
+	float: left;
+}
+.profilebox{
+	border: solid 1px blue;
+}
+.profileimg{	/* 프로필 이미지 */
+	border : solid 1px yellow;
+	margin: 0px 3px 10px 3px;
+	text-align: center;
+}
+.profilebox{ /* 프로필box */
+	padding: 30px 3px;
+	border-bottom: solid 1px #999999;
+}
+.profilename{ /* 별명, 소개글 */
+	border: solid 2px yellow;
+	font-size: 12px;
+}
+
+.categorybox{ /* 카테고리box */
+	border: solid 1px red;
+}
+.category{
+	padding: 5px;
+	margin: 5px;
+}
+.category span{
+	font-size: 20px;
+}
+.categorylist{ /* 카테고리 목록 리스트 */
+	border: solid 1px purple;
+	margin: 5px;
+	padding: 5px 0 0 7px;
+}
+.clist{
+	padding: 5px;
+}
+.clist a:hover{
+	color: purple;
+}
+.clist a:active{
+	color: #f29886;
+}
+.clist span{ /* 리스트 */
+	font-size: 15px;
+}
+
+
+
+

@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/*reset*/
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+.wrap{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infor_wrap{
+    width: 1200px;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.myinfor_title{
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 15px;
+}
+
+
+.infor_table{
+	width: 70%;
+	margin:0 auto;	
+}
+
+.infor_table tr{}
+.infor_table td{
+    text-align: center;
+    padding: 20px 10px;
+    border: 1px solid #000;
+}
+.infor_table .td_1{
+	background: #DAEAF1;
+}
+.infor_table .td_2{}
+
+.infor_span{
+	display: inline-block;
+    width: 30%;
+    height: 20px;
+    border-bottom: 2px solid #d8d8d8;
+}
+.input_box{
+	border: none;
+    outline: none;
+    padding-left: 10px;
+}
+
+.btn_sectrion{}
+.inforbtn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 40px;
+    margin: 0 20px;
+    font-size: 18px;
+}
+
+.updateinforbtn{
+	background: #DAEAF1;
+}

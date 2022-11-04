@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 초기화 */
+*{
+	margin: 0 auto;
+	padding: 0;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+/* 최신글 작성 */
+.clist1 {
+	border: solid 2px #0d6779;
+	padding: 10px;
+	margin: 10px;
+}
+.clist2, .clist3 {
+	border: solid 2px #0d6779;
+	padding: 10px;
+	margin: 40px 10px 10px 10px;
+}
+
+/* 메뉴 박스 */
+.top_menu{
+	margin: 10px 0 20px 0px;
+	width: 930px;
+	height: 500px;
+	float: right;
+}
+/* 카테고리 박스 */
+.category1{
+	border: solid 2px red;
+	float: left;
+	display: block;
+	margin: 10px;
+}
+/* 게시물 제목 */
+.title{
+	border: solid 1px red;
+	margin: 5px 5px;
+	text-align: center;
+}
+/* 게시물 이미지 */
+.info_img{
+	width: 55%;
+	display: block;
+	text-align: center;
+	margin: 20px 0 20px 190px;
+}
+

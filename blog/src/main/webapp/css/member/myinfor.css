@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+/*reset*/
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+.wrap{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.infor_wrap{
+    width: 1200px;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.myinfor_title{
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 15px;
+}
+
+
+
+.infor_table{
+	width: 70%;
+	margin:0 auto;	
+}
+
+
+.infor_table tr{}
+.infor_table td{
+    text-align: center;
+    padding: 20px 10px;
+    border: 1px solid #000;
+}
+.infor_table .td_1{
+	background: #DAEAF1;
+}
+.infor_tabl .td_2{}
+
+
+
+.btn_sectrion{}
+.inforbtn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 40px;
+    margin: 0 20px;
+    font-size: 18px;
+}
+.deletebtn{
+
+}
+.updatebtn{
+	background: #DAEAF1;
+}
+#deletebox{
+	margin-top: 20px;
+    height: 30px;
+}
+
+
+#deletebox span{
+	font-size: 14px;
+}
+#deletebox #cy_password{
+	margin: 0 20px;
+}

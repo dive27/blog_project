@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.webbox{ /* 로그인페이지 전체 */
+	font-family: 'twayair';	/* 폰트설정 */
+	width : 800px;			/* 가로사이즈 */
+	margin: 0 auto;			/* 박스권 가운데정렬 */
+}
+
+.listtype{ /* 회원가입, 아이디/비밀번호 찾기 */
+	list-style-type: none;
+}
+.listtype a{
+	text-decoration: none;
+}

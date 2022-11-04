@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/*reset*/
+*{
+	margin:0; 
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'GangwonEdu_OTFBoldA';
+}
+
+li{
+	list-style: none;
+}
+
+
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+
+/*font*/
+
+/*카페24*/
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*강원교육모두체*/
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.wrap{
+	width: 100%;
+    height: 85vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+/*로고영역*/
+.logo_section{
+	width: 800px;
+	height: 80px;
+	background: #c8c8c8;
+}
+
+
+/*로그인영역*/
+.login_wrap{
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:1px solid #d8d8d8;;   
+    box-shadow: 2px 5px 4px rgb(0 0 0 / 50%);
+}
+
+
+
+.login_section{
+	text-align: center;
+}
+.login_box{
+   margin: 40px 0;
+}
+
+.text_box{
+	width:110px;
+	display: inline-block;
+	text-align:left;
+	margin-right: 15px;
+	font-size: 25px;
+}
+
+.span_box{
+	display: inline-block;
+	border-bottom:1px solid #d8d8d8
+	
+}
+
+.inputbox{
+	height: 30px;
+	padding-left: 10px;
+	font-size: 20px;
+	border:none;
+	outline: none;
+}
+
+.loginbtn{
+	background: #DAEAF1;
+    color: #1d1d1d;
+    padding: 15px 30px;
+    margin:15px 0;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;	
+}
+
+
+.find_ul{   
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.find_li{}
+
+.find_li a{
+	font-size: 17px;
+}
+
+.findid{}
+.findpassword{}
