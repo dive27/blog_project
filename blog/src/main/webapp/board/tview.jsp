@@ -19,7 +19,7 @@
 		
 		<div class="view_box"> <!-- 글조회 전체 박스권  -->
 			<div class="title_box"> <!-- 글조회 타이틀 박스권 -->
-					<h3> 글 조회 </h3>
+					<span> 글 조회 </span>
 			</div> <!-- 글 조회 타이틀 박스권 end -->
 			
 			<div class="view_list"> <!-- 조회테이블 내용 -->
@@ -48,12 +48,14 @@
 			<div class="list_box"> <!-- 이전, 이후 글 조회 테이블 박스 -->
 				<div class="l_box">
 					<div class="before_list">
-						<h3> 이전 글 </h3> <!-- 이전글 이동 -->
+						<button type="button">이전</button>
+						<span> 이전 글제목 </span> <!-- 이전글 이동 -->
 					</div>
 				</div>
 				<div class="l_box">
 					<div class="after_list">
-						<h3> 다음 글 </h3> <!-- 다음글 이동 -->
+						<button type="button">다음</button>
+						<span> 다음 글제목 </span> <!-- 다음글 이동 -->
 					</div>
 				</div>
 			</div> <!-- 이전, 이후 글 조회 테이블 박스 end -->

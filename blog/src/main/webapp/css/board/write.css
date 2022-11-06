@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+/*
+	#FFE6E6 : 연한분훈
+	#F2D1D1
+	#DAEAF1 : 연한 하늘
+	#C6DCE4
+
+*/
+
+
+/* css 초기화 */
+*{
+	margin:0; 
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;	/* 텍스트 밑줄 제거 */
+	list-style: none;		/* 글머리 기호 제거 */
+	text-decoration: none;
+}
+
+/* 웹박스 전체 */
+.webbox{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* 글쓰기 페이지 */
+.write_box{
+	border: solid 4px black;
+	margin: 30px;
+	padding: 20px;
+	
+}
+.w_title{
+	border-bottom: solid 1px #999999;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 20px;
+	padding: 5px;
+}
+
+/* ---------------- 글쓰기 작성물 --------------- */
+/* 입력창 전체 */
+.a{
+	border: solid 2px black;
+	margin: 20px;
+	padding: 20px;
+	text-align: center;
+	
+}
+/* 입력창 테이블 */
+.w_table{
+	margin: 25px 0px 25px 10px;
+
+}
+/* 첨부파일 */
+.b_file{
+	background-color: white;
+}
+
+/* 내용 입력창 tr */
+#title{
+	border: solid 2px #F2D1D1;
+	background-color: #FFE6E6;
+	margin: 25px;
+}
+#title td{
+	padding: 10px;
+	font-size: 15px;
+}
+
+/* --------------------- 버튼창 --------------------*/
+.btn{
+	display: block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	border: solid 1px #C6DCE4;
+	margin: 15px auto;
+	background-color: #DAEAF1;
+	text-align: center;
+	cursor: pointer;
+}
+.btn:hover {
+	color: #C6DCE4;
+	 box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 
+                 0 -80px 0 0 rgba(0,0,0,0.25) inset;
+}

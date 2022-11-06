@@ -29,7 +29,7 @@
 						<button type="button" onclick="bsearch()">검색</button>
 								
 								<!-- 6. 화면에 표시할 게시물 수 -->
-							<div>
+							<div class="num_list">
 								<select class="listsize" onchange="blistsize()">
 									<option value="5"> 5 </option>
 									<option value="10"> 10 </option>
@@ -42,16 +42,6 @@
 					</div> <!-- 검색처리 구역 end -->
 				</div>
 				
-				<div class="post_box"> <!-- 게시물표시 전체 박스 -->
-					<div class="post_list">
-						<table class="btable" >
-						</table>
-					</div> <!-- 게시물표시 전체 박스 end -->
-					
-					
-					
-				</div> <!-- 게시물표시 전체 박스 end -->
-				
 				<div class="dd"> <!-- 게시물 수 + 글쓰기 박스권 -->
 					<div class="dd_box"> <!-- 게시물 수 표현 박스 -->
 						<div>
@@ -63,8 +53,18 @@
 					</div>
 				</div> <!-- 게시물 수 + 글쓰기 박스권 end -->
 				
+				
+				<div class="post_box"> <!-- 게시물표시 전체 박스 -->
+					<div class="post_list">
+						<table class="btable" >
+						</table>
+					</div> <!-- 게시물표시 전체 박스 end -->
+				</div> <!-- 게시물표시 전체 박스 end -->
+				
+				
+				
 				<div class="pagebox">	<!-- 3.페이징처리  -->
-		
+					
 				</div>
 
 			</div>

@@ -31,18 +31,21 @@
 	margin: 0 auto;
 }
 .list_sbox{
-	border: solid 2px red;
 	margin: 10px;
 }
 /* 검색창 */
 .search_box{
-	border: solid 2px blue;
 	display: flex;
+	justify-content: flex-end;
 }
 /* 검색처리 구역 */
 .search_list{
 	border: solid 2px red;
 	margin: 10px;
+	display: inline-flex;
+}
+.num_list{
+	margin-left: 20px;
 }
 /* 게시물 표시 전체 박스 */
 .post_box{
@@ -51,8 +54,12 @@
 .post_list{
 	border: solid 2px skyblue;
 	margin: 10px;
+	display: flex;
+	flex-direction: column;
 	
 }
+
+
 /* 게시물 수 + 글쓰기 박스 */
 .dd{
 	border: solid 1px red;
@@ -65,6 +72,18 @@
 .w_box{
 	border: solid 1px black;
 	margin: 15px;
+}
+/* 글쓰기 버튼 */
+.w_box button{
+	width: 70px;
+	padding: 10px;
+	margin: 0 10px;
+	background-color: #DAEAF1;
+	border: none;
+}
+.w_box button:hover{
+	border: solid 2px #FFE6E6;
+	color: white;
 }
 /* 페이징처리 박스 */
 .pagebox{

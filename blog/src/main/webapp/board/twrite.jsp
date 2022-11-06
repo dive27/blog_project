@@ -5,35 +5,69 @@
 <head>
 <meta charset="UTF-8">
 
-	<!-- 썸머노트 API -->
+	<!-- 사용자지정 css -->
+	<link href="/blog/css/board/write.css" rel="stylesheet">
+	
 	<!-- include libraries(jQuery, bootstrap) -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+	
 
 <title> 글쓰기 </title>
 </head>
 <body>
 
-	<div class="webbox">
-		<h3> 글쓰기 </h3>
+	<div class="webbox"> <!-- 웹페이지 전체 -->
 		
-		
-		<form>
-			제목 : <input type="text" name="btitle"> <br>
+		<div class="write_box"> <!-- 글쓰기 페이지 전체 -->
+			<div class="w_title">
+				<span> 글쓰기 </span>
+			</div>
+			<form> <!-- 글쓰기 작성물 -->
+				<div class="a"> <!-- 입력창 전체 -->
+					<table class="w_table">
+						<tr id="title">
+							<td> 제목 </td>
+							<td>
+								<input name="board_subject" type="text" size="70" maxlength="100" value="">
+							</td>
+						</tr>
+					</div>
+					<div>
+						<tr id="title"">
+							<td> 내용 </td>
+							<td>
+								<textarea name="board_content" cols="72" rows="20"></textarea>
+							</td>
+						</tr>
+					</div>
+					<div>
+						<tr id="title"">
+							<td> 첨부파일 </td>
+							<td>
+								<div class="b_file">
+									<input type="file" name ="bfile">
+								</div>
+							</td>
+						</tr>
+					</div>
+					
+					<div class="w_btn_box">
+					<table></table>
+						<tr align="center" valign="middle"> <!-- 버튼구역 -->
+							<td colspan="5">
+								<button class="btn" type="button" onclick="bwrite()"> 등록하기 </button>
+								<button class="btn" type="reset" onclick="bcancel()"> 작성취소 </button>
+								<button class="btn" type="button" onclick="location.href='/blog/board/tlist.jsp'"> 목록보기 </button>
+							</td>
+						</tr>
+					</div>
+				</table>
+			</form>
 			
-			<!-- 썸머노트  -->
-			<textarea id="summernote" name="bcontent"></textarea>
-			첨부파일 : <input type="file" name ="bfile"> <br>
-			<!-- form 태그 안에서 button 사용시에는 type 필수 넣기 -->
-			<button type="button" onclick="bwrite()"> 글 등록하기 </button>
-		</form>
-	</div>
+		</div> <!-- 글쓰기 페이지 전체 end -->
+
+	</div> <!-- 웹페이지 전체 ed -->
 	
-	
-	<!-- 썸머노트 API js -->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 	
 	<!-- 사용자정의 js -->
 	<script src="/blog/js/board/twrite.js" type="text/javascript"></script>

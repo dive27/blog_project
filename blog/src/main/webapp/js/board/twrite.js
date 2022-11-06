@@ -1,16 +1,6 @@
+
 //alert('글쓰기')
 
-/* 썸머노트 실행 */
-$(document).ready(function() {
-  //$('#summernote').summernote( {설정객체} );
-  $('#summernote').summernote( {
-	
-		plasceholder : '내용 입력 해주세요' , 
-		maxHeight : null , 
-		minHeight : 300
-	});
-  
-});
 
 /* 글쓰기 버튼을 눌렀을때 */
 function bwrite(){
@@ -38,7 +28,6 @@ function bwrite(){
 			else{ alert('글등록 실패..') }
 		}
 	})
-	
 }
 
 

@@ -31,8 +31,11 @@
 	
 }
 .title_box{
-	border: solid 1px red;
-	margin: 5px;
+	border-bottom: solid 1px #999999;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 20px;
+	padding: 5px;
 }
 
 
@@ -52,6 +55,18 @@
 .r_box{
 	border: solid 3ps red;
 }
+.r_box button{
+	width: 100px;
+	padding: 10px;
+	margin: 0 10px;
+	background-color: #DAEAF1;
+	border: none;
+}
+.r_box button:hover{
+	border: solid 2px #FFE6E6;
+	color: white;
+}
+
 
 /* 이전/ 다음글 이동 박스 */
 .list_box{
