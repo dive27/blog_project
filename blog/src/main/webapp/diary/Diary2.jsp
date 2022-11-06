@@ -211,6 +211,7 @@
 </head>
 <body>
 
+	<input type="text" class="todayinput">
 	<table class="mainbox">
 		<th id="calendar">
 			<input id="date" type="date" onchange="load_diary()">
@@ -228,7 +229,7 @@
 			<textarea id="content"></textarea> 
 		</th>
 		
-		<th rowspan="2" class="pencil"> <img onclick="writediary()" class="clickbtn" src="/team3/img/연필.png"> </th>
+		<th rowspan="2" class="pencil"> <img onclick="writediary(); update_today_di();" class="clickbtn" src="/team3/img/연필.png"> </th>
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->

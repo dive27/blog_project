@@ -39,7 +39,6 @@ public class DiaryDao extends Dao{
 							rs.getInt(1), rs.getString(2), 
 							rs.getString(3), rs.getInt(4));
 					list.add(dto);
-					System.out.println("다오 들어왔어요");
 					return list;
 					}
 			} catch (Exception e) {System.out.println( e +"다이어리 출력 메소드 오류" );}
@@ -107,6 +106,7 @@ public class DiaryDao extends Dao{
 			ps.setString(2, date);
 			ps.setInt(3, emo_no);
 			ps.executeUpdate();
+			System.out.println("오늘일기수정메소드들어왔어요");
 			return true;
 		} catch (Exception e) {System.out.println(e+"오늘 일기 수정 메소드 오류");}
 		return false;
