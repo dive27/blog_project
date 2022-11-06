@@ -112,7 +112,7 @@
 		</div><!-- infor_wrap -->		
 	</div><!-- wrap -->
 	
-
+	<%@include file="../footer.jsp"%>
 
 
 </body>
