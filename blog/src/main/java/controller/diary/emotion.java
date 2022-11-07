@@ -32,7 +32,9 @@ public class emotion extends HttpServlet {
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<EmotionDto> list = DiaryDao.getInstance().getemotion();
+		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+	
+		ArrayList<EmotionDto> list = DiaryDao.getInstance().getemotion( cy_num );
 		
 		JSONArray array = new JSONArray();
 		for( EmotionDto dto : list ) {
@@ -56,7 +58,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String emotion = request.getParameter("emotion");
 		System.out.println(emotion);
 		
-		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono);
+		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		
+		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono , cy_num);
 		
 		
 		

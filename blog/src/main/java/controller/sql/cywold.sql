@@ -2,6 +2,7 @@ drop database if exists Cywold;
 create database Cywold;
 use Cywold;
 
+
 drop table if exists Cywold_signup;
 
 -- 예은 회원 [ 선정 ] 
@@ -17,6 +18,7 @@ cy_signuptime datetime default now(), -- 가입날짜 추가...10/30
 cy_cash int default 0		-- 노래구매 및 스킨구매 용으로 도토리
 );
 
+select * from Cywold_signup;
 
 DROP TABLE if exists category;
 create table category( cno int auto_increment primary key , cname varchar(100)  );
@@ -55,37 +57,41 @@ create table reply(
 -- 다이어리 
 drop table if exists diary;
 create table diary(
-	di_no int auto_increment primary key,	
-    di_date date default (current_date) ,
-    di_content text not null, 
-    emo_no int ,
-    constraint emo_no_fk foreign key (emo_no) references emotion (emo_no)
+	di_no int auto_increment primary key,		-- 다이어리 식별번호
+    di_date date default (current_date) ,		-- 다이어리 작성날짜(당일일기만 가능)
+    di_content text not null, 					-- 작성한 다이어리 내용
+    emo_no int ,								-- 선택한 감정 번호
+    cy_num int ,								-- 회원 식별번호
+    constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num) 
 );
 select * from diary;
 
 -- 감정
 drop table if exists emotion;
 create table emotion(
-	emo_no int auto_increment primary key,
-    emotion varchar(20) , 
-    emo_img longtext
+	emo_no int auto_increment primary key ,			-- 감정식별번호
+    emotion varchar(20) ,							-- 감정설명	
+    emo_img varchar(20) ,							-- 감정이미지이름	
+	cy_num int ,
+    constraint cy_num_em_fk foreign key (cy_num) references Cywold_signup (cy_num)
 );
 select * from emotion;
-
--- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
-insert into emotion value( null , '슬픈 날' , '입체하트1.png');
-insert into emotion value( null , '즐거운 날' , '입체하트2.png');
-insert into emotion value( null , '우울한 날' , '입체하트3.png');
-insert into emotion value( null , '화나는 날' , '입체하트4.png');
-insert into emotion value( null , '행복한 날' , '입체하트5.png');
 
 -- 다이어리 배경 이미지
 drop table if exists backimg;
 create table backimg(
-	back_no int ,
-    back_img varchar(20) ,
-    di_no int ,
-    constraint di_no_fk foreign key (di_no) references diary (di_no)
+	back_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
+    back_img varchar(20) ,										-- 다이어리 배경 이미지 이름
+	cy_num int ,
+    constraint cy_num_ba_fk foreign key (cy_num) references Cywold_signup (cy_num)
 );
 select * from backimg;
+
+
+-- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
+insert into emotion value( null , '슬픈 날' , '입체하트1.png' , 1);
+insert into emotion value( null , '즐거운 날' , '입체하트2.png' , 1);
+insert into emotion value( null , '우울한 날' , '입체하트3.png' , 1);
+insert into emotion value( null , '화나는 날' , '입체하트4.png' , 1);
+insert into emotion value( null , '행복한 날' , '입체하트5.png' , 1);
 

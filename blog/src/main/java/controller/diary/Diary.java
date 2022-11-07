@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 
 import model.dao.Dao;
 import model.dao.DiaryDao;
+import model.dao.MemberDao;
 import model.dto.DiaryDto;
 
 /**
@@ -31,12 +32,14 @@ public class Diary extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
+    	
 		String content = request.getParameter("content");
-		int emono = Integer.parseInt(request.getParameter("emono")); // 만들어둔 다오 여기서 써야하나?
+		int emono = Integer.parseInt(request.getParameter("emono")); 
+		int cy_num = Integer.parseInt(request.getParameter("cy_num"));
 		System.out.println(emono);
 		System.out.println(content);
 		
-		boolean result = DiaryDao.getInstance().dwrite(content, emono);
+		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
 		
 		System.out.println(result);
 		
@@ -47,8 +50,9 @@ public class Diary extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String date = request.getParameter("date");
+		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
 		
-		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date);
+		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date , cy_num);
 
 		// 리스트가 존재하지 않을때 일기가 없을떄  아예 'null'을 ajax로 보냄
 		if( list == null ) { response.getWriter().print("null"); return; }
@@ -73,10 +77,13 @@ public class Diary extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			System.out.println("풋");
 		
-			String today = request.getParameter("today");
+			String today = (String.valueOf(request.getParameter("today")));
+			int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		
 			System.out.println("풋 오늘 날짜 : "+today);
 		
-			boolean result = DiaryDao.getInstance().ifalreadywr(today);
+			
+			boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num);
 			System.out.println(result);
 			
 			response.getWriter().print(result);	
@@ -88,14 +95,15 @@ public class Diary extends HttpServlet {
 		System.out.println("일기수정 딜리트에 들어왔어요");
 		String content = request.getParameter("content");
 		String today = request.getParameter("today");
-		//int emono = Integer.parseInt(request.getParameter("emono")) ;
+		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		int emono = Integer.parseInt(request.getParameter("emono")) ;
 		
 		System.out.println("딜리트 - 일기 : " + content);
 		System.out.println("딜리트 - 오늘 날짜 : "+today);
-		//System.out.println("감정"+emono);
+		System.out.println("감정"+emono);
 		
-		//boolean result = DiaryDao.getInstance().update_today_di(content, today, emono);
-		//System.out.println("result : " + result);
+		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
+		System.out.println("result : " + result);
 		
 		//response.getWriter().print(result);
 	}

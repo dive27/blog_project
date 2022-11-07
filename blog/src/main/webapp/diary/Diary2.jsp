@@ -217,24 +217,23 @@
 			<input id="date" type="date" onchange="load_diary()">
 			<div class="calendar_day">
 			</div>
-			
 		</th>
 		
 		<th rowspan="2" class="diary">
-			<img class="stamp" src="/team3/img/투명.png">
-			<img class="diatytextbox" src="/team3/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/team3/img/배경1.png">
+			<img class="stamp" src="/blog/img/투명.png">
+			<img class="diatytextbox" src="/blog/img/레이스종이.png">
+			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
-			<img class="choice_emo" src="/team3/img/투명.png">
+			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
 		</th>
 		
-		<th rowspan="2" class="pencil"> <img onclick="writediary(); update_today_di();" class="clickbtn" src="/team3/img/연필.png"> </th>
+		<th rowspan="2" class="pencil"> <img onclick="writediary(); update_today_di();" class="clickbtn" src="/blog/img/연필.png"> </th>
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/배경1.png">	<!-- 사이즈 조절하기 -->
-			<img class="emotabletextbox" src="/team3/img/레이스종이.png">
+			<img class="emotableimg" alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotabletextbox" src="/blog/img/레이스종이.png">
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
