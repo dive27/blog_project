@@ -55,7 +55,7 @@ function bdelete( bno ){ // 삭제 버튼 클릭시 삭제할 번호를 인수[�
 		data : { "bno" : bno } , // 삭제할 게시물의 식별번호[pk->bno]
 		success : function( re ){
 			if( re === 'true'){
-				alert('글삭제 성공 ');
+				alert('게시물을 삭제하였습니다. (ง •̀ω•́)ง✧ ');
 				$(".mainbox").load("/blog/board/tlist.jsp");
 			}
 			else{ alert('글삭제 실패 : [관리자에게문의]') }
@@ -72,13 +72,13 @@ function rwrite(){
 		type : "POST" , /* HTTP 메소드 : 1.GET방식=기본값 2. POST방식 */
 		success : function( re ){
 			 if( re == 1 ){
-				alert('댓글작성') // location.reload();
+				alert('댓글을 작성합니다. *ฅ´ω`ฅ*') // location.reload();
 				rlist()
 			}else if( re == 0){
-				alert('로그인후 작성가능합니다.')
+				alert('로그인후 작성 가능합니다.')
 				$(".mainbox").load("/blog/member/tlogin.jsp");
 			}else{
-				alert('댓글 등록실패...')
+				alert('댓글등록을 실패하였습니다. (ू˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ू)')
 			}
 		}
 	})
@@ -145,9 +145,9 @@ function rereplywrite( rno ){
 		data : {"rcontent" :  rcontent , "rno" : rno , "type" : "rereply" } , 
 		type : "POST" , 
 		success : function( re ){ 
-			if( re == 1 ){ alert('답글 작성'); rlist() }
+			if( re == 1 ){ alert('답글을 작성합니다. *ฅ´ω`ฅ* '); rlist() }
 			else if( re == 0){ alert('로그인후 작성가능합니다.');location.href='/blog/member/tlogin.jsp' }
-			else{ alert('답글 실패') }
+			else{ alert('답글 작성을 실패되었습니다. (ू˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ू)') }
 		 }
 	});
 }

@@ -25,43 +25,46 @@
 			<form> <!-- 글쓰기 작성물 -->
 				<div class="a"> <!-- 입력창 전체 -->
 					<table class="w_table">
-						<tr id="title">
-							<td> 제목 </td>
-							<td>
-								<input name="board_subject" type="text" size="70" maxlength="100" value="">
-							</td>
-						</tr>
-					</div>
-					<div>
-						<tr id="title"">
-							<td> 내용 </td>
-							<td>
-								<textarea name="board_content" cols="72" rows="20"></textarea>
-							</td>
-						</tr>
-					</div>
-					<div>
-						<tr id="title"">
-							<td> 첨부파일 </td>
-							<td>
-								<div class="b_file">
-									<input type="file" name ="bfile">
-								</div>
-							</td>
-						</tr>
-					</div>
-					
-					<div class="w_btn_box">
-					<table></table>
-						<tr align="center" valign="middle"> <!-- 버튼구역 -->
-							<td colspan="5">
-								<button class="btn" type="button" onclick="bwrite()"> 등록하기 </button>
-								<button class="btn" type="reset" onclick="bcancel()"> 작성취소 </button>
-								<button class="btn" type="button" onclick="location.href='/blog/board/tlist.jsp'"> 목록보기 </button>
-							</td>
-						</tr>
-					</div>
-				</table>
+							<div>
+								<tr id="title">
+									<td> 제목 </td>
+									<td>
+										<input name="board_subject" type="text" size="70" maxlength="100" value="">
+									</td>
+								</tr>
+							</div>
+							<div>
+								<tr id="title"">
+									<td> 내용 </td>
+									<td>
+										<textarea name="board_content" cols="72" rows="20"></textarea>
+									</td>
+								</tr>
+							</div>
+							<div>
+								<tr id="title"">
+									<td> 첨부파일 </td>
+									<td>
+										<div class="b_file">
+											<input type="file" name ="bfile">
+										</div>
+									</td>
+								</tr>
+							</div>
+							
+							<div class="w_btn_box">
+								<table></table>
+									<tr align="center" valign="middle"> <!-- 버튼구역 -->
+										<td>
+											<button class="btn" type="button" onclick="bwrite()"> 등록하기 </button>
+											<button class="btn" type="reset" onclick="bcancel()"> 작성취소 </button>
+											<button class="btn" type="button" onclick="location.href='/blog/board/tlist.jsp'"> 목록보기 </button>
+										</td>
+									</tr>	
+								
+							</div>
+					</table>
+				</div>
 			</form>
 			
 		</div> <!-- 글쓰기 페이지 전체 end -->

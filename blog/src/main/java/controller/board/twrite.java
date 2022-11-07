@@ -64,7 +64,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			System.out.println( mno );
 		
 			// 5. db처리 
-		boolean result = TBoardDao.getInstance().twrite(btitle, bcontent, mno , bfile );
+		boolean result = TBoardDao.getInstance().twrite( btitle, bcontent, mno , bfile );
 			System.out.println( result );
 		
 			// 6. 응답 

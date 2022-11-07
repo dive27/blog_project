@@ -27,7 +27,7 @@
 
 /* 글쓰기 페이지 */
 .write_box{
-	border: solid 4px black;
+	border: solid 4px #DAEAF1;
 	margin: 30px;
 	padding: 20px;
 	
@@ -38,20 +38,22 @@
 	font-weight: bold;
 	margin: 20px;
 	padding: 5px;
+	text-align: center;
 }
 
 /* ---------------- 글쓰기 작성물 --------------- */
 /* 입력창 전체 */
 .a{
-	border: solid 2px black;
 	margin: 20px;
 	padding: 20px;
 	text-align: center;
 	
 }
+
 /* 입력창 테이블 */
 .w_table{
 	margin: 25px 0px 25px 10px;
+	width: 75%;
 
 }
 /* 첨부파일 */
@@ -69,6 +71,14 @@
 	padding: 10px;
 	font-size: 15px;
 }
+
+.w_btn_box td{
+	display: flex;
+	text-align: center;
+	
+}
+
+
 
 /* --------------------- 버튼창 --------------------*/
 .btn{

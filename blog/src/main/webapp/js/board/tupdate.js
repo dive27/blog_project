@@ -41,7 +41,7 @@ function bfiledelete(){
 			url : "/blog/board/tbfiledelete" ,
 			success : function( re ){ 
 				if( re === 'true'){
-					alert('첨부파일 삭제')
+					alert('첨부파일을 삭제합니다. (ง •̀ω•́)ง✧')
 					// * 현재페이지 새로고침 : location.reload()
 					//location.reload()
 					document.querySelector('.oldbfilebox').innerHTML ='' // 공백처리 
@@ -49,7 +49,7 @@ function bfiledelete(){
 					$("#oldbfilebox").load( location.href+' #oldbfilebox');
 
 				}else{
-					alert('첨부파일 삭제 실패')
+					alert('첨부파일 삭제를 실패하였습니다. (ू˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ू)')
 				}
 			}
 		})
@@ -71,8 +71,8 @@ function bupdate(){
 		processData : false , 
 		// 성공시
 		success : function( re ){ 
-			if( re === 'true' ){ alert('수정성공'); $(".mainbox").load("/blog/board/tview.jsp"); }
-			else{ alert('수정실패') }
+			if( re === 'true' ){ alert('게시물을 수정하였습니다. (ง •̀ω•́)ง✧'); $(".mainbox").load("/blog/board/tview.jsp"); }
+			else{ alert('수정을 실패하였습니다. (ू˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ू)') }
 		}
 		
 	})

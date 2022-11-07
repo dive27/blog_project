@@ -22,10 +22,10 @@ function bwrite(){
 	
 		success : function( re ){
 			if( re === 'true'){ 
-				alert('글등록 성공!!'); 
+				alert('게시물을 등록하였습니다. (ง •̀ω•́)ง✧'); 
 				$(".mainbox").load("/blog/board/tlist.jsp");
 			}
-			else{ alert('글등록 실패..') }
+			else{ alert('게시물 등록을 실패하였습니다. (ू˃̣̣̣̣̣̣︿˂̣̣̣̣̣̣ ू)') }
 		}
 	})
 }
