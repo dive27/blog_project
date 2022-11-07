@@ -10,14 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import model.Dao.ImgBoardDao;
 
 
-
-/**
- * Servlet implementation class bwirte
- */
-@WebServlet("/board2/bwirte")
+@WebServlet("/board/bwirte")
 public class bwirte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
