@@ -166,5 +166,66 @@
 	text-align: center;
 	margin: 0 auto;
 	font-size: 13px;
+}
+
+
+/* 하단 서브 메뉴 */
+.hd_sub_menu{
+	border: solid 1px black;
+	margin: 50px;
 	
+}
+
+.hd_sub1_box{
+	border: solid 2px blue;
+	margin: 20px;
+	padding: 10px;
+}
+.hd_sub1_title{
+	border-bottom: solid 2px #999999;
+	font-size: 20px;
+}
+.hd_sub1_list{
+	border: solid 1px red;
+	margin: 10px;
+	padding: 10px;
+}
+
+
+
+.hd_sub2_box{
+	border: solid 2px red;
+	margin: 20px;
+	padding: 10px;
+}
+.hd_sub2_title{
+	border: solid 2px red;
+	margin: 15px auto;
+}
+.hd_sub2_title span{
+	font-size: 30px;
+	text-align: center;
+}
+.hd_sub_contnet{
+	border: solid 2px blue;
+	margin: 20px;
+	padding: 10px;
+	display: flex;
+}
+.hd_sub_img{
+	margin: 8px;
+	padding: 8px;
+	text-align: center;
+	display: flex;
+}
+
+
+h_img{
+	margin: 20px;
+}
+.hd_sub_img img{
+	margin: 20px auto;
+    text-align: center;
+    border-radius: 30px;
+
 }
