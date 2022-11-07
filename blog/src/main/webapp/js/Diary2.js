@@ -1,6 +1,4 @@
 
-alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
-
 let date = null;
 let today = null;
 let choice_emo = document.querySelector('.choice_emo')
@@ -12,6 +10,8 @@ let cy_num = 1;	// 원래 로그인하고 어디 저장해두는거같은데 모
 
 getToday()		  // 오늘 날짜 가져오는 함수		
 getemotiontable() // 감정 테이블 출력하는 함수
+
+alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
 
 function getToday(){		// 오늘 날짜 가져오는 함수
     date = new Date();
@@ -49,7 +49,7 @@ function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ]
 
 function choiceemono(no){				// 선택한 감정 일기장에 띄우기 [ 완 ] 
 	emo_no = no;
-	let emosrc = '/blog/img/입체하트'+emo_no+'.png'
+	let emosrc = '/blog/img/하트'+emo_no+'.gif'
 	//sessionStorage.setItem("emono" , emo_no);		// 다른데서 쓰려고 세션에 저장
 	//let asdf = sessionStorage.getItem("emono");	// 아니 근데 이미 emo_no가 있어서 굳이 세션을 쓸 필요가 없자나..
 	choice_emo.src=emosrc;
@@ -247,6 +247,10 @@ function change_back_img(){
 				let back_img_src = "/blog/img/배경"+i+".png";
 				emotableimg.src=back_img_src
 				back_img.src=back_img_src
+				if( i == 5 ){	// 왜 안되냐구~
+					i = 1;
+					break;
+				}
 			}
 		}
 	})

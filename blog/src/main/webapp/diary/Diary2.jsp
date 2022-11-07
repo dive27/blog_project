@@ -25,7 +25,7 @@
 		}
 		
 		.mainbox{
-			height: 30vh;
+			width: 850px;
 		}
 		
 		#calendar{
@@ -58,9 +58,8 @@
 			width: 85%;
 			padding-left: 12%;
 			height: 36%;
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: top;
+			background-color: white;
+			border-radius: 15px;
 			position: absolute;
 			bottom: 5%;
 		}
@@ -88,6 +87,7 @@
 			background-position: center;
 			position: absolute;
 			bottom: 10%;
+			opacity: 0.95;
 		}
 		
 		#content{	
@@ -233,7 +233,7 @@
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			<img class="emotableimg" alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
-			<img class="emotabletextbox" src="/blog/img/레이스종이.png">
+			<div class="emotabletextbox" ></div>
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
