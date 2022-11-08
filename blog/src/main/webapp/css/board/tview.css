@@ -59,11 +59,11 @@
 
 /* 댓글, 대댓글 */
 .r_box{
-	border: solid 2px red;
 	margin: 10px;
 	padding: 10px;
 	display: flex;
 	justify-content: flex-start;
+	color: black;
 }
 
 
@@ -86,9 +86,13 @@ button:hover{
 	border: solid 1px blue;
 }
 .v_table{
-	border: solid 1px red;
 	margin-left: 40px;
 	padding-left: 6px;
+	width: 70%;
+	height: 100%;
+}
+.v_table .row1{
+	background-color: #F2D1D1;
 }
 
 /* 댓글입력창 */
@@ -118,7 +122,6 @@ button:hover{
 
 /* 버튼 */
 .b_btn{
-	border: solid 2px black;
 	margin: 10px;
 }
 .btnbox{

@@ -27,14 +27,14 @@
 						<tr> <td class="row1"> 번호 </td> 	<td class="bno"> 		</td> </tr>
 						<tr> <td class="row1"> 제목 </td> 	<td class="btitle">  	</td> </tr>
 						<tr> <td class="row1"> 내용 </td> 	<td class="bcontent"> 	</td> </tr>
-						<tr> <td class="row1"> 작성자 </td> <td class="mid"> 		</td> </tr>
+						<tr> <td class="row1"> 작성자 </td> 	<td class="mid"> 		</td> </tr>
 						<tr> <td class="row1"> 첨부파일 </td> <td class="bfile"> 	</td> </tr>
 					</table>
 			</div> <!-- 조회테이블 내용 end -->
 			
 			<div class="replybox">
 				<div class="r_box"> <!-- 댓글달기 -->
-					<textarea rows="" cols="" class="rcontent"></textarea>
+					<textarea class="rcontent" cols="60" rows="5"></textarea>
 					<button type="button" onclick="rwrite()">댓글 작성</button>
 				</div>
 				
@@ -64,10 +64,10 @@
 		
 	</div> <!-- 웹페이지 전체 end -->
 	
-	<script src="/blog/js/board/tview.js" type="text/javascript"></script>
-	
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<script src="/blog/js/board/tview.js" type="text/javascript"></script>
 
 </body>
 </html>
