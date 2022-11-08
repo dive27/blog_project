@@ -40,7 +40,6 @@
 }
 /* 검색처리 구역 */
 .search_list{
-	border: solid 2px red;
 	margin: 10px;
 	display: inline-flex;
 }
@@ -50,6 +49,7 @@
 /* 게시물 표시 전체 박스 */
 .post_box{
 	border: solid 3px black;
+	margin: 10px;
 }
 .post_list{
 	border: solid 2px skyblue;
@@ -70,7 +70,6 @@
 	margin: 15px;
 }
 .w_box{
-	border: solid 1px black;
 	margin: 15px;
 }
 /* 글쓰기 버튼 */

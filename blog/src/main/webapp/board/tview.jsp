@@ -65,6 +65,9 @@
 	</div> <!-- 웹페이지 전체 end -->
 	
 	<script src="/blog/js/board/tview.js" type="text/javascript"></script>
+	
+	<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </body>
 </html>

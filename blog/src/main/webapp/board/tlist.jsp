@@ -74,6 +74,9 @@
 
 	<!-- 사용자 js연결 -->
 	<script type="text/javascript" src="/blog/js/board/tlist.js"></script>
+	
+	<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 </body>
 </html>

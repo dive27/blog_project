@@ -46,7 +46,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 							"UTF-8" , 						// 4. 인코딩
 							new DefaultFileRenamePolicy() 	// 5. 업로드된 파일의 이름이 중복일경우 자동으로 이름 변경
 				); // 생성자 end
-		
+		//System.out.println(multi);
 		// 3. 해당 저장경로에 첨부파일 업로드가 된다. 
 		// 4. 나머지 데이터를 직접 요청 
 		String btitle = multi.getParameter("btitle");	// request -> multi 
@@ -57,14 +57,15 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			// * 어떤파일을 업로드 했는지 db에 저장할 첨부파일된 경로/이름 호출
 		
 			String bfile = multi.getFilesystemName("bfile"); // 첨부파일된 이름 호출시 : getFilesystemName
-			System.out.println( bfile );
+			System.out.println( bfile ); // 확인
 			
 			// * 회원아이디 ----> 회원번호 
-		int mno  = MemberDao.getInstance().getcy_id( (String)request.getSession().getAttribute("cy_id") );
-			System.out.println( mno );
+		int cy_num  = MemberDao.getInstance().getcy_id( (String)request.getSession().getAttribute("cy_id") );
+		System.out.println(  (String)request.getSession().getAttribute("cy_id")  );
+			System.out.println( cy_num );
 		
 			// 5. db처리 
-		boolean result = TBoardDao.getInstance().twrite( btitle, bcontent, mno , bfile );
+		boolean result = TBoardDao.getInstance().twrite( btitle, bcontent, cy_num , bfile );
 			System.out.println( result );
 		
 			// 6. 응답 
