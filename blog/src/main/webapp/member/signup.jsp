@@ -40,7 +40,7 @@
 						
 						<td class="td2">
 							<span class="inputbox">
-								<input type="text" class="tdinput" id="cy_password" name="cy_password" onkeyup="cy_password2()">
+								<input type="password" class="tdinput" id="cy_password" name="cy_password" onkeyup="cy_password2()">
 							</span>	
 						</td>							
 						<td class="td3" rowspan="2"><span class="form_check"></span></td>
@@ -50,7 +50,7 @@
 						<td class="td1"><span class="form_text">비밀번호 확인 * </span></td>
 						<td class="td2">
 							<span class="inputbox">
-								<input type="text" class="tdinput" id="cy_password_check" name="cy_password_check" onkeyup="cy_password_check3()">
+								<input type="password" class="tdinput" id="cy_password_check" name="cy_password_check" onkeyup="cy_password_check3()">
 							</span>
 						</td>
 					</tr>

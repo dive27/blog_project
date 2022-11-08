@@ -51,7 +51,10 @@ a{
 /*전체 header 영역*/
 .header_wrap{
 	width:100%;
-	position: relative;	
+	height: 90px;
+	position: fixed;
+    top: 0;
+    left:0;
 	box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 

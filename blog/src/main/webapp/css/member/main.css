@@ -24,6 +24,23 @@
 	font-family: 'IBMPlexSansKR-Regular';	
 }
 
+/* 공통 */
+.text_title{
+	font-size: 16px;
+    margin: 20px 0px;
+}
+.section{
+	padding: 60px 0;
+   
+}
+
+h2{
+	margin-top: 30px;
+}
+	
+
+
+/*내 정보 영역*/
 .infor_wrap{
 	width: 1200px;
 	margin: 0 auto;
@@ -46,11 +63,10 @@
 }
 
 .profile_img{
-	width: 50px;
-    height: 50px;
+	width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background: lightblue;
-	
+    background: lightblue;	
 }
 .my_blog_name{	
 	margin: 0 10px;
@@ -86,8 +102,80 @@
 	margin:0 5px;
 }
 
-/*//////////////////친구////////////////*/
+/*//////////////////블로그 공지사항 영역////////////////*/
 
+.admin_wrap{
+	border-bottom: 1px solid #c8c8c8;
+}
+
+
+
+
+.admin_infor{
+	display: flex;
+    align-items: center;
+}
+.admin_img{
+	width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: lightgreen;
+}
+
+.admin_img img{
+	width: 100%;
+}
+
+.admin_name{
+	margin-left: 20px;
+}
+.admin_notice{}
+.admin_text{
+	
+}
+
+/*//////////////////내 이웃친구 목록////////////////*/
+.follower_h5{
+	margin: 15px 0px;
+}
+
+.follower_wrap{
+	width: 100%;
+	border:1px solid #c8c8c8;
+}
+
+.follower_wrap h5{}
+
+.my_follower_list{
+	display: flex;
+    flex-wrap: wrap;
+}
+
+.follower{
+	display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.follower_profile_img{
+	width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #aaaedd;
+}
+
+.follower_profile_img img{
+	width: 100%;
+}
+
+.follower_name{
+	margin-left: 10px;
+}
+
+
+
+
+/*//////////////////친구////////////////*/
 .friend_news_wrap{
 	width: 1200px;
 	margin:0 auto;	
@@ -95,8 +183,7 @@
 
 
 .friend_news_wrap h2{
-	font-size: 30px;
-	margin-top:100px;
+	/* margin-top:100px; */
 }
 
 .friend_news{
@@ -116,11 +203,18 @@
 
 
 .friend_profile_img{
-	width: 50px;
-	height: 50px;
+	width: 70px;
+	height: 70px;
 	border-radius: 50%;
 	background: pink;
 }
+
+
+.friend_profile_img img{
+	width: 100%;
+}
+
+
 .info_author{
 	display: flex;
     flex-direction: column;
@@ -137,9 +231,8 @@
 	
 }
 
-.main_title h3{
-	font-size: 20px;
-    margin: 20px 0px;
+.main_title h5{
+
 }
 
 .sub_title{
@@ -152,6 +245,8 @@
 .title_img_section{
 	width: 200px;
 	height: 200px;
-	border:1px solid #000;
+	
 }
-
+.title_img_section img{
+	width: 100%;
+}
