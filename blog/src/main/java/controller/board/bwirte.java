@@ -11,10 +11,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.dao.ImgBoardDao;
-import model.dao.TBoardDao;
-
-
-
 
 
 @WebServlet("/board/bwirte")

@@ -87,7 +87,7 @@ public class DiaryDao extends Dao{
 		return -1;
 	}
 	
-	public boolean ifalreadywr( String today ) {
+	public boolean ifalreadywr( String today ) {											// 오늘 작성한 일기가 있는지 확인하는 메소드
 		String sql = "select * from diary where di_date = ?";
 		try {
 			ps = con.prepareStatement(sql);
@@ -96,6 +96,19 @@ public class DiaryDao extends Dao{
 				return true;
 			}
 		} catch (Exception e) {System.out.println(e+"오늘 작성한 일기 있는지 확인하는 메소드 오류");}
+		return false;
+	}
+	
+	public boolean update_today_di( String content , String date , int emo_no ) {  // 오늘 일기 수정 메소드
+		String sql = "update diary set di_content = ? , emo_no = ? where di_date = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, content);
+			ps.setString(2, date);
+			ps.setInt(3, emo_no);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {System.out.println(e+"오늘 일기 수정 메소드 오류");}
 		return false;
 	}
 }

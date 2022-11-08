@@ -8,15 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.TBoardDao;
 
 
 
-
-
-/**
- * Servlet implementation class detailload
- */
 @WebServlet("/board/detailload")
 public class detailload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
