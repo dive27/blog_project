@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import model.Dao.ImgBoardDao;
-import model.Dto.imgBoardDto;
+import model.dao.ImgBoardDao;
+import model.dto.imgBoardDto;
 
-/**
- * Servlet implementation class bimgdetail
- */
-@WebServlet("/board2/bimgdetail")
+
+
+
+
+
+
+@WebServlet("/board/bimgdetail")
 public class bimgdetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -38,7 +41,7 @@ public class bimgdetail extends HttpServlet {
 	     
 	//2.DAO 처리
 	
-	    imgBoardDto dto = new ImgBoardDao().getboard( imgb_no );
+	     imgBoardDto dto = new ImgBoardDao().getboard( imgb_no );
 
 	
 	//3.  DTO -- JSON 형변환..

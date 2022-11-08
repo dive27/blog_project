@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+
+
+
+/* 상단 2개 
+
+
+#b1{ width: 95%;
+     height: 35px;
+     border: rgb(0, 0, 0) 1px solid;
+     margin-bottom: 10px;
+      }
+      
+#b2{ width: 95%;
+     height: 250px;
+     border: rgb(0, 0, 0) 1px solid;
+     margin-bottom: 10px;
+     position: relative;
+     }
+     
+#b3{ width: 200px; 
+     height: 500px;
+     border: rgb(0, 0, 0) 1px solid;
+     position: absolute; top: 320px;
+     float: left;
+      }
+
+#b4{ width:  200px; 
+     height: 500px;
+     position: absolute; top: 830px; bottom :30px;
+     border: rgb(0, 0, 0) 1px solid;
+
+}
+
+*/
+
+
+.gallry_box{
+	
+	width:1200px;
+	height: auto;
+	margin : 0 auto ;
+	padding: 70px;
+	display: flex;
+	flex-wrap: wrap;	
+}
+.gallery_img{
+	width: 100px;
+	height: 100px;
+	background:pink;
+	margin: 0 10px;
+	
+}
+
+
+
+#b5{ width: 80%; 
+     height: 1000px;
+     display: block; 
+     /* border: rgb(0, 0, 0) 1px solid; */ 
+     position: absolute; top :850px;  left:260px;
+     }
+
+#box1 {
+	display: flex;
+	justify-content: space-between;
+    flex-wrap: wrap; /* 가로배치 시 사이즈가 넘쳤을때 자동으로 줄바꿈*/
+    /* border: blue 2px solid; */
+}
+

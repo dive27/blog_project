@@ -47,7 +47,7 @@
 								<span> 일상 </span>
 								<ul>
 									<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
-									<li><a class="nav-link" onclick="pagechange('#')"> ♡갤러리 </a></li>
+									<li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> ♡갤러리 </a></li>
 									<li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> ♡다이어리 </a></li>
 								</ul>
 							</div>

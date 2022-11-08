@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import model.Dao.ImgBoardDao;
+import model.dao.ImgBoardDao;
+import model.dao.TBoardDao;
 
 
 
-/**
- * Servlet implementation class bwirte
- */
-@WebServlet("/board2/bwirte")
+
+
+@WebServlet("/board/bwirte")
 public class bwirte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -69,8 +69,7 @@ public class bwirte extends HttpServlet {
 
 		// 5. db처리 
 		
-		ImgBoardDao dao = new ImgBoardDao();
-		boolean result = dao.imgwrite( imgb_title, imgb_content, imgb_file );
+		boolean result = ImgBoardDao.getInstance().imgwrite( imgb_title, imgb_content, imgb_file );
 		
 		System.out.println(  "결과값" + result );
 		
