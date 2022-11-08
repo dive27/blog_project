@@ -35,13 +35,13 @@ public class Diary extends HttpServlet {
     	
 		String content = request.getParameter("content");
 		int emono = Integer.parseInt(request.getParameter("emono")); 
-		int cy_num = Integer.parseInt(request.getParameter("cy_num"));
-		System.out.println(emono);
-		System.out.println(content);
+		int cy_num = 1;
+		System.out.println("일기작성 감정번호"+emono);
+		System.out.println("일기작성 일기내용"+content);
 		
 		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
 		
-		System.out.println(result);
+		System.out.println("일기작성 반환값"+result);
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
@@ -50,7 +50,7 @@ public class Diary extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String date = request.getParameter("date");
-		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		int cy_num = 1 ;
 		
 		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date , cy_num);
 
@@ -75,18 +75,18 @@ public class Diary extends HttpServlet {
 	
 	@Override	// 오늘 일기 수정 관련
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			System.out.println("풋");
+			System.out.println("오늘일기 유무 풋 들어옴");
 		
 			String today = (String.valueOf(request.getParameter("today")));
-			int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+			int cy_num = 1 ;
 		
-			System.out.println("풋 오늘 날짜 : "+today);
+			System.out.println("오늘일기 유무 풋 오늘 날짜 : "+today);
 		
 			
 			boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num);
-			System.out.println(result);
+			System.out.println("오늘일기 유무 풋 반환값"+result);
 			
-			response.getWriter().print(result);	
+			response.getWriter().print(result);		// 널값만 전달돼서 테스트 위해 임의로 이렇게 써둠
 	}
 	
 	@Override
@@ -95,16 +95,16 @@ public class Diary extends HttpServlet {
 		System.out.println("일기수정 딜리트에 들어왔어요");
 		String content = request.getParameter("content");
 		String today = request.getParameter("today");
-		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		int cy_num = 1 ;
 		int emono = Integer.parseInt(request.getParameter("emono")) ;
 		
-		System.out.println("딜리트 - 일기 : " + content);
-		System.out.println("딜리트 - 오늘 날짜 : "+today);
-		System.out.println("감정"+emono);
+		System.out.println("일기수정 - 일기 : " + content);
+		System.out.println("일기수정 - 오늘 날짜 : " + today);
+		System.out.println("일기수정 - 감정" + emono);
 		
 		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
 		System.out.println("result : " + result);
 		
-		//response.getWriter().print(result);
+		response.getWriter().print(result);
 	}
 }

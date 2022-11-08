@@ -94,7 +94,7 @@ public class DiaryDao extends Dao{
 	}
 	*/
 	public boolean ifalreadywr( String today , int cy_num ) {											// 오늘 작성한 일기가 있는지 확인하는 메소드
-		System.out.println("오늘 일기 유무 메소드");
+		System.out.println("오늘 일기 유무 메소드 실행");
 		String sql = "select * from diary where di_date = ? and cy_num =?";
 		try {
 			ps = con.prepareStatement(sql);
@@ -114,8 +114,8 @@ public class DiaryDao extends Dao{
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
-			ps.setString(2, date);
-			ps.setInt(3, emo_no);
+			ps.setInt(2, emo_no);
+			ps.setString(3, date);
 			ps.setInt(4, cy_num);
 			ps.executeUpdate();
 			System.out.println("오늘일기수정메소드들어왔어요");
