@@ -21,7 +21,7 @@ public class ImgBoardDao extends Dao{
 			ps.setString( 1 , imgb_title );	ps.setString( 2 , imgb_content );
 			ps.setString( 3 , imgb_file);
 			ps.executeUpdate(); return true;
-		}catch (Exception e) {System.out.println( e );}
+		}catch (Exception e) { System.out.println( "등록안됨"  +  e );}
 		return false;
 	}
 
@@ -50,7 +50,7 @@ public class ImgBoardDao extends Dao{
 			}
 			
 			return list;
-		} catch (Exception e) { System.out.println(e ); return list;
+		} catch (Exception e) { System.out.println( "전체출력오류 : " +e ); return list;
 		 
 		}
 		  

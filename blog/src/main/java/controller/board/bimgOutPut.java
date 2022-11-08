@@ -33,15 +33,16 @@ public class bimgOutPut extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//1. 요청
-		int imgb_no = (Integer)request.getSession().getAttribute("imgb_no");
+	     	// int imgb_no = (Integer)request.getSession().getAttribute("imgb_no");
 		
 		//2 DAO 처리. 
-		   ArrayList< imgBoardDto > list = new ImgBoardDao().getImglist( );
+		   ArrayList< imgBoardDto > list =  ImgBoardDao.getInstance().getImglist( );
 		
 		  JSONArray array = new JSONArray();
 		  
 		  for ( int i = 0 ; i<list.size(); i++) {   //length vs size 사용하는 기준?     //objec 에 값  넣을대 출력하고자 하는거만 넣으면 되는건가?
 			  JSONObject object = new JSONObject();
+			  
 			  object.put("imgb_no", list.get(i).getImgb_no());
 			  object.put("imgb_title", list.get(i).getImgb_title());
 			  object.put("imgb_file", list.get(i).getImgb_file());

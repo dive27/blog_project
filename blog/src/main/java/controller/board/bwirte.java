@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+
 import model.dao.ImgBoardDao;
+import model.dao.MemberDao;
 
 
 @WebServlet("/board/bwirte")
@@ -62,7 +64,8 @@ public class bwirte extends HttpServlet {
 		String imgb_file = multi.getFilesystemName("imgb_file"); 
 		System.out.println( imgb_file );
 		
-
+		int mno  = MemberDao.getInstance().getcy_id( (String)request.getSession().getAttribute("cy_id") );
+		
 		// 5. db처리 
 		
 		boolean result = ImgBoardDao.getInstance().imgwrite( imgb_title, imgb_content, imgb_file );

@@ -36,7 +36,6 @@ public class bimgdetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 요청
 	     int imgb_no = (Integer)request.getSession().getAttribute("imgb_no");
-	     
 	     System.out.println( imgb_no );
 	     
 	//2.DAO 처리

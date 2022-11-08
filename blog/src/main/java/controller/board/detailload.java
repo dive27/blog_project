@@ -36,10 +36,10 @@ public class detailload extends HttpServlet {
 		// 3. 클릭한 게시물 번호를 세션에 저장 
 		session.setAttribute("imgb_no", imgb_no);
 		
-		/*
+		
 		// 4. 로그인한 회원아이디
-		String mid = (String)session.getAttribute("mid");
-		*/
+		  //String mid = (String)session.getAttribute("mid");
+		
 		
 		/*
 		

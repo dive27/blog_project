@@ -37,8 +37,7 @@
 
 
 .gallry_box{
-	
-	width:1200px;
+	width : 900px;
 	height: auto;
 	margin : 0 auto ;
 	padding: 70px;
@@ -54,6 +53,10 @@
 }
 
 
+#write{
+  display:inline-block;
+  margin-left: 90%;
+}
 
 #b5{ width: 80%; 
      height: 1000px;
