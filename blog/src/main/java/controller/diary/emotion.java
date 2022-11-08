@@ -13,6 +13,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import model.dao.DiaryDao;
+import model.dao.MemberDao;
 import model.dto.DiaryDto;
 import model.dto.EmotionDto;
 
@@ -32,7 +33,8 @@ public class emotion extends HttpServlet {
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		int cy_num = MemberDao.getInstance().getcy_id( 
+	            (String)request.getSession().getAttribute("cy_id") );
 	
 		ArrayList<EmotionDto> list = DiaryDao.getInstance().getemotion( cy_num );
 		
@@ -58,7 +60,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String emotion = request.getParameter("emotion");
 		System.out.println(emotion);
 		
-		int cy_num = Integer.parseInt(request.getParameter("cy_num")) ;
+		int cy_num = MemberDao.getInstance().getcy_id( 
+	            (String)request.getSession().getAttribute("cy_id") );
 		
 		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono , cy_num);
 		
