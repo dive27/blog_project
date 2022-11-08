@@ -59,6 +59,15 @@
 							</div>
 							<div class="categorylist"> <!-- 카테고리 목록 리스트 -->
 								<div class="clist"> <!-- 첫번재 카테고리  -->
+									<span class="day"> Updated news </span>
+									<ul>
+										<li><a class="nav-link" href="/blog/updated_news/best.jsp"> ♡BEST </a></li>
+										<li><a class="nav-link" href="#"> 05 </a></li>
+										<li><a class="nav-link" href="#"> 06 </a></li>
+									</ul>
+								</div>
+								
+								<div class="clist"> <!-- 두번재 카테고리  -->
 									<span class="day"> 일상 </span>
 									<ul>
 										<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
@@ -66,14 +75,7 @@
 										<li><a class="nav-link" href="#"> ♡다이어리 </a></li>
 									</ul>
 								</div>
-								<div class="clist"> <!-- 두번재 카테고리  -->
-									<span class="day"> 일상 </span>
-									<ul>
-										<li><a class="nav-link" href="#"> 04 </a></li>
-										<li><a class="nav-link" href="#"> 05 </a></li>
-										<li><a class="nav-link" href="#"> 06 </a></li>
-									</ul>
-								</div>
+								
 								<div class="clist"> <!-- 세번재 카테고리  -->
 									<span class="day"> 맛집 </span>
 									<ul>
@@ -115,60 +117,7 @@
 			</div>
 			
 			
-			<div class="hd_sub_menu"> <!-- 하단서브메뉴 전체  -->
 			
-				<div class="hd_sub1_box">
-					<div class="hd_sub1_title">
-						<span> Updated news </span>
-					</div>
-					<div class="hd_sub1_list">
-						<ul>
-							<li> ♪ 가을에 듣기좋은 나만의 playlist</li>
-							<li> ▷ 2022.11.06 어린이대공원에 놀러간 날</li>
-							<li> ▷ 쑥쑥 성장하는 대박이의 성장일기</li>
-							<li> ▷ 가을에서 겨울로 변하는 요즘 나의 일상</li>
-						</ul>
-					</div>
-				</div>
-			
-			
-			
-				<div class="hd_sub2_box">
-					<div class="hd_sub2_title">
-						<span> 꿀잠 대박이 '인기 게시물' </span>
-					</div>
-					<div class="hd_sub_contnet">
-						<div class="hd_sub_img">
-								<a href="#"><img src="/blog/img/index/g6.jpg" width="100%"></a>
-								<span> ♥+1082 </span>
-								<a href="#"><img src="/blog/img/index/g7.jpg" width="100%"></a>
-								<span>  ♥+1200 </span>
-								<a href="#"><img src="/blog/img/index/g11.jpg" width="100%"></a>
-								<span>  ♥+1521 </span>
-						</div>
-						<div></div>
-						<p></p>
-					</div>
-				</div>
-				
-				<div class="hd_sub2_box">
-					<div class="hd_sub_title">
-						<span> 드로잉 '인기 게시물' </span>
-					</div>
-					<div class="hd_sub_contnet">
-						<div class="hd_sub_img">
-								<a href="#"><img src="/blog/img/index/g15.jpg" width="80%"></a>
-								<span></span>
-								<a href="#"><img src="/blog/img/index/g15.jpg" width="80%"></a>
-								<span></span>
-								<a href="#"><img src="/blog/img/index/g15.jpg" width="80%"></a>
-								<span></span>
-						</div>
-						<div></div>
-						<p></p>
-					</div>
-				</div>
-			</div> <!-- 하단서브메뉴 전체end  -->
 	
 	</div> <!-- 웹페이지 박스 end -->
 
