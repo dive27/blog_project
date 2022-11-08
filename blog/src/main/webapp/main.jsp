@@ -31,7 +31,7 @@
 					
 
 					<div class="my_blog_name">
-						<%=loginid%>님의 블로그
+						<%=loginid%> 님의 블로그
 					</div><!-- my_blog_name -->
 					
 
@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="total_box num_box">
-						<span class="num_text ">Today</span> <span class="num">169</span>
+						<span class="num_text ">Total</span> <span class="num">169</span>
 					</div>
 				</div><!-- visit_num_box -->
 				
@@ -55,7 +55,7 @@
 				
 
 			</div><!-- infor_box -->
-			
+			<!-- ////////////////////////내 소식 영역////////////////////////// -->
 
 
 

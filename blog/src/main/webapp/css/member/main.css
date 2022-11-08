@@ -8,11 +8,20 @@
 	box-sizing: border-box;	
 }
 
+/*폰트*/
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*전체*/
 
 .wrap{
 	width: 100%;
-	margin:0 auto;	
+	margin:0 auto;
+	font-family: 'IBMPlexSansKR-Regular';	
 }
 
 .infor_wrap{
@@ -64,13 +73,17 @@
     text-align: center;
     margin: 0 auto;
 }
-.today_box{}
+.today_box{
+	display: flex;
+	align-items: end;
+}
 .total_box{}
 .num_text{
 	font-size: 30px;
 }
 .num{
 	font-size: 18px;
+	margin:0 5px;
 }
 
 /*//////////////////친구////////////////*/
@@ -89,7 +102,8 @@
 .friend_news{
 	display: flex;
     align-items: center;  
-    justify-content: space-between;	
+    justify-content: space-between;
+    cursor:pointer;	
 }
 
 .front_info{

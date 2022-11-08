@@ -20,7 +20,7 @@ a{
 	position: fixed;
 	bottom : 50px;
 	right:50px;   
-    background:#fff;
+    background:#DAEAF1;;
     color: #313943;
     padding: 15px;
     border: none;
@@ -51,7 +51,8 @@ a{
 }
 
 .footer_ul{
-	width: 100%;
+	width: 80%;
+	margin:0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
