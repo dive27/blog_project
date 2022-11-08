@@ -19,30 +19,39 @@
 	    font-style: normal;
 		}
 		
+		body{
+			position: relative;
+		}
+		
+		
+		
 		*{
 			box-sizing: border-box;
 			font-family: 'Humanbumsuk';
 		}
 		
-		.mainbox{
-			width: 900px;
-			height: 40vh;
+		.mainbox{					/* 전체박스 */
+			width: 850px;
+			height: 30vh;
+			position: absolute;
+			top : 60px;				/* 나중엔 깨질 배친데 지금만 이렇게~ */
+			left : 200px;	
 		}
 		
-		#calendar{
+		#calendar{					/* 인풋 데이트 넣을 th */
 			width: 30%;
 		}
 		
-		#date{
-			font-size: 3vh;
+		#date{						/* 인풋 데이트 */
+			font-size: 2vh;
 		}
 		
-		.diary{
+		.diary{						/* 다이어리 넣을 박스 */
 			width: 60%;
 			position: relative;
 		}
 		
-		.emotableimg {	/*감정 테이블 배경*/
+		.emotableimg {				/*감정 테이블 배경*/
 			z-index: 0;
 			width: 95%;
 			padding-left: 2.5%;
@@ -54,19 +63,37 @@
 			bottom: 0%;
 		}
 		
-		.emotabletextbox{
+		.emotabletextbox{			/* 감정테이블 흰 박스 */
 			z-index: 1;
 			width: 85%;
-			padding-left: 12%;
 			height: 36%;
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: top;
+			background-color: white;
+			border-radius: 15px;
 			position: absolute;
+			left: 7%;
 			bottom: 5%;
+			opacity: 0.95;
 		}
 		
-		.diary_img{		/* 다이어리 배경 */
+		.c_emobox{					/* 감정테이블 */
+			z-index: 1;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			bottom: 6%;
+			left: 13%;
+		}
+				
+		.choice_emo{				/* 선택한 감정 */
+			position: absolute;
+			z-index: 5;
+			width: 6%;
+			height: 6%;
+			top: 8%;
+			left: 87%;
+		}
+		
+		.diary_img{					/* 다이어리 배경 */
 			z-index: 0;
 			position: absolute;
 			top: 0px;
@@ -77,7 +104,7 @@
 			background-position: top;
 		}
 		
-		.diatytextbox{	/* 흰색박스 */
+		.diatytextbox{				/* 다이어리 흰색박스 */
 			z-index: 2;
 			position: absolute;
 			top: 10%;
@@ -89,9 +116,10 @@
 			background-position: center;
 			position: absolute;
 			bottom: 10%;
+			opacity: 0.95;
 		}
 		
-		#content{	
+		#content{					/* 다이어리 내용박스 */
 			z-index: 3;
 			position: absolute;
 			top: 20%;
@@ -106,14 +134,14 @@
 			font-size: 30px;
 												
 			color: #3D3C39;
-			flex-wrap: wrap;							/* 텍스트 넘어가면 줄 넘어가게 */
+			flex-wrap: wrap;		/* 텍스트 넘어가면 줄 넘어가게 */
 			border: none;
 			text-align: center;
 			
-			overflow: hidden;									/* 스크롤 숨기기 */
+			overflow: hidden;		/* 스크롤 숨기기 */
 		}
 		
-		.todaydate{
+		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
 			z-index: 3;
 			position: absolute;
 			top: 70px;
@@ -121,7 +149,7 @@
 			font-size: 35px;
 		}
 		
-		.clickbtn{
+		.clickbtn{					/* 연필 */
 			resize: none;
 			background-repeat: no-repeat;
 			width: 70%;										
@@ -130,28 +158,12 @@
 			
 		}
 				
-		.c_emotion_t{	/* 감정 테이블 포함한 박스 */
+		.c_emotion_t{				/* 감정 테이블 포함한 박스 */
 			height: 700px;
 			position: relative;
 		}		
 				
-		.c_emobox{		/* 감정테이블 */
-			z-index: 1;
-			width: 90%;
-			height: 40%;
-			position: absolute;
-			bottom: 2%;
-			left: 13%;
-		}
-				
-		.choice_emo{	/* 선택한 감정 */
-			position: absolute;
-			z-index: 5;
-			width: 10%;
-			height: 10%;
-			top: 8%;
-			left: 87%;
-		}
+
 				
 		.c_emotion_t tr{
 			width: 100%;
@@ -164,6 +176,7 @@
 		
 		.c_emotion_t td:nth-child(2) {
 			width: 70%;
+			text-align: left;
 		}
 		
 		.emoji{
@@ -189,19 +202,21 @@
 			background-color: red;
 			color: red;
 		}
-		*/
-		/*
+	
 		{
-		
-			-webkit-text-stroke-width: 1px;
-			-webkit-text-stroke-color: black;
+
 			transform: rotate( -20deg );
 			transition: all ease 0.3s;
 		}
 		*/
 		 
+		.emotioninput:hover{
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: black;
+		}
 		
-		.stamp{
+		
+		.stamp{						
 			z-index: 3;
 			position: absolute;
 			right: 10%;
@@ -212,29 +227,29 @@
 </head>
 <body>
 
+	<input type="text" class="todayinput">
 	<table class="mainbox">
 		<th id="calendar">
 			<input id="date" type="date" onchange="load_diary()">
 			<div class="calendar_day">
 			</div>
-			
 		</th>
 		
 		<th rowspan="2" class="diary">
-			<img class="stamp" src="/team3/img/투명.png">
-			<img class="diatytextbox" src="/team3/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/team3/img/배경1.png">
+			<img class="stamp" src="/blog/img/투명.png">
+			<img class="diatytextbox" src="/blog/img/레이스종이.png">
+			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
-			<img class="choice_emo" src="/team3/img/투명.png">
+			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
 		</th>
 		
-		<th rowspan="2" class="pencil"> <img onclick="writediary()" class="clickbtn" src="/team3/img/연필.png"> </th>
+		<th rowspan="2" class="pencil"> <img onclick="writediary(); update_today_di();" class="clickbtn" src="/blog/img/연필.png"> </th>
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/배경1.png">	<!-- 사이즈 조절하기 -->
-			<img class="emotabletextbox" src="/team3/img/레이스종이.png">
+			<img class="emotableimg" alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<div class="emotabletextbox" ></div>
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
