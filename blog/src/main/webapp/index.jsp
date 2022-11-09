@@ -64,7 +64,7 @@
 								<div class="clist"> <!-- 첫번재 카테고리  -->
 									<span class="day"> Updated news </span>
 									<ul>
-										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/best.jsp')"> ♡BEST </a></li>
+										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/1.new/best.jsp')"> ♡BEST </a></li>
 										<li><a class="nav-link" href="#"> 05 </a></li>
 										<li><a class="nav-link" href="#"> 06 </a></li>
 									</ul>
