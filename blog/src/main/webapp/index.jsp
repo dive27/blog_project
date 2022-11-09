@@ -83,7 +83,7 @@
 								<div class="clist"> <!-- 세번재 카테고리  -->
 									<span class="day"> 맛집 </span>
 									<ul>
-										<li><a class="nav-link" href="/jspweb2/gallery/latestlist.jsp"> ♡최신글 </a></li>
+										<li><a class="nav-link" href="/blog/updated_news/1.new/best.jsp"> ♡최신글 </a></li>
 										<li><a class="nav-link" href="/jspweb2/gallery/food.jsp"> ♡FOOD </a></li>
 										<li><a class="nav-link" href="/jspweb2/gallery/dessert.jsp">♡DESSERT </a></li>
 									</ul>
