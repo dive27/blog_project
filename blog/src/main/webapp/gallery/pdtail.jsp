@@ -12,16 +12,21 @@
     
     
    <div class ="gallry_box">
-        <h2> 이미지 조회</h2>
-    
-    <div class="title"> </div>
-    <div class="b_img"></div>
-    <div class="b_content"> </div>
-    
-    </div> 
-    
   
+    번호 : <div class="imno"> </div> <br>
+    제목 : <div class="title"> </div> <br>
+    첨부한이미지 : <div class="b_img"></div> <br>
+    내용 : <div class="b_content"> </div>
+    
    
+    
+    <div class="btnbox">	
+		    <a href="plist.jsp"><button>목록보기</button></a>
+	</div>
+    
+   </div> 
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="/blog/js/gallery/listdetail.js" type="text/javascript"></script>
     
 </body>

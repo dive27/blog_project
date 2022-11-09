@@ -43,10 +43,9 @@ alert('cc')
 		contentType : false , 
 		processData : false , 
 		success : function( re ){
-			
 			if( re === 'true'){ 
-				alert('사진등록 '); 
-					$(".mainbox").load("/blog/gallery/plist.jsp")
+				alert('사진등록')
+	           $(".write").load("/blog/gallery/plist.jsp");
 			}
 			else{ alert('등록실패') }
 		}

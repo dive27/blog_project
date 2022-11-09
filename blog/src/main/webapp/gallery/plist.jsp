@@ -17,18 +17,18 @@
       
       <div class ="gallry_box">
       
-           <div id ="box1" >
+           <div id ="box1">
            
-           	<div class="gallery_img"></div>
+          <!--  	<div class="gallery_img"></div>
            	<div class="gallery_img"></div>
            	<div class="gallery_img"></div>  
            	<div class="gallery_img"></div>
            	<div class="gallery_img"></div>
-           	<div class="gallery_img"></div>            
+           	<div class="gallery_img"></div>   -->          
 	       </div>
 		
-		<div>
-		<button type="button" onclick="pagechange('/blog/gallery/picturwrite.jsp')">사진등록</button>
+		<div id ="write">
+		<a href="picturwrite.jsp"><button> 사진등록 </button></a>
 		</div>	
 			 
 	  </div>
@@ -45,7 +45,7 @@
     
        
 	  
-	    
+	  
 	    
 	    
        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

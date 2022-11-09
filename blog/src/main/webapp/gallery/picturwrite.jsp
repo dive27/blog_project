@@ -22,9 +22,12 @@
 			제목 : <input type="text" name="imgb_title"> <br>
 			
 			내용 : <textarea id="summernote" name="imgb_content"></textarea><br>
-			 첨부파일 : <input type="file" name ="imgb_file"> <br>
-		
-			<button type="button" onclick="imgwrite()">등록</button>
+			첨부파일 : <input type="file" name ="imgb_file"> <br>
+		    
+		    
+		    <div class ="write"> </div >
+			<button  type="button" onclick="imgwrite()">등록</button>
+			
 		
 		</form>
  
