@@ -6,12 +6,13 @@ let emosrc = null;
 let count = -1;
 let emo_no = -1;
 
-let cy_num = 1;	// 원래 로그인하고 어디 저장해두는거같은데 어디에 뭘로 저장했는지 모르겠음 지금 데이터 보내는것도 다 1이니 나중에 수정하기~!!
+let cy_num = sessionStorage.getItem("cy_id");	// 원래 로그인하고 어디 저장해두는거같은데 어디에 뭘로 저장했는지 모르겠음 지금 데이터 보내는것도 다 1이니 나중에 수정하기~!!
 
 getToday()		  // 오늘 날짜 가져오는 함수		
 getemotiontable() // 감정 테이블 출력하는 함수
 
-alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
+alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
+alert('더블클릭을 하면 이벤트가 있어요!👂')
 
 function getToday(){		// 오늘 날짜 가져오는 함수
     date = new Date();
@@ -35,7 +36,7 @@ function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ]
 	let html = '';
 	$.ajax({
 		url : "/blog/emotion" ,
-		data : { "cy_num" : "1" } ,
+		data : { "cy_num" : cy_num } ,
 		async:false,
 		success : function(re){
 			let json = JSON.parse(re)
@@ -48,8 +49,7 @@ function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ]
 	})
 }
 
-
-function choiceemono(no){				// 선택한 감정 일기장에 띄우기 이게 왜 도 안되니~
+function choiceemono(no){							// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
 	emo_no = no;
 	let emosrc = '/blog/img/하트'+emo_no+'.gif'
 	//sessionStorage.setItem("emono" , emo_no);		// 다른데서 쓰려고 세션에 저장
@@ -80,7 +80,7 @@ getToday()
 		url : "/blog/Diary" ,
 		type : "post" ,
 		async:false,
-		data : { "date" : date  , "cy_num" : "1"} ,
+		data : { "date" : date  , "cy_num" : cy_num } ,
 		success : function(re){
 			let json = JSON.parse( re )	
 			if( re != 'null' ){	// 일기가 있으면 로드
@@ -106,6 +106,8 @@ getToday()
 	})
 }
 
+//////////////////////////////////////////////// 일기수정 관련 함수 //////////////////////////////////////////////// 
+
 function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
 	
 	today = document.querySelector('.todayinput').value
@@ -113,7 +115,7 @@ function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
 		url : "/blog/Diary" ,
 		type : "put" , 
 		async:false,
-		data : { "today" : today , "cy_num" : "1" } ,	// 이게 왜 널이야~ alert하면 뜨는데
+		data : { "today" : today , "cy_num" : cy_num } ,	// 이게 왜 널이야~ alert하면 뜨는데
 		success : function( re ){
 				if ( re == 'true' ){	// true여야 하지만 지금  데이터를 못읽으니 false라 치고 작업
 				alert('오늘은 이미 작성한 일기가 있습니다.')
@@ -127,13 +129,12 @@ function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
 	})
 }
 
-
 function writediary(){			// 다이어리 작성 함수 [ 완 ] 
 	let content = document.querySelector('#content').value
 	
 	$.ajax({
 		url : "/blog/Diary" ,
-		data : { "content" : content , "cy_num" : 1 , "emono" : emo_no } ,
+		data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no } ,
 		async:false,
 		success : function( re ){
 			if( count == -1 ){ // 카운트가 변동하지 않고 그대로 -1일때만 글쓰기 작동
@@ -155,7 +156,6 @@ function update_today_di(){ // 오늘 일기 수정하는 메소드
 		alert('최종적으론 수정버튼을 거쳐 연필을 선택하면 여기서 데이터를 보내는겁니다![5]')
 		
 		let content = document.querySelector('#content').value
-		// let emono = sessionStorage.getItem("emono")					// 이게 필요가 없나? 잉 왜 널이야
 		today = document.querySelector('.todayinput').value
 
 		$.ajax({	
@@ -165,7 +165,7 @@ function update_today_di(){ // 오늘 일기 수정하는 메소드
 			"today" : today , 
 			"content" : content ,
 		 	"emono" : emo_no ,
-		 	"cy_num" : "1" } ,
+		 	"cy_num" : cy_num } ,
 			async:false,
 			success : function( re ){
 				if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
@@ -177,6 +177,8 @@ function update_today_di(){ // 오늘 일기 수정하는 메소드
 		})
 	}
 }
+
+//////////////////////////////////////////////// 그 외 효과 함수 //////////////////////////////////////////////// 
 	
 function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
 	if(confirm('감정 수정이 가능해요! 수정할까요?')){
@@ -192,12 +194,12 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 				emotionlist[i].readOnly=true;
 				emotionlist[i].style.color="black";
 				let emotion = emotionlist[i].value;
-				let emono = i+1;					// DB 번호 수정되면 안됨!
+				let emono = i+1;												// DB 번호 수정되면 안됨!
 		        	$.ajax({
 						url : "/blog/emotion" ,
 						type : "post" ,
 						async:false,
-						data : { "emono" : emono , "emotion" : emotion , "cy_num" : "1"} ,
+						data : { "emono" : emono , "emotion" : emotion , "cy_num" : cy_num } ,
 						success : function(re){
 				    		if( re == 'true' ){
 								alert('감정 수정 완료🤗')
@@ -211,35 +213,46 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 	}
 }
 
-
-
-// ///////////////////////////////////////////// 미완성 함수 ////////////////////////////////////////////////
 let emotableimg = document.querySelector('.emotableimg')
 let back_img = document.querySelector('.diary_img')
 
 let imglist = 1;
-function change_back_img(){
-	
+function change_back_img(){										// 배경 더블클릭시 배경 이미지 변경해주는 함수 
 	$.ajax({
 		url : "/blog/backimg" ,
 		async:false,
 		success : function(re){
-				
 				imglist++;	
-				
-				alert("현재 수"+imglist)
-				alert("전체 개수"+re)	
-				
 				let back_img_src = "/blog/img/배경"+imglist+".png";
 				emotableimg.src=back_img_src
 				back_img.src=back_img_src
 				
-				alert
-				
-				if( imglist == re ){ imglist = 1; alert("이게 5여야하는데"+i); return;}
+				if( imglist == re ){ imglist = 1; return;}
 			}
 		})
 	}
+	
+// ///////////////////////////////////////////// 미완성 함수 ////////////////////////////////////////////////
+// 복붙해서 오타도 아닐텐데 왜 안될까? 안되면 그냥 첫 alert때 말해주거나 발표할때 만든 기능들 숨기지말고 구현만 해주면 됨
+let alarmemo = 1;
+function alarmemo(){	// 감정 변경 기능 있다고 알려주는 함수
+	alert('들어오긴해')
+	if( alarmemo > 0 ){
+		alert('감정 글씨를 더블클릭하면 변경할 수 있어요!👋')
+		alarmemo--;
+		return;
+	}
+}
+
+let alarmback = 1;
+function alarmback(){	// 배경 이미지 변경 기능 있다고 알려주는 함수
+	alert('들어오긴해')
+	if( alarmback > 0 ){
+		alert('배경이미지를 더블클릭하면 변경할 수 있어요!👋')
+		alarmback--;
+		return;
+	}
+}
 
 
 /*
@@ -249,10 +262,8 @@ function change_back_img(){
 	 
 	1. 호버 효과 같이
 	2. 클릭 효과 하나만
-	
 	3. 달력에 그날 선택한 색상 or 하트 이미지 출력하기
 		3-1 다른 일기 열람할때 하트 선택하면 바뀌니까 막아주기
-	
 	4. 하트가 일기장이랑 겹쳐서 잘 안보이니까 효과주기 1-gif로 광택효과 2-흰테두리 그린 이미지로 대체 
 
 
@@ -291,6 +302,5 @@ function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
 }
 
 */
-
 
 

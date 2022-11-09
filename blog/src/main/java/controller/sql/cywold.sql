@@ -62,13 +62,12 @@ drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,		-- 다이어리 식별번호
     di_date date default (current_date) ,		-- 다이어리 작성날짜(당일일기만 가능)
-    di_content text not null, 					-- 작성한 다이어리 내용
+    di_content varchar(200) not null, 					-- 작성한 다이어리 내용
     emo_no int ,								-- 선택한 감정 번호
     cy_num int ,								-- 회원 식별번호
     constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num) 
 );
 select * from diary;
-
 -- 감정
 drop table if exists emotion;
 create table emotion(
@@ -90,11 +89,16 @@ create table backimg(
 );
 select * from backimg;
 
+-- js와 관련되어 추가해둡니다.
+insert into backimg values( null , '배경1' , 1 );
+insert into backimg values( null , '배경2' , 1 );
+insert into backimg values( null , '배경3' , 1 );
+insert into backimg values( null , '배경4' , 1 );
+insert into backimg values( null , '배경5' , 1 );
 
--- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
-insert into emotion value( null , '슬픈 날' , '입체하트1.png' , 1);
-insert into emotion value( null , '즐거운 날' , '입체하트2.png' , 1);
-insert into emotion value( null , '우울한 날' , '입체하트3.png' , 1);
-insert into emotion value( null , '화나는 날' , '입체하트4.png' , 1);
-insert into emotion value( null , '행복한 날' , '입체하트5.png' , 1);
-
+-- js와 관련되어 추가해둡니다
+insert into emotion value( null , '슬픈 날' , '하트1.gif' , 1);
+insert into emotion value( null , '즐거운 날' , '하트2.gif' , 1);
+insert into emotion value( null , '우울한 날' , '하트3.gif' , 1);
+insert into emotion value( null , '화나는 날' , '하트4.gif' , 1);
+insert into emotion value( null , '행복한 날' , '하트5.gif' , 1);
