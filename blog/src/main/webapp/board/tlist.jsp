@@ -12,7 +12,6 @@
 </head>
 <body>
 	
-	
 	<div class="webbox">
 	
 		<div class="all_list_box"> <!-- 글목록 전체 박스 -->
@@ -48,9 +47,7 @@
 							<div>게시물수 : <span class="totalsize"></span></div>
 						</div>
 					</div> <!-- 게시물 수 표현 박스 end -->
-					<div class="w_box">
-						<button type="button" onclick="pagechange('/blog/board/twrite.jsp')">글쓰기</button>
-					</div>
+					
 				</div> <!-- 게시물 수 + 글쓰기 박스권 end -->
 				
 				
@@ -58,10 +55,14 @@
 					<div class="post_list">
 						<table class="btable" >
 						</table>
+						
 					</div> <!-- 게시물표시 전체 박스 end -->
+					
 				</div> <!-- 게시물표시 전체 박스 end -->
 				
-				
+				<div class="w_box">
+					<button type="button" onclick="pagechange('/blog/board/twrite.jsp')">글쓰기</button>
+				</div>
 				
 				<div class="pagebox">	<!-- 3.페이징처리  -->
 					
@@ -71,12 +72,14 @@
 		</div>  <!-- 글목록 전체 박스end -->
 
 	</div> <!-- 웹 박스 전체 end -->
-
-	<!-- 사용자 js연결 -->
-	<script type="text/javascript" src="/blog/js/board/tlist.js"></script>
 	
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<!-- 사용자 js연결 -->
+	<script type="text/javascript" src="/blog/js/board/tlist.js"></script>
+	
+	
 
 </body>
 </html>

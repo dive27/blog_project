@@ -28,13 +28,17 @@
 /* 글 목록 전체 박스권 */
 .all_list_box{
 	border: solid 2px red;
-	margin: 0 auto;
+	margin: 40px auto;
 }
 .list_sbox{
 	margin: 10px;
 }
-/* 검색창 */
+
+
+/* 검색창 전체 박스 */
 .search_box{
+	margin-bottom: 35px;
+	background-color: #FFE6E6;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -43,34 +47,47 @@
 	margin: 10px;
 	display: inline-flex;
 }
+
+
+/* 화면에 표시할 게시물 수 */
 .num_list{
 	margin-left: 20px;
 }
 /* 게시물 표시 전체 박스 */
 .post_box{
-	border: solid 3px black;
 	margin: 10px;
 }
+/* 게시물 table */
 .post_list{
-	border: solid 2px skyblue;
-	margin: 10px;
+	background-color: white;
+	margin: 8px;
 	display: flex;
 	flex-direction: column;
+}
+th{
+	background-color: #F2D1D1;
+	width: 20%;
+	height: 45px;
+	font-size: 20px;
+}
+tr{
+	background-color: #FFE6E6;
+	height: 30px;
+	width: 20%;
+	text-align: center;
 	
 }
 
 
-/* 게시물 수 + 글쓰기 박스 */
-.dd{
-	border: solid 1px red;
-}
 /* 게시물 수 표현 박스 */
 .dd_box{
-	border: solid 2px blue;
-	margin: 15px;
+	margin: 10px;
+	padding-left: 10px;
 }
+/* 글쓰기 버튼 */
 .w_box{
-	margin: 15px;
+	margin: 10px;
+	text-align: right;
 }
 /* 글쓰기 버튼 */
 .w_box button{
@@ -88,5 +105,9 @@
 .pagebox{
 	border: solid 3px skyblue;
 	margin: 25px;
+	display: flex;
+	justify-content: center;
 }
+
+
 

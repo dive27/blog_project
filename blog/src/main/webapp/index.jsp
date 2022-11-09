@@ -42,7 +42,7 @@
 							<img alt="" src="/jspweb2/img/초상화.jpg">
 						</div>
 						<div class="profilename">
-							<span> 별명 : 소공녀 </span><br> <span> 소개글 : 하루하루가 너무 행복하다!! </span>
+							<span> 별명 : 소공녀 </span><br> <span> 소개글 : 아기자기하게 꾸미는걸 좋아하는 나의 블로그 </span>
 
 							<!-- 방문자 수 기록 코드 작성 칸 -->
 
@@ -55,8 +55,10 @@
 
 
 				<div class="categorybox"> <!-- 카테고리 box -->
-							<div class="category">
+
+							<div class="p_title">
 								<span> 카테고리 </span>
+
 							</div>
 							<div class="categorylist"> <!-- 카테고리 목록 리스트 -->
 								<div class="clist"> <!-- 첫번재 카테고리  -->
@@ -89,7 +91,7 @@
 						</div> <!-- 카테고리 박스 end -->
 						
 						<div class="sns_box"> <!-- sns box 전체-->
-							<div class="s_title"> <!-- sns 제목 -->
+							<div class="p_title"> <!-- sns 제목 -->
 								<span> SNS </span>
 							</div>
 							<div class="about_me_sns1">

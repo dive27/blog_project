@@ -45,16 +45,7 @@
 }
 
 /*---------------------------------- 하단 헤더 ---------------------------------*/
-/*
- .box{
- 	margin : 10px 0 20px 0px
- 	border: solid 1px black;
- 	width: 930px;
-	height: 500px;
-	float: right;
- }
- 
-*/
+
 /* 하단 헤더 전체 박스 */
 .hd_menu{ 
 	width: 250px;
@@ -74,13 +65,15 @@
 	padding: 15px 10px;
 	border-bottom: dotted 1px #999999;
 }
-.p_title{	/* 자기소개 타이틀 박스 */
+.p_title{	/* 타이틀 박스 */
 	text-align: center;
 	font-weight: bold;
-	margin: 3px;
+	margin: 0px auto;
 	background-color: #C6DCE4;
-	font-size: 14px;
+	font-size: 15px;
+	height: 100%;
 }
+
 .about_me{	/* 자기소개 이미지, 내용 박스 */
 	margin-top: 15px;
 }
@@ -147,12 +140,7 @@
 	margin-top: 15px;
 	padding: 15px 10px 15px 10px;
 }
-.s_title{	/* sns 제목 박스 */
-	background-color: #C6DCE4;
-	text-align: center;
-	margin: 0 auto;
-	margin: 3px;
-}
+
 .about_me_sns1 , .about_me_sns2{
 	margin: 5px;
 	margin-top: 15px;
