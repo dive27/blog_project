@@ -47,16 +47,7 @@
 							<!-- 방문자 수 기록 코드 작성 칸 -->
 
 						</div>
-<<<<<<< HEAD
-						<div class="categorylist"> <!-- 카테고리 목록 리스트 -->
-							<div class="clist"> <!-- 첫번재 카테고리  -->
-								<span> 일상 </span>
-								<ul>
-									<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
-									<li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> ♡갤러리 </a></li>
-									<li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> ♡다이어리 </a></li>
-								</ul>
-=======
+
 						<!-- 프로필이름 end -->
 					</div>
 				</div>
@@ -66,13 +57,12 @@
 				<div class="categorybox"> <!-- 카테고리 box -->
 							<div class="category">
 								<span> 카테고리 </span>
->>>>>>> branch '11/04_최윤미' of https://github.com/dive27/blog_project
 							</div>
 							<div class="categorylist"> <!-- 카테고리 목록 리스트 -->
 								<div class="clist"> <!-- 첫번재 카테고리  -->
 									<span class="day"> Updated news </span>
 									<ul>
-										<li><a class="nav-link" href="/blog/updated_news/best.jsp"> ♡BEST </a></li>
+										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/best.jsp')"> ♡BEST </a></li>
 										<li><a class="nav-link" href="#"> 05 </a></li>
 										<li><a class="nav-link" href="#"> 06 </a></li>
 									</ul>
@@ -82,8 +72,8 @@
 									<span class="day"> 일상 </span>
 									<ul>
 										<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
-										<li><a class="nav-link" href="#"> ♡갤러리 </a></li>
-										<li><a class="nav-link" href="#"> ♡다이어리 </a></li>
+									    <li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> ♡갤러리 </a></li>
+									    <li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> ♡다이어리 </a></li>
 									</ul>
 								</div>
 								
@@ -126,7 +116,7 @@
 			<div>
 			
 			</div>
-			
+			<div class="mainbox"> </div>
 			
 			
 	
