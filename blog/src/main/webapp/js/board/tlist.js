@@ -71,7 +71,7 @@ function viewload( bno ){
 		url : "/blog/board/tviewload" , 
 		data : { "bno" : bno },
 		success : function( re ){
-			$(".wirte").load("/blog/board/tview.jsp");
+			$(".mainbox").load("/blog/board/tview.jsp");
 								// 이동할 페이지 경로
 		}
 	})

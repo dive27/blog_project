@@ -29,11 +29,7 @@
 		}
 		
 		.mainbox{					/* 전체박스 */
-			width: 850px;
 			height: 30vh;
-			position: absolute;
-			top : 60px;				/* 나중엔 깨질 배친데 지금만 이렇게~ */
-			left : 200px;	
 		}
 		
 		#calendar{					/* 인풋 데이트 넣을 th */
@@ -246,15 +242,13 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" onmouseover="alarmback()" alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
-			<table class="c_emobox" onmouseover="alarmemo()">
+			<table class="c_emobox" >
 			</table>
 		 </td> </tr> 
 	</table>
 
-	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- 내 js -->
 	<script src="/blog/js/Diary2.js" type="text/javascript"></script>
 </body>

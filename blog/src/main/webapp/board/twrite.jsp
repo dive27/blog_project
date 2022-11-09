@@ -15,9 +15,6 @@
 <title> 글쓰기 </title>
 </head>
 <body>
-
-	<div class="webbox"> <!-- 웹페이지 전체 -->
-		
 		<div class="write_box"> <!-- 글쓰기 페이지 전체 -->
 			<div class="w_title">
 				<span> 글쓰기 </span>
@@ -67,9 +64,6 @@
 			</form>
 			
 		</div> <!-- 글쓰기 페이지 전체 end -->
-
-	</div> <!-- 웹페이지 전체 ed -->
-	
 	
 	<!-- 사용자정의 js -->
 	<script src="/blog/js/board/twrite.js" type="text/javascript"></script>

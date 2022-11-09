@@ -56,7 +56,7 @@
 			
 			<div class="b_btn">
 				<div class="btnbox">
-					<a href="/blog/board/tlist.jsp"><button>목록보기</button></a>
+					<button onclick="pagechange('/blog/board/tlist.jsp')" >목록보기</button>
 				</div>
 				
 			</div>

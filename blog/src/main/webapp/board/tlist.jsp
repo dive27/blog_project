@@ -11,9 +11,6 @@
 
 </head>
 <body>
-	
-	<div class="webbox">
-	
 		<div class="all_list_box"> <!-- 글목록 전체 박스 -->
 			<div class="list_sbox">
 				<div class="search_box"> <!-- 검색창 전체 박스 -->
@@ -71,7 +68,6 @@
 			</div>
 		</div>  <!-- 글목록 전체 박스end -->
 
-	</div> <!-- 웹 박스 전체 end -->
 	
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>

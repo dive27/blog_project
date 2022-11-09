@@ -121,15 +121,10 @@
 			</div>
 			<div class="mainbox"> </div>
 			
-			
-	
 	</div> <!-- 웹페이지 박스 end -->
 
 	<!-- 사용자지정 JS -->
 	<script type="text/javascript" src="/blog/js/tindex.js"></script>
-	
-	<!-- JQUERY 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 	
 

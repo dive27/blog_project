@@ -234,25 +234,6 @@ function change_back_img(){										// 배경 더블클릭시 배경 이미지 
 	
 // ///////////////////////////////////////////// 미완성 함수 ////////////////////////////////////////////////
 // 복붙해서 오타도 아닐텐데 왜 안될까? 안되면 그냥 첫 alert때 말해주거나 발표할때 만든 기능들 숨기지말고 구현만 해주면 됨
-let alarmemo = 1;
-function alarmemo(){	// 감정 변경 기능 있다고 알려주는 함수
-	alert('들어오긴해')
-	if( alarmemo > 0 ){
-		alert('감정 글씨를 더블클릭하면 변경할 수 있어요!👋')
-		alarmemo--;
-		return;
-	}
-}
-
-let alarmback = 1;
-function alarmback(){	// 배경 이미지 변경 기능 있다고 알려주는 함수
-	alert('들어오긴해')
-	if( alarmback > 0 ){
-		alert('배경이미지를 더블클릭하면 변경할 수 있어요!👋')
-		alarmback--;
-		return;
-	}
-}
 
 
 /*
