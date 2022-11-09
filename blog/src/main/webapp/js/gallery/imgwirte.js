@@ -26,8 +26,9 @@ alert('cc')
 }
 */
 
- function imgwrite(){
+function imgwrite(){
 
+alert('dd')
     //form 버전
     let form = document.querySelector('form') 	
 	console.log( form )
@@ -36,7 +37,7 @@ alert('cc')
 	 console.log( formdata )						
 
 
-     $.ajax({
+     $.ajax({	
 	    url : "/blog/board/bwirte",
 	   	data : formdata , 									
 		type : 'POST' , 
@@ -44,8 +45,8 @@ alert('cc')
 		processData : false , 
 		success : function( re ){
 			if( re === 'true'){ 
-				alert('사진등록')
-	           $(".write").load("/blog/gallery/plist.jsp");
+	           $(".mainbox").load("/blog/gallery/plist.jsp");
+	           alert('등록성공')
 			}
 			else{ alert('등록실패') }
 		}
