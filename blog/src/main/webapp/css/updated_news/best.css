@@ -26,65 +26,158 @@
 }
 
 .b_box{	/* 보조틀 */
-	border: solid 3px black;
+	border: double 5px #C6DCE4;
+	background-color: #DAEAF1;
 	margin: 10px;
 }
 
 /* 인기게시물 전체박스 */
 .best_box{
-	border: solid 2px red;
-	margin: 10px;
+	margin-bottom: 35px;
 }
 .best_title{
-	border: solid 2px red;
-	margin: 10px;
-	
+	margin: 20px 0px 10px 30px;
+}
+.best_title span{
+	font-size: 30px;
+	font-weight: bold;
 }
 /* 인기게시물 이미지 */
-.best_img img{
-	border-radius: 30px;	/* 모서리 둥글게 */
-	padding: 20px;
-	margin: 20px;
-}
 .best_img{
-	border: solid 2px blue;
+	text-align: center;
+	margin: 10px 10px 15px 25px;
+	background-color: white;
+	border-radius: 10px;	/* 모서리 둥글게 */
+	overflow: hidden;
+	display: flex;
+}
+
+.best_img img{
+	margin: 20px;
+	width: 300px;
+	height: 300px;
+	border: solid 1px #999999;
+/* 	transition: all 0.2s linear; */
 }
 
 
 /*----------------------- 최근 게시물 ----------------------*/
-.recent_box{
-	border: solid 2px blue;
-	margin: 2px;
+.r_info_box{
+	border-bottom: solid 1px #999999;
+	margin: 10px;
+	margin-bottom: 20px;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
 }
-/* 게시물 닉네임, 업로드시간 */
-.me_box{
-	border: solid 2px blue;
-	margin: 3px;
+h2{
+	margin-left: 12px;
 }
-/* 프로필 이미지 */
+.recent{
+	width: 70%;
+	margin: 10px 0px 25px 10px;
+}
+/* 닉네임, 게시물업로드 날짜 */
+.updated{
+	margin: 5px;
+	display: flex;
+    align-items: center;
+}
+
+
+.m_name{
+	margin-left: 20px;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/* 최근게시물 - 닉네임, 시간*/
+.m_name{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-left: 12px;
+}
+.nick_name{
+	font-size: 12px;
+}
+.update_time{
+	font-size: 10px;
+}
+
+/* 게시물 제목 */
+.me_title{
+	font-size: 20px;
+	margin: 20px 5px;
+}
+.me_title h3{
+	margin: 10px;
+}
+/* 게시물 내용 */
+.me_content{
+	border-radius: 15px;
+	margin: 10px;
+	padding: 10px;
+	background-color: white;
+	
+}
+.content_list{
+	width: 200px;
+	height: 200px;
+}
+/* 게시물 이미지 */
 .me_img{
-	border: solid 2px black;
-	float: right;
-	width: 50px;	/* 임시 크기지정 */
-	height: 50px;	/* 임시 크기지정 */
-}
-me_name{
-	border: solid 2px red;
-	margin: 15px;
-}
-.re_title{
-	border: solid 3px yellow;
+	border: solid 1px #999999;
 	margin: 10px;
+	width: 20%;
+	height: 230px;
 }
-.re_content{
-	border: solid 3px yellow;
+/* 공감, 댓글 */
+.ah{
 	margin: 10px;
+	font-size: 12px;
 }
 
-
-
-
-
+/*----------------------*/
+.container {
+	position: relative;
+	width: 50%;
+}
+		
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+		
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  text-align: center;
+  width: 300px;
+  height: 0;
+  transition: .5s ease;
+}
+		
+.container:hover .overlay {
+	height: 100%;
+}
+		
+.text {
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
 
 
 
