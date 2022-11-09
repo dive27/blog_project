@@ -6,13 +6,25 @@ let emosrc = null;
 let count = -1;
 let emo_no = -1;
 
-let cy_num = sessionStorage.getItem("cy_id");	// 원래 로그인하고 어디 저장해두는거같은데 어디에 뭘로 저장했는지 모르겠음 지금 데이터 보내는것도 다 1이니 나중에 수정하기~!!
 
-getToday()		  // 오늘 날짜 가져오는 함수		
-getemotiontable() // 감정 테이블 출력하는 함수
+  
+         if( cy_num > 0 ){
+         	sessionStorage.removeItem("cy_num_se");                          	
+         	}
 
-alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
-alert('더블클릭을 하면 이벤트가 있어요!👂')
+
+// 머지 한 다음에 이용가능..
+let cy_num = sessionStorage.getItem("cy_num_se")
+
+//if( cy_num == -1 ){
+	alert("회원만 이용 가능한 기능이에요😅")
+	if(confirm('로그인 페이지로 이동할까요?')){
+		pagechange('/blog/member/login.jsp')
+	}
+//}else{
+	getToday()		  // 오늘 날짜 가져오는 함수		
+	getemotiontable() // 감정 테이블 출력하는 함수
+	alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
 
 function getToday(){		// 오늘 날짜 가져오는 함수
     date = new Date();
@@ -51,11 +63,10 @@ function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ]
 
 function choiceemono(no){							// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
 	emo_no = no;
-	let emosrc = '/blog/img/하트'+emo_no+'.gif'
+	let emosrc = '/blog/img/하트반짝'+emo_no+'.gif'
 	//sessionStorage.setItem("emono" , emo_no);		// 다른데서 쓰려고 세션에 저장
 	//let asdf = sessionStorage.getItem("emono");	// 아니 근데 이미 emo_no가 있어서 굳이 세션을 쓸 필요가 없자나..
-	choice_emo.src=emosrc;		
-	alert("감정 선택할때마다 알려주지"+emo_no)					
+	choice_emo.src=emosrc;							
 }
 
 //////////////////////////////////////////////// 다이어리 관련 함수 ////////////////////////////////////////////////
@@ -100,7 +111,12 @@ getToday()
 					}
 						
 			}else if(  re == 'null'  ){alert('일기를 쓰지 않은 날이에요😅')	// 만약 일기가 존재하지 않는다면 오늘로 이동
-				loadtoday()	
+				if( json[0].di_date == today ){
+					alert('아니 오늘이면 일기쓰게 해줘야지')
+					loadtoday()
+				}
+				document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
+				document.getElementById('content').readOnly=true;						// 글 수정 불가	
 			}
 		}
 	})
@@ -215,6 +231,7 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 
 let emotableimg = document.querySelector('.emotableimg')
 let back_img = document.querySelector('.diary_img')
+let datebox_img = document.querySelector('.datebox')
 
 let imglist = 1;
 function change_back_img(){										// 배경 더블클릭시 배경 이미지 변경해주는 함수 
@@ -224,16 +241,45 @@ function change_back_img(){										// 배경 더블클릭시 배경 이미지 
 		success : function(re){
 				imglist++;	
 				let back_img_src = "/blog/img/배경"+imglist+".png";
+				let datebox_src = "/blog/img/날짜상자"+imglist+".png";		// 컬러 바꾸기~ 보라색 안어울려
+				
 				emotableimg.src=back_img_src
 				back_img.src=back_img_src
+				datebox_img.src=datebox_src		// 이제 이걸 다 디비에 연결해서 해당 다이어리에 저장해야된다? 하기싫다~!!!
 				
 				if( imglist == re ){ imglist = 1; return;}
 			}
 		})
 	}
 	
+let alarmemo_count = 1;
+function alarmemo(){	// 배경 지나가면 감정 변경 기능 있다고 알려주는 함수
+	if( alarmemo_count > 0 ){
+		alarmemo_count--;
+		emotableimg.style.opacity="0.5"; 
+		setTimeout(() => emotableimg.style.opacity="1.0", 800);
+		alert('감정 글씨를 더블클릭하면 변경할 수 있어요!👋')
+		return;
+	}
+	
+}
+
+let alarmback_count = 1;
+function alarmback(){	// 배경 지나가면 배경 이미지 변경 기능 있다고 알려주는 함수
+	if( alarmback_count > 0 ){
+		alarmback_count--;
+		back_img.style.opacity="0.5"; 
+		setTimeout(() => back_img.style.opacity="1.0", 800);
+		alert('감정 글씨를 더블클릭하면 변경할 수 있어요!👋')
+		return;
+	}
+}
+//}
+
+
+
 // ///////////////////////////////////////////// 미완성 함수 ////////////////////////////////////////////////
-// 복붙해서 오타도 아닐텐데 왜 안될까? 안되면 그냥 첫 alert때 말해주거나 발표할때 만든 기능들 숨기지말고 구현만 해주면 됨
+
 
 
 /*

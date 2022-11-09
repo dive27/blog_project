@@ -28,16 +28,14 @@
 			font-family: 'Humanbumsuk';
 		}
 		
-		.mainbox{					/* 전체박스 */
-			height: 30vh;
-		}
-		
 		#calendar{					/* 인풋 데이트 넣을 th */
 			width: 30%;
 		}
 		
 		#date{						/* 인풋 데이트 */
 			font-size: 2vh;
+			font-family: 'Humanbumsuk';
+			color: #5C4F4F;
 		}
 		
 		.diary{						/* 다이어리 넣을 박스 */
@@ -76,6 +74,8 @@
 			position: absolute;
 			bottom: 6%;
 			left: 13%;
+			font-family: 'Humanbumsuk';
+			color: #5C4F4F;
 		}
 				
 		.choice_emo{				/* 선택한 감정 */
@@ -83,8 +83,8 @@
 			z-index: 5;
 			width: 6%;
 			height: 6%;
-			top: 8%;
-			left: 87%;
+			top: 18%;
+			left: 80%;
 		}
 		
 		.diary_img{					/* 다이어리 배경 */
@@ -96,6 +96,25 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: top;
+		}
+		
+		.datebox{					/* 날짜 배경이미지 */
+			z-index: 5;
+			position: absolute;
+			top: 0px;
+			left: 5%;
+			width: 500px;
+			height: 80px;
+		}
+		
+		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
+			z-index: 6;
+			position: absolute;
+			top: 0px;
+			left: 35%;
+			font-size: 35px;
+			font-family: 'Humanbumsuk';
+			color: #5C4F4F;
 		}
 		
 		.diatytextbox{				/* 다이어리 흰색박스 */
@@ -124,7 +143,8 @@
 			resize: none;
 			
 			line-height: 1.8;
-			 
+			font-family: 'Humanbumsuk'; 
+			color: #5C4F4F;
 			font-size: 30px;
 												
 			color: #3D3C39;
@@ -133,14 +153,8 @@
 			text-align: center;
 			
 			overflow: hidden;		/* 스크롤 숨기기 */
-		}
-		
-		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
-			z-index: 3;
-			position: absolute;
-			top: 70px;
-			right: 100px;
-			font-size: 35px;
+			
+			
 		}
 		
 		.clickbtn{					/* 연필 */
@@ -155,6 +169,8 @@
 		.c_emotion_t{				/* 감정 테이블 포함한 박스 */
 			height: 700px;
 			position: relative;
+			font-family: 'Humanbumsuk';
+			color: #5C4F4F;
 		}		
 				
 
@@ -221,7 +237,7 @@
 </head>
 <body>
 
-	<input type="text" class="todayinput">
+	<input type="hidden" class="todayinput">
 	<table class="mainbox">
 		<th id="calendar">
 			<input id="date" type="date" onchange="load_diary()">
@@ -231,8 +247,9 @@
 		
 		<th rowspan="2" class="diary">
 			<img class="stamp" src="/blog/img/투명.png">
+			<img class="datebox" alt="제목상자" src="/blog/img/날짜상자1.png">
 			<img class="diatytextbox" src="/blog/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
+			<img onmouseover="alarmback()" ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
@@ -242,7 +259,7 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img onmouseover="alarmemo()" class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
 			<table class="c_emobox" >
 			</table>

@@ -48,12 +48,11 @@ public class DiaryDao extends Dao{
 			return null;
 		}
 	
-	public ArrayList<EmotionDto> getemotion( int cy_num ) {												// 전체 감정 가져오기 테이블 출력용
-		String sql = "select * from emotion where cy_num = ?";
+	public ArrayList<EmotionDto> getemotion() {												// 전체 감정 가져오기 테이블 출력용
+		String sql = "select * from emotion";
 		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, cy_num);
 			rs = ps.executeQuery();
 			while( rs.next() ) {						
 				EmotionDto dto = new EmotionDto(
@@ -65,13 +64,12 @@ public class DiaryDao extends Dao{
 		return list;
 	}
 	
-	public boolean updateemtion( String emotion , int emono , int cy_num ) { 							// 감정 설명 수정 메소드
-		String sql = "update emotion set emotion = ? where emo_no = ? and cy_num = ?";
+	public boolean updateemtion( String emotion , int emono ) { 							// 감정 설명 수정 메소드
+		String sql = "update emotion set emotion = ? where emo_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 ,emotion );
 			ps.setInt( 2, emono );
-			ps.setInt(3, cy_num);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println(e+"감정 설명 수정 메소드 오류");}

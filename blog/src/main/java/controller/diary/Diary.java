@@ -39,6 +39,7 @@ public class Diary extends HttpServlet {
 	            (String)request.getSession().getAttribute("cy_id") );
 		System.out.println("일기작성 감정번호"+emono);
 		System.out.println("일기작성 일기내용"+content);
+		System.out.println("일기작성자 번호 : "+cy_num);
 		
 		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
 		
