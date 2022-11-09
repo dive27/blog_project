@@ -71,6 +71,7 @@
 #title td{
 	padding: 10px;
 	font-size: 15px;
+	white-space: nowrap;
 }
 
 .w_btn_box td{
