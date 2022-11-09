@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="/blog/css/member/main.css">
 </head>
 <body>
+
 	<%@include file="../header.jsp"%>
-<%-- 	
+ 	
 	<% 
 		//만약에 로그인을 하지 않았으면 로그인페이지로 보내버림
-		if(loginid == null) { response.sendRedirect("login.jsp");}
+		if(loginid == null) { response.sendRedirect("/blog/member/login.jsp");}
 	%> 
---%>
+
 
 
 	<div class="wrap">
@@ -58,7 +59,7 @@
 			
 			
 			<!-- ////////////////////////팔로우 요청영역////////////////////////// -->
-			<h5 class="follower_h5"><%=loginid%>님의 이웃 친구들 입니다.</h5>
+			<h5 class="follower_h5"><%=loginid%> 님의 이웃 친구들 입니다.</h5>
 			<div class="follower_wrap section">				
 				
 				<div class="my_follower_list">

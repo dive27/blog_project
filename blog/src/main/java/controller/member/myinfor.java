@@ -28,7 +28,7 @@ public class myinfor extends HttpServlet {
 		String cy_id = (String)request.getSession().getAttribute("cy_id");
 			//세션은 object이기 때문에 반드시 형변환을 해줘야 한다.
 			//System.out.println("myinfor.java cy_id 확인 : "+cy_id);
-			
+		//int cy_num = Integer.parseInt(request.getParameter("cy_num"));
 			
 		// 2. Dao에 있는 메소드를 작성하고 호출한다. 싱글톤으로 작성했기 때문에 getInstance()를 사용함
 				

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/*reset*/
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+.webbox{
+	width: 1200px;
+	margin:0 auto;	
+	margin-top: 130px;
+}
+
+.webbox_title{
+	border-bottom: solid 1px #999999;
+	font-size: 40px;
+	font-weight: bold;
+	margin: 20px;
+	padding: 5px;
+	text-align: center;
+}
+
+.b_box{
+	display: flex;
+    align-items: center;
+    border: solid 2px #F2D1D1;
+    background-color: #FFE6E6;	
+}
+
+.sub_text{
+	padding: 10px;
+    font-size: 15px;
+}
+
+.input_text{
+    padding: 10px;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.input{
+	width: 595px;
+	outline: none;
+}
+
+
+/*버튼영역*/
+
+.btn_section{
+	text-align: center;
+    margin-top: 50px;
+}
+
+.updatebtn{
+	width:100px;
+	height:40px;
+	border:none;
+	outline: none;
+	cursor:pointer;
+	background: #DAEAF1;
+}

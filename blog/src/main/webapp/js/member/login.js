@@ -1,4 +1,6 @@
 
+
+
 function login(){
 	//MemberDao 4.로그인
 	let logininfo = {
@@ -16,7 +18,9 @@ function login(){
 			if( re === '0' ){
 				 alert("회원이 아닙니다.")
 			}else if( re ==='1'){
-				/*alert("로그인성공");*/ location.href="/blog/main.jsp";
+				/*alert("로그인성공");*/ 				
+				get_cy_num() // 11/7 로그인할때 세션에 cy_num 저장 추가 
+				location.href="/blog/main.jsp";
 			}else if(re==='2'){
 				alert("비밀번호틀림")				
 			}else if(re==='3'){
@@ -25,6 +29,22 @@ function login(){
 		}
 	})
 
+}
+
+// 11/7 로그인할때 세션에 cy_num 저장 추가
+let cy_num = -1
+get_cy_num()
+function get_cy_num(){                     // 회원번호 가져오는 함수
+   $.ajax({
+      url : "/blog/member/myinfor" ,         // 인포 서블릿에서
+      async:false,                     
+      success : function(re){
+         let logininfo = JSON.parse( re )   
+         sessionStorage.setItem( "cy_num_se" , logininfo.cy_num )   // 가져온 cy_num js 세션에 저장하고
+         cy_num = sessionStorage.getItem("cy_num_se")       		// 변수 cy_num에 저장해줌         
+         return cy_num;                                    			// 어차피 자동실행 하니까 안해도 되나?   
+      }
+   })
 }
 
 
@@ -36,3 +56,7 @@ function enterkey(){
 	}
 }
 
+function sessionremove(){
+	alert('함수 실행')
+	sessionStorage.removeItem("cy_num_se");
+}

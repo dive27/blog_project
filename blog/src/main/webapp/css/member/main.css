@@ -30,7 +30,7 @@
     margin: 20px 0px;
 }
 .section{
-	padding: 60px 0;
+	padding: 25px 30px;
    
 }
 
@@ -44,15 +44,15 @@ h2{
 .infor_wrap{
 	width: 1200px;
 	margin: 0 auto;
-	margin-top:100px;
+	margin-top:190px;
 }
 
 
 .infor_box{
     width: 800px;
-    margin: 30px auto;
+    margin: 30px auto 100px;;
     padding:40px;
-    border: 1px solid;
+    border: 1px solid #d8d8d8;;
 }
 
 .my_infor{
@@ -137,6 +137,7 @@ h2{
 /*//////////////////내 이웃친구 목록////////////////*/
 .follower_h5{
 	margin: 15px 0px;
+	font-size: 16px;
 }
 
 .follower_wrap{
@@ -154,7 +155,8 @@ h2{
 .follower{
 	display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 20px 10px;
+    width: 140px;
 }
 
 .follower_profile_img{

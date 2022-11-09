@@ -3,8 +3,11 @@
 /*-----------회원정보 호출----------- */
 myinfor();
 function myinfor() {
+	
+	
+	
 	$.ajax({
-		url: "/blog/member/myinfor",
+		url: "/blog/member/myinfor",	
 		success: function(re) {
 			// 통신된 json형식의 문자타입을 JSON 타입으로 형변환 
 			let inforlist = JSON.parse(re) //여기서 왜 오류가 나지?

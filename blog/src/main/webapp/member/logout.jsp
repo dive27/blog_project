@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2> 로그아웃페이지</h2>
+<h2 onclick="sessionremove()"> 로그아웃페이지</h2>
 
 <%
 	//jsp script  태그
 	//session.invalidate(); 모든 세션을 제거한다. 장바구니나 나머지 세션도 날아가는 경우도 있다
 	//특정세션만 지우고 싶을 때
+	
 	
 	session.setAttribute("cy_id", null);
 	
@@ -20,6 +21,14 @@
 	//알림창을 띄우고싶어요  로그아웃되었습니다 이런식으로요
 	response.sendRedirect("/blog/index.jsp");
 %>
+
+<script src ="/blog/js/member/login.js"></script>
+
+
+
+
+
+
 
 </body>
 </html>
