@@ -29,7 +29,7 @@ public class DiaryDao extends Dao{
 	}	
 	
 	public ArrayList<DiaryDto> getdiary ( String date , int cy_num ) {									// 선택한 날짜 일기 가져오기 메소드
-		String sql = "select * from diary where di_date =? and cy_num = ? ";
+		String sql = "select * from diary where di_date =? and cy_num = ?";
 			ArrayList<DiaryDto> list = new ArrayList<>();
 			try {
 				ps = con.prepareStatement(sql);
@@ -39,8 +39,9 @@ public class DiaryDao extends Dao{
 				if( rs.next() ) {
 					DiaryDto dto = new DiaryDto(
 							rs.getInt(1), rs.getString(2), 
-							rs.getString(3), rs.getInt(4));
-							rs.getInt(5);
+							rs.getString(3), rs.getInt(4),
+							rs.getInt(5), rs.getInt(6)
+							);
 					list.add(dto);
 					return list;
 					}
@@ -57,7 +58,7 @@ public class DiaryDao extends Dao{
 			rs = ps.executeQuery();
 			while( rs.next() ) {						
 				EmotionDto dto = new EmotionDto(
-						rs.getInt(1), rs.getString(2), rs.getString(3)
+						rs.getInt(1), rs.getString(2), rs.getString(3) , rs.getInt(4)
 						);
 				list.add(dto);
 			}
@@ -125,7 +126,7 @@ public class DiaryDao extends Dao{
 	}
 	
 	public int backimglist() { // 배경 이미지 개수 가져오는 메소드
-		String sql = "select back_no from backimg order by back_no desc limit 1;";	// 가장 큰 숫자만 가져와서 나중에 반복문 돌릴 때 사용
+		String sql = "select back_img_no from backimg order by back_img_no desc limit 1;";	// 유저 상관없이 다 동일하게 가지고 있음 / cy_num연결하면 디비 둥글게됨
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();

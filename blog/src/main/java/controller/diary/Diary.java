@@ -37,12 +37,8 @@ public class Diary extends HttpServlet {
 		int emono = Integer.parseInt(request.getParameter("emono")); 
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
-		System.out.println("일기작성 감정번호"+emono);
-		System.out.println("일기작성 일기내용"+content);
 		
 		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
-		
-		System.out.println("일기작성 반환값"+result);
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
@@ -55,7 +51,7 @@ public class Diary extends HttpServlet {
 	            (String)request.getSession().getAttribute("cy_id") );
 		
 		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date , cy_num);
-
+		
 		// 리스트가 존재하지 않을때 일기가 없을떄  아예 'null'을 ajax로 보냄
 		if( list == null ) { response.getWriter().print("null"); return; }
 		
@@ -66,6 +62,8 @@ public class Diary extends HttpServlet {
 			object.put("di_date", dto.getDi_date());
 			object.put("di_content", dto.getDi_content());
 			object.put("em_no", dto.getEmo_no());
+			object.put("cy_num", dto.getCy_num());
+			object.put("backno", dto.getBack_img_no());
 			array.add(object);
 		}
 		
@@ -77,17 +75,12 @@ public class Diary extends HttpServlet {
 	
 	@Override	// 오늘 일기 수정 관련
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			System.out.println("오늘일기 유무 풋 들어옴");
 		
 			String today = (String.valueOf(request.getParameter("today")));
 			int cy_num = MemberDao.getInstance().getcy_id( 
 		            (String)request.getSession().getAttribute("cy_id") );
-		
-			System.out.println("오늘일기 유무 풋 오늘 날짜 : "+today);
-		
 			
 			boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num);
-			System.out.println("오늘일기 유무 풋 반환값"+result);
 			
 			response.getWriter().print(result);		// 널값만 전달돼서 테스트 위해 임의로 이렇게 써둠
 	}
@@ -95,17 +88,12 @@ public class Diary extends HttpServlet {
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("일기수정 딜리트에 들어왔어요");
 		String content = request.getParameter("content");
 		String today = request.getParameter("today");
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
 		int emono = Integer.parseInt(request.getParameter("emono")) ;
-		
-		System.out.println("일기수정 - 일기 : " + content);
-		System.out.println("일기수정 - 오늘 날짜 : " + today);
-		System.out.println("일기수정 - 감정" + emono);
-		
+			
 		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
 		System.out.println("result : " + result);
 		

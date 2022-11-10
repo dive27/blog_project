@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 <style type="text/css">
 		@font-face {
-	    font-family: 'Humanbumsuk';
+	    
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
 	    font-weight: normal;
 	    font-style: normal;
@@ -25,11 +25,16 @@
 		
 		*{
 			box-sizing: border-box;
-			font-family: 'Humanbumsuk';
 		}
 		
 		.mainbox{					/* 전체박스 */
 			height: 30vh;
+			
+		}
+		
+		.todaydate , .c_emobox , #content{	/* 글 있는 부분 */
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		#calendar{					/* 인풋 데이트 넣을 th */
@@ -83,8 +88,8 @@
 			z-index: 5;
 			width: 6%;
 			height: 6%;
-			top: 8%;
-			left: 87%;
+			top: 17%;
+			left: 77%;
 		}
 		
 		.diary_img{					/* 다이어리 배경 */
@@ -98,7 +103,16 @@
 			background-position: top;
 		}
 		
-		.diatytextbox{				/* 다이어리 흰색박스 */
+		.dateboximg{				/* 날짜 상자 이미지 */
+			z-index: 3;
+			position: absolute;
+			top: 2%;
+			left: 2%;
+			width: 550px;
+			height: 80px;
+		}
+		
+		.diarytextbox{				/* 다이어리 흰색박스 */
 			z-index: 2;
 			position: absolute;
 			top: 10%;
@@ -138,9 +152,11 @@
 		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
 			z-index: 3;
 			position: absolute;
-			top: 70px;
-			right: 100px;
+			top: 2%;
+			right: 33%;
 			font-size: 35px;
+			
+			
 		}
 		
 		.clickbtn{					/* 연필 */
@@ -149,15 +165,12 @@
 			width: 70%;										
 			float: right;
 			margin-top: 30%;
-			
 		}
 				
 		.c_emotion_t{				/* 감정 테이블 포함한 박스 */
 			height: 700px;
 			position: relative;
 		}		
-				
-
 				
 		.c_emotion_t tr{
 			width: 100%;
@@ -221,7 +234,7 @@
 </head>
 <body>
 
-	<input type="text" class="todayinput">
+	<input type="hidden" class="todayinput">
 	<table class="mainbox">
 		<th id="calendar">
 			<input id="date" type="date" onchange="load_diary()">
@@ -230,8 +243,9 @@
 		</th>
 		
 		<th rowspan="2" class="diary">
+			<img class="dateboximg" alt="날짜상자" src="/blog/img/날짜상자1.png">
 			<img class="stamp" src="/blog/img/투명.png">
-			<img class="diatytextbox" src="/blog/img/레이스종이.png">
+			<img class="diarytextbox" src="/blog/img/레이스종이.png">
 			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/blog/img/투명.png">
