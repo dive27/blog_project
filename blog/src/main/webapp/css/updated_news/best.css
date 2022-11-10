@@ -23,12 +23,13 @@
 .webbox{
 	width: 1200px;
 	margin: 0 auto;
+	background-color: #DAEAF1;
 }
 
 .b_box{	/* 보조틀 */
 	border: double 5px #C6DCE4;
-	background-color: #DAEAF1;
 	margin: 10px;
+	background-color: #DAEAF1;
 }
 
 /* 인기게시물 전체박스 */
@@ -83,7 +84,10 @@ h2{
 	display: flex;
     align-items: center;
 }
-
+.udpated_img img{
+	border-radius: 15px;
+	border: solid 1px #999999;
+}
 
 .m_name{
 	margin-left: 20px;
@@ -132,6 +136,11 @@ h2{
 	width: 20%;
 	height: 230px;
 }
+/* 이미지 확대 : 애니메이션 추가 */
+.me_img:hover {
+	transform: scale(1.5);
+}
+
 /* 공감, 댓글 */
 .ah{
 	margin: 10px;
@@ -149,26 +158,26 @@ h2{
   width: 100%;
   height: auto;
 }
-		
+/* 인기게시물 애니메이션 효과 */	
 .overlay {
   position: absolute;
   bottom: 0;
   left: 20px;
   right: 0;
-  background-color: #008CBA;
+  background-color: #FFE6E6;
   overflow: hidden;
   text-align: center;
   width: 300px;
   height: 0;
   transition: .5s ease;
 }
-		
+/* 애니메이션 효과 */
 .container:hover .overlay {
 	height: 100%;
 }
-		
+/* 애니메이션 효과 */
 .text {
-	color: white;
+	color: gary;
 	font-size: 20px;
 	position: absolute;
 	top: 50%;
@@ -178,6 +187,7 @@ h2{
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
+
 
 
 
