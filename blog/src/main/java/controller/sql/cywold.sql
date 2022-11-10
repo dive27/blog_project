@@ -103,11 +103,19 @@ insert into emotion value( null , '우울한 날' , '하트3.gif' , 1);
 insert into emotion value( null , '화나는 날' , '하트4.gif' , 1);
 insert into emotion value( null , '행복한 날' , '하트5.gif' , 1);
 
+
+-- 이미지 board
+
+drop table if exists imgboard;
 create table imgboard(
 imgb_no  int auto_increment primary key,
 imgb_title varchar(20),
 imgb_content varchar(30),
 imgb_file longtext ,
 imbb_date  datetime default now(),
-imbb_view int default 0 
+imbb_view int default 0 ,
+cno	int ,				-- 카테고리번호 FK 
+cy_num 	int	,			-- 작성자  
+constraint icno_fk foreign key (cno) references category(cno) on update cascade ,
+constraint imno_fk foreign key (cy_num) references cywold_signup(cy_num) on delete cascade
 );
