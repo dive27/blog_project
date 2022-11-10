@@ -19,14 +19,14 @@
     내용 : <div class="b_content"> </div>
     
    
-    
+
     <div class="btnbox">	
-		    <a href="plist.jsp"><button>목록보기</button></a>
+	   <button type="button" onclick="pagechange('/blog/gallery/plist.jsp')">목록보기</button>
 	</div>
     
    </div> 
    
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+   <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="/blog/js/gallery/listdetail.js" type="text/javascript"></script>
     
 </body>
