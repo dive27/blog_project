@@ -5,22 +5,24 @@ let choice_emo = document.querySelector('.choice_emo')
 let emosrc = null;
 let count = -1;
 let emo_no = -1;
+let backno = 1;	// 기본 이미지
 
-
-  
-         if( cy_num > 0 ){
-         	sessionStorage.removeItem("cy_num_se");                          	
-         	}
+  /*
+	  if( cy_num > 0 ){
+	     	sessionStorage.removeItem("cy_num_se");                          	
+	     	}
+  */
+     
 
 
 // 머지 한 다음에 이용가능..
-let cy_num = sessionStorage.getItem("cy_num_se")
+let cy_num = 1 //sessionStorage.getItem("cy_num_se")
 
 //if( cy_num == -1 ){
-	alert("회원만 이용 가능한 기능이에요😅")
-	if(confirm('로그인 페이지로 이동할까요?')){
-		pagechange('/blog/member/login.jsp')
-	}
+	// alert("회원만 이용 가능한 기능이에요😅")
+	// if(confirm('로그인 페이지로 이동할까요?')){
+	// 	pagechange('/blog/member/login.jsp') // 왜 제대로 안뜰까~
+	// }
 //}else{
 	getToday()		  // 오늘 날짜 가져오는 함수		
 	getemotiontable() // 감정 테이블 출력하는 함수
@@ -60,6 +62,7 @@ function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ]
 		}
 	})
 }
+
 
 function choiceemono(no){							// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
 	emo_no = no;
@@ -112,8 +115,13 @@ getToday()
 						
 			}else if(  re == 'null'  ){alert('일기를 쓰지 않은 날이에요😅')	// 만약 일기가 존재하지 않는다면 오늘로 이동
 				if( json[0].di_date == today ){
-					alert('아니 오늘이면 일기쓰게 해줘야지')
+					alert('아니 오늘이면 일기쓰게 해줘야지 왜 안떠!')
 					loadtoday()
+				}else{	// 오늘이 아니고 수정불가
+					document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
+					document.getElementById('content').value = '';							// 일기장 비워주기
+					document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+					document.getElementById('content').readOnly=true;						// 글 수정 불가
 				}
 				document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
 				document.getElementById('content').readOnly=true;						// 글 수정 불가	
@@ -137,7 +145,6 @@ function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
 				alert('오늘은 이미 작성한 일기가 있습니다.')
 					if(confirm('수정할까요?')){
 						count++;		// 만약 수정한다면 - 오늘 글이 있으면 카운트 수 바꿔주고
-						alert('===========현재 카운트 : '+count)
 						update_today_di()
 					}
 				}
@@ -150,7 +157,7 @@ function writediary(){			// 다이어리 작성 함수 [ 완 ]
 	
 	$.ajax({
 		url : "/blog/Diary" ,
-		data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no } ,
+		data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
 		async:false,
 		success : function( re ){
 			if( count == -1 ){ // 카운트가 변동하지 않고 그대로 -1일때만 글쓰기 작동
@@ -233,21 +240,21 @@ let emotableimg = document.querySelector('.emotableimg')
 let back_img = document.querySelector('.diary_img')
 let datebox_img = document.querySelector('.datebox')
 
-let imglist = 1;
+
 function change_back_img(){										// 배경 더블클릭시 배경 이미지 변경해주는 함수 
 	$.ajax({
 		url : "/blog/backimg" ,
 		async:false,
 		success : function(re){
-				imglist++;	
-				let back_img_src = "/blog/img/배경"+imglist+".png";
-				let datebox_src = "/blog/img/날짜상자"+imglist+".png";		// 컬러 바꾸기~ 보라색 안어울려
+				backno++;	
+				let back_img_src = "/blog/img/배경"+backno+".png";
+				let datebox_src = "/blog/img/날짜상자"+backno+".png";		// 컬러 바꾸기~ 보라색 안어울려
 				
 				emotableimg.src=back_img_src
 				back_img.src=back_img_src
 				datebox_img.src=datebox_src		// 이제 이걸 다 디비에 연결해서 해당 다이어리에 저장해야된다? 하기싫다~!!!
 				
-				if( imglist == re ){ imglist = 1; return;}
+				if( backno == re ){ backno = 1; return;}
 			}
 		})
 	}
@@ -329,5 +336,4 @@ function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
 }
 
 */
-
 

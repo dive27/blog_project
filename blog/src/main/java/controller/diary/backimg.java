@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.DiaryDao;
+import model.dao.MemberDao;
 
 /**
  * Servlet implementation class backimg
@@ -26,7 +27,10 @@ public class backimg extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int result = DiaryDao.getInstance().backimglist();
+		int cy_num = 1; //MemberDao.getInstance().getcy_id( 
+	            //(String)request.getSession().getAttribute("cy_id") );
+		
+		int result = DiaryDao.getInstance().backimglist(cy_num);
 				
 		response.getWriter().print(result);
 	}

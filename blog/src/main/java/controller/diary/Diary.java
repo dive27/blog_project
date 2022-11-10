@@ -35,13 +35,15 @@ public class Diary extends HttpServlet {
     	
 		String content = request.getParameter("content");
 		int emono = Integer.parseInt(request.getParameter("emono")); 
-		int cy_num = MemberDao.getInstance().getcy_id( 
-	            (String)request.getSession().getAttribute("cy_id") );
+		int cy_num = 1; //MemberDao.getInstance().getcy_id( 
+	            //(String)request.getSession().getAttribute("cy_id") );
+		int backno = Integer.parseInt(request.getParameter("backno")); 
+		
 		System.out.println("일기작성 감정번호"+emono);
 		System.out.println("일기작성 일기내용"+content);
 		System.out.println("일기작성자 번호 : "+cy_num);
 		
-		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
+		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num, backno );
 		
 		System.out.println("일기작성 반환값"+result);
 		
@@ -52,8 +54,9 @@ public class Diary extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String date = request.getParameter("date");
-		int cy_num = MemberDao.getInstance().getcy_id( 
-	            (String)request.getSession().getAttribute("cy_id") );
+		int cy_num = 1; //MemberDao.getInstance().getcy_id( 
+	            //(String)request.getSession().getAttribute("cy_id") );
+		int backno = Integer.parseInt(request.getParameter("backno")); 
 		
 		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date , cy_num);
 
@@ -81,8 +84,8 @@ public class Diary extends HttpServlet {
 			System.out.println("오늘일기 유무 풋 들어옴");
 		
 			String today = (String.valueOf(request.getParameter("today")));
-			int cy_num = MemberDao.getInstance().getcy_id( 
-		            (String)request.getSession().getAttribute("cy_id") );
+			int cy_num = 1; //MemberDao.getInstance().getcy_id( 
+		            //(String)request.getSession().getAttribute("cy_id") );
 		
 			System.out.println("오늘일기 유무 풋 오늘 날짜 : "+today);
 		
@@ -99,15 +102,16 @@ public class Diary extends HttpServlet {
 		System.out.println("일기수정 딜리트에 들어왔어요");
 		String content = request.getParameter("content");
 		String today = request.getParameter("today");
-		int cy_num = MemberDao.getInstance().getcy_id( 
-	            (String)request.getSession().getAttribute("cy_id") );
+		int cy_num = 1; //MemberDao.getInstance().getcy_id( 
+	            //(String)request.getSession().getAttribute("cy_id") );
 		int emono = Integer.parseInt(request.getParameter("emono")) ;
+		int backno = Integer.parseInt(request.getParameter("backno")); 
 		
 		System.out.println("일기수정 - 일기 : " + content);
 		System.out.println("일기수정 - 오늘 날짜 : " + today);
 		System.out.println("일기수정 - 감정" + emono);
 		
-		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
+		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num , backno);
 		System.out.println("result : " + result);
 		
 		response.getWriter().print(result);

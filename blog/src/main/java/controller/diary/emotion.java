@@ -37,7 +37,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		String cy_id = (String)request.getSession().getAttribute("cy_id");
 		
-		int cy_num = MemberDao.getInstance().getcy_id(cy_id);
+		int cy_num = 1; //MemberDao.getInstance().getcy_id(cy_id);
 		
 		System.out.println(cy_num);
 		

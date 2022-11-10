@@ -56,17 +56,16 @@ create table reply(
 
 
 --  다이어리 관련 --
-
--- 다이어리 
 drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,		-- 다이어리 식별번호
     di_date date default (current_date) ,		-- 다이어리 작성날짜(당일일기만 가능)
-    di_content varchar(200) not null, 			-- 작성한 다이어리 내용
+    di_content text not null, 					-- 작성한 다이어리 내용
     emo_no int ,								-- 선택한 감정 번호
-    back_no int ,								-- 배경이미지 넘버 / 어차피 배경이미지 이름은 통일하고 이클립스에 넣어두는 거니까..
     cy_num int ,								-- 회원 식별번호
-    constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num) on delete cascade
+    back_img_no int ,							-- 배경 이미지 번호
+    constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num),
+    constraint back_img_no_di_fk foreign key (back_img_no) references backimg (back_img_no)
 );
 select * from diary;
 
@@ -76,21 +75,28 @@ create table emotion(
 	emo_no int auto_increment primary key ,			-- 감정식별번호
     emotion varchar(20) ,							-- 감정설명	
     emo_img varchar(20) ,							-- 감정이미지이름	
-	di_no int ,
-    constraint di_no_em_fk foreign key (di_no) references diary (di_no) on delete cascade
+	cy_num int ,
+    constraint cy_num_em_fk foreign key (cy_num) references Cywold_signup (cy_num)
 );
 select * from emotion;
 
--- js와 관련되어 추가해둡니다.
-insert into backimg values( null , '배경1' , 1 );
-insert into backimg values( null , '배경2' , 1 );
-insert into backimg values( null , '배경3' , 1 );
-insert into backimg values( null , '배경4' , 1 );
-insert into backimg values( null , '배경5' , 1 );
+-- 다이어리 배경 이미지
+drop table if exists backimg;
+create table backimg(
+	back_img_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
+    back_img varchar(20) 										-- 다이어리 배경 이미지 이름
+);
+select * from backimg;
 
--- js와 관련되어 추가해둡니다
-insert into emotion value( null , '슬픈 날' , '하트1.gif' , 1);
-insert into emotion value( null , '즐거운 날' , '하트2.gif' , 1);
-insert into emotion value( null , '우울한 날' , '하트3.gif' , 1);
-insert into emotion value( null , '화나는 날' , '하트4.gif' , 1);
-insert into emotion value( null , '행복한 날' , '하트5.gif' , 1);
+-- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
+insert into emotion values( null , '슬픈 날' , '하트1.gif' , 1);
+insert into emotion values( null , '즐거운 날' , '하트2.gif' , 1);
+insert into emotion values( null , '우울한 날' , '하트3.gif' , 1);
+insert into emotion values( null , '화나는 날' , '하트4.gif' , 1);
+insert into emotion values( null , '행복한 날' , '하트5.gif' , 1);
+
+insert into backimg values( null , '배경1' );
+insert into backimg values( null , '배경2' );
+insert into backimg values( null , '배경3' );
+insert into backimg values( null , '배경4' );
+insert into backimg values( null , '배경5' );

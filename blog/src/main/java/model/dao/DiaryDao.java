@@ -15,13 +15,14 @@ public class DiaryDao extends Dao{
 	private static DiaryDao ddao = new DiaryDao();
 	public static DiaryDao getInstance() { return ddao; }
 	
-	public boolean dwrite( String content , int emono , int cy_num ) {									// 다이어리 작성 메소드
-		String sql = "insert into diary ( di_content , emo_no , cy_num ) values( ? , ? , ?)";
+	public boolean dwrite( String content , int emono , int cy_num , int backno) {									// 다이어리 작성 메소드
+		String sql = "insert into diary ( di_content , emo_no , cy_num , back_img_no ) values( ? , ? , ? , ? )";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
 			ps.setInt(2, emono );
 			ps.setInt(3, cy_num);
+			ps.setInt(4, backno);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println("다이어리 작성 메소드 오류" + e);}
@@ -106,7 +107,7 @@ public class DiaryDao extends Dao{
 		return false;
 	}
 	
-	public boolean update_today_di( String content , String date , int emo_no , int cy_num ) {  // 오늘 일기 수정 메소드
+	public boolean update_today_di( String content , String date , int emo_no , int cy_num , int backno ) {  // 오늘 일기 수정 메소드
 		System.out.println("오늘일기수정메소드");
 		String sql = "update diary set di_content = ? , emo_no = ? where di_date = ? and cy_num = ? ";
 		try {
@@ -115,6 +116,7 @@ public class DiaryDao extends Dao{
 			ps.setInt(2, emo_no);
 			ps.setString(3, date);
 			ps.setInt(4, cy_num);
+			ps.setInt(5, backno);
 			ps.executeUpdate();
 			System.out.println("오늘일기수정메소드들어왔어요");
 			return true;
@@ -122,10 +124,11 @@ public class DiaryDao extends Dao{
 		return false;
 	}
 	
-	public int backimglist() { // 배경 이미지 개수 가져오는 메소드
-		String sql = "select back_no from backimg order by back_no desc limit 1;";	// 가장 큰 숫자만 가져와서 나중에 반복문 돌릴 때 사용
+	public int backimglist( int cy_num ) { // 배경 이미지 개수 가져오는 메소드
+		String sql = "select back_img_no from diary where cy_num = ? order by back_img_no desc limit 1";	// 가장 큰 숫자만 가져와서 나중에 반복문 돌릴 때 사용
 		try {
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, cy_num);
 			rs = ps.executeQuery();
 			if( rs.next() ) {
 				int imgmaxno = rs.getInt(1);
