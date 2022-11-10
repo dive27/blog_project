@@ -25,29 +25,12 @@
 	margin: 0 auto;
 	display: flex;
 	padding-top: 100px;
+	background-color: #DAEAF1;
 }
 .mainbox{
 	width: 900px;
 }
-/*---------------------------------- 상단 헤더 ------------------------------------*/
-.hd_top{
-	display: flex;
-	justify-content: space-between;
-	margin: 10px 0px 10px 0px;
-	background-color: #F2D1D1;
-	padding: 15px;
-}
-.hd_title a{
-	font-size: 30px;
-}
-.hd_sub{
-	display: flex;
-	font-size: 15px;
-	margin: 10px;
-}
-.hd_sub li{
-	margin-left: 20px;
-}
+
 
 /*---------------------------------- 하단 헤더 ---------------------------------*/
 
@@ -55,10 +38,7 @@
 .hd_menu{ 
 	width: 250px;
 	height: auto; 
-	border: double 7px #F2D1D1;
-	background-color: white;
 	margin: 20px;
-	padding: 15px 0px;
 	text-align: left;
 	float: left;
 }
@@ -66,18 +46,12 @@
 
 /* ----------------------- 프로필 박스 ----------------------  */
 .profilebox{
-	padding: 30px 3px;
+	background-color: white;
+	border-radius: 15px;
 	padding: 15px 10px;
-	border-bottom: dotted 1px #999999;
+	margin-bottom: 15px;
 }
-.p_title{	/* 타이틀 박스 */
-	text-align: center;
-	font-weight: bold;
-	margin: 0px auto;
-	background-color: #C6DCE4;
-	font-size: 15px;
-	height: 100%;
-}
+
 
 .about_me{	/* 자기소개 이미지, 내용 박스 */
 	margin-top: 15px;
@@ -87,22 +61,32 @@
 	text-align: center;
 }
 .profileimg img{
-	width: 85%;
+	width: 92%;
 }
 
 .profilename{ /* 별명, 인사말 */
 	margin: 7px;
 	font-size: 12px;
-	background-color: #DAEAF1;
+	/*background-color: #DAEAF1;*/
 	text-align: center;
+	border: double 2px #FFE6E6;
 }
 
 
 /* ------------------- 카테고리box ----------------------- */
 .categorybox{ 
-	border-bottom: dotted 1px #999999;
-	padding: 40px 10px;
+	background-color: white;
+	border-radius: 15px;
+	padding: 15px 10px;
 }
+.p_title{
+	background-color: #C6DCE4;
+	margin: 0 atuo;
+	text-align: center;
+	border-radius: 10px;
+	height: 25px;
+}
+
 .category{
 	font-size: 20px;
 	text-align: center;
@@ -124,10 +108,10 @@
 	padding: 5px;
 }
 .clist ul{
-	padding: 13px;
+	padding: 10px;
 }
 .clist li{
-	padding: 10px;
+	padding: 5px;
 }
 .clist a:hover{
 	color: purple;
@@ -143,6 +127,8 @@
 .sns_box{	/* sns box 전체 */
 	margin-top: 15px;
 	padding: 15px 10px 15px 10px;
+	background-color: white;
+	border-radius: 15px;
 }
 
 .about_me_sns1 , .about_me_sns2{
@@ -219,5 +205,4 @@ h_img{
 	margin: 20px auto;
     text-align: center;
     border-radius: 30px;
-
 }
