@@ -58,7 +58,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int emono = Integer.parseInt(request.getParameter("emono"));
 		
 		String emotion = request.getParameter("emotion");
-
 		
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );

@@ -232,7 +232,7 @@
 			<img class="dateboximg" alt="날짜상자" src="/blog/img/날짜상자1.png">
 			<img class="stamp" src="/blog/img/투명.png">
 			<img class="diarytextbox" src="/blog/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
+			<img onmouseover="alarmback()" ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
@@ -242,7 +242,7 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img onmouseover="alarmchangeemo()" class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
 			<table class="c_emobox" >
 			</table>

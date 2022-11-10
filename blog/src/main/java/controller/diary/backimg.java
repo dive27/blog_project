@@ -29,8 +29,6 @@ public class backimg extends HttpServlet {
 		
 		int result = DiaryDao.getInstance().backimglist();
 		
-		System.out.println("배경이미지수"+result);	
-		
 		response.getWriter().print(result);
 	}
 
