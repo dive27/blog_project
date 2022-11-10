@@ -66,8 +66,13 @@ h2{
 	width: 70px;
     height: 70px;
     border-radius: 50%;
-    background: lightblue;	
+    overflow: hidden;	
 }
+
+.profile_img img{
+	width: 100%;
+}
+
 .my_blog_name{	
 	margin: 0 10px;
 	text-align: center;
@@ -88,6 +93,7 @@ h2{
     padding: 15px;
     text-align: center;
     margin: 0 auto;
+    cursor:pointer;
 }
 .today_box{
 	display: flex;
@@ -156,7 +162,7 @@ h2{
 	display: flex;
     align-items: center;
     margin: 20px 10px;
-    width: 140px;
+   /*  width: 140px; */
 }
 
 .follower_profile_img{
@@ -164,6 +170,7 @@ h2{
     height: 70px;
     border-radius: 50%;
     background: #aaaedd;
+    overflow: hidden;
 }
 
 .follower_profile_img img{
@@ -208,7 +215,7 @@ h2{
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
-	background: pink;
+	overflow: hidden;
 }
 
 

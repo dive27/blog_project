@@ -15,7 +15,7 @@ alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의
 alert('더블클릭을 하면 이벤트가 있어요!👂')
 
 let cy = sessionStorage.getItem("cy_num_se")
-alert(cy)
+//alert(cy)
 
 function getToday(){		// 오늘 날짜 가져오는 함수
     date = new Date();

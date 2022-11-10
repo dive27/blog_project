@@ -17,8 +17,53 @@ cy_nickname varchar(30),	-- 이름도 가능하지만, 닉네임으로도 **의 
 cy_signuptime datetime default now(), -- 가입날짜 추가...10/30
 cy_cash int default 0		-- 노래구매 및 스킨구매 용으로 도토리
 );
-
 select * from Cywold_signup;
+
+-- 이미지변경
+drop table if exists Cywold_signup_pforile_img;
+create table Cywold_signup_pforile_img(
+	cy_imgno int auto_increment primary key  ,  -- 프로필 식별 번호 피케이 
+    cy_profile_img longtext, -- 프로필 사진 이름 
+    cy_num int,  -- 프로필 사진 주인 fk
+    constraint profile_cy_num foreign key (cy_num) references Cywold_signup (cy_num)
+);
+
+select * from Cywold_signup_pforile_img;
+
+select cy_profile_img from Cywold_signup_pforile_img where cy_num="6";
+select cy_num from Cywold_signup_pforile_img ;
+
+
+-- 1.먼저 이미지 테이블에 해당 회원번호가 존재하는지 select
+select * from Cywold_signup_pforile_img where cy_num="7";
+
+-- 1. 만약에 존재하면 update
+update Cywold_signup_pforile_img set cy_profile_img="coffee.jpg" , cy_num="7";
+
+
+-- 2. 존재하지 않으면 insert
+insert into Cywold_signup_pforile_img (cy_profile_img) values ("coffee.jpg");
+insert into Cywold_signup_pforile_img( cy_profile_img , cy_num ) values("coffee.jpg","7");
+select * from Cywold_signup;
+
+
+drop table if exists Cywold_signup_follow;
+create table Cywold_signup_follow(
+	cy_follow_no int auto_increment primary key,  -- 이웃 식별 번호 피케이 
+    cy_num_from int,   -- 이웃 신청한 회원번호  fk
+    cy_num_to int, -- 이웃 신청 받은 회원번호  fk
+    cy_follow_message varchar(100), -- 간단한 메세지
+    constraint cy_num_from foreign key (cy_num_from) references Cywold_signup (cy_num), -- 이웃신청을 한 사람
+    constraint cy_num_to foreign key (cy_num_to) references Cywold_signup (cy_num) -- 이웃신청을 받은사람
+);
+
+select * from Cywold_signup_follow;
+select * from Cywold_signup_pforile_img where cy_num = 7;
+
+-- 8-2 회원 이름을 가지고 회원 이름을 찾는 메소드
+
+select cy_name from Cywold_signup where cy_id = "admin";
+
 
 DROP TABLE if exists category;
 create table category( cno int auto_increment primary key , cname varchar(100)  );
@@ -37,6 +82,8 @@ CREATE TABLE board(
     constraint bcno_fk foreign key (cno) references category(cno) on update cascade ,
     constraint bmno_fk foreign key (cy_num) references cywold_signup(cy_num) on delete cascade
 );
+
+
 
 -- 댓글 : 1.게시물번호 2.회원번호 3.내용 4.답글식별필드
 drop table if exists reply;
@@ -111,3 +158,4 @@ imgb_file longtext ,
 imbb_date  datetime default now(),
 imbb_view int default 0 
 );
+

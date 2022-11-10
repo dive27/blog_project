@@ -39,14 +39,13 @@
 						<!-- 자기소개 이미지, 내용 박스 -->
 						<div class="profileimg">
 							<!-- 상단 메뉴 : 이미지 -->
-							<img alt="" src="/jspweb2/img/초상화.jpg">
+							<img alt="" src="" class="profile_img">
 						</div>
 						<div class="profilename">
 							<span> 별명 : 소공녀 </span><br> <span> 소개글 : 아기자기하게 꾸미는걸 좋아하는 나의 블로그 </span>
-
 							<!-- 방문자 수 기록 코드 작성 칸 -->
-
 						</div>
+						<div> <p><a href="#ex1" rel="modal:open">프로필사진변경</a></p> <button>이웃신청</button></div>
 
 						<!-- 프로필이름 end -->
 					</div>
@@ -123,9 +122,30 @@
 			<div class="mainbox"> </div>
 			
 	</div> <!-- 웹페이지 박스 end -->
-
+	
+	
+			<div id="ex1" class="modal">
+			  <p>프로필변경</p>
+			  
+			  <!--  프로필 미리 보기 있으면 좋음  -->
+			  
+			  
+			  <form>
+			  	<input type="file" name="cy_profile_img">
+			  	<button type="button" class="imgadd">등록</button>
+			  </form>
+			</div>
+			
+			<!-- Link to open the modal -->
+			
+	
+	
+	
 	<!-- 사용자지정 JS -->
 	<script type="text/javascript" src="/blog/js/tindex.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	
 	
 

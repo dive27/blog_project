@@ -21,17 +21,17 @@
 
 	<div class="wrap">
 		<div class="infor_wrap">
-			<h3 class="myinfor_title">내정보</h3>
+			<h3 class="myinfor_title"></h3>
 		
 				<table class="infor_table">
 					<tr>
 						<td class="td_1">회원번호</td>
-						<td id="cy_num"></td>
+						<td id="cy_num" class="readonly"></td>
 					</tr>
 
 					<tr>
 						<td class="td_1">아이디</td>
-						<td id="cy_id"></td>
+						<td id="cy_id"  class="readonly"></td>
 					</tr>
 					<tr>
 						<td class="td_1">이름</td>
@@ -60,13 +60,14 @@
 					</tr>
 					<tr>
 						<td class="td_1">가입날짜</td>
-						<td id="cy_signuptime"></td>
+						<td id="cy_signuptime"  class="readonly"></td>
 					</tr>
 				</table>
 		
 
 			<div class="btn_section">
-				<button type="reset" class="cancelbtn inforbtn">취소하기</button>
+				<a href="/blog/member/myinfor.jsp">
+				<button type="reset" class="cancelbtn inforbtn">뒤로가기</button></a>
 				<button type="button" class="updateinforbtn inforbtn" onclick="updateinforbtn()">수정하기</button>
 			</div><!-- btn_section -->
 		</div><!-- infor_wrap -->

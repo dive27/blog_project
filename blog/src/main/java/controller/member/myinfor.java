@@ -27,9 +27,14 @@ public class myinfor extends HttpServlet {
 		// 1.세션에 로그인정보 호출
 		String cy_id = (String)request.getSession().getAttribute("cy_id");
 			//세션은 object이기 때문에 반드시 형변환을 해줘야 한다.
-			//System.out.println("myinfor.java cy_id 확인 : "+cy_id);
+			System.out.println("myinfor.java cy_id 확인 : "+ cy_id);
 		//int cy_num = Integer.parseInt(request.getParameter("cy_num"));
 			
+		//11/10 이름가져오기 추가 예은
+		//String cy_name = (String)request.getSession().getAttribute("cy_name");
+			//System.out.println("myinfor.java cy_name 확인 : " +  cy_name); //null?이라뇨?
+		
+		
 		// 2. Dao에 있는 메소드를 작성하고 호출한다. 싱글톤으로 작성했기 때문에 getInstance()를 사용함
 				
 		  //MemberDao 9. 내 회원정보 호출하기
@@ -56,7 +61,7 @@ public class myinfor extends HttpServlet {
 		  //3. 결과값을 보내기 위해 응답함 
 		  response.setCharacterEncoding("UTF-8");
 		  response.getWriter().print( object );
-		  //System.out.println("myinfor.java dto 확인 : " + object);
+		  	//System.out.println("myinfor.java dto 확인 : " + object);
 	}
 
 	
