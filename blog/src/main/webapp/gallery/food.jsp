@@ -40,25 +40,25 @@
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food1.jpg">
-								<a href="https://www.instagram.com/" class="divs"> 가츠시 <br> 돈까스<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> 가츠시 <br> 돈까스<span class="content_icon"></span></a>
 							</div>
 						</td>
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food23.jpg">
-								<a href="https://www.instagram.com/" class="divs"> 걸짝떡볶이 <br> 떡볶이&치즈볼 튀김<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> 걸짝떡볶이 <br> 떡볶이&치즈볼 튀김<span class="content_icon"></span></a>
 							</div>
 						</td>
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food3.jpg">
-								<a href="https://www.instagram.com/" class="divs"> BHC <br> 뿌링클<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> BHC <br> 뿌링클<span class="content_icon"></span></a>
 							</div>
 						</td>
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food4.jpg">
-								<a href="https://www.instagram.com/" class="divs"> 탕화쿵푸 <br> 마라탕<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> 탕화쿵푸 <br> 마라탕<span class="content_icon"></span></a>
 							</div>
 						</td>
 					</tr>
@@ -67,13 +67,13 @@
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food6.jpg">
-								<a href="https://www.instagram.com/" class="divs"> 밤도깨비 야시장<br> 큐브스테이크<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> 밤도깨비 야시장<br> 큐브스테이크<span class="content_icon"></span></a>
 							</div>
 						</td>
 						<td>
 							<div>
 								<img class="img" alt="" src="/blog/img/food/food19.jpg">
-								<a href="https://www.instagram.com/" class="divs"> 메가스시 <br> 초밥<span class="content_icon"></span></a>
+								<a class="nav-link" class="divs"> 메가스시 <br> 초밥<span class="content_icon"></span></a>
 							</div>
 						</td>
 						<td>

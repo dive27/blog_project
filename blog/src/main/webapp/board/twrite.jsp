@@ -65,11 +65,13 @@
 			
 		</div> <!-- 글쓰기 페이지 전체 end -->
 	
+	<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 	<!-- 사용자정의 js -->
 	<script src="/blog/js/board/twrite.js" type="text/javascript"></script>
 	
-	<!-- JQUERY 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 
 
 </body>
