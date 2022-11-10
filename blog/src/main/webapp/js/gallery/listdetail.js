@@ -17,8 +17,43 @@ function detail(){  //1. 글쓰기 출력
 			document.querySelector('.b_img').innerHTML = Iboard.imgb_file;
 			document.querySelector('.b_content').innerHTML = Iboard.imgb_content;
 			
+			
+
+	
+		   	
+		   let btnbox = document.querySelector('.btnbox')
+		   
+		    if(Iboard.btnaction == true){
+			 let deletebtn ='<button onclick="imgdelete('+Iboard.imgb_no+')"> 삭제 </button>'
+			 btnbox.innerHTML += deletebtn;
+			
+			
+		}
+		    
+		    
+		    
+		   
 		   	
 
                     }
              })
 }
+
+
+//삭제 
+function imgdelete( imgb_no ){
+	$.ajax({
+		url:"/blog/board/bimgdelete",
+		data : { "imgb_no" : imgb_no },
+		success: function( re ){
+	    if ( re == 'true'){
+		   alert('사진 삭제 성공')
+		   $(".mainbox").load("/blog/gallery/plist.jsp")
+	}else { alert (' 삭제 실패')}
+	    
+	    		
+		}
+		
+	})
+	
+} 

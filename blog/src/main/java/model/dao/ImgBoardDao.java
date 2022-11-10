@@ -78,27 +78,22 @@ public class ImgBoardDao extends Dao{
 			return null;
 		}
 		 
-	 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
    // 수정
 
 
 
-
-
    // 삭제
+	 public boolean imgdelete( int imgb_no) {
+		 String sql = "delete from imgboard where imgb_no=" +imgb_no;
+		 try {
+		     ps = con.prepareStatement(sql);
+		     int count = ps.executeUpdate();
+			 if (count == 1)  return true;
+		} catch (Exception e) { System.out.println(  "삭제 오류 :" + e);}
+		
+		 return false;
+		 
+	 }
+	 
      
 }
