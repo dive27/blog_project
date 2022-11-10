@@ -79,21 +79,6 @@ public class DiaryDao extends Dao{
 		return false;
 	}
 	
-	/*
-	public int getemotionno( int cy_num ) {																// 감정 번호 가져오기 메소드 - 아직 사용 안하고 있음
-		String sql = "select emo_no from emotion where cy_num = ?";
-		try {
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, cy_num);
-			rs = ps.executeQuery();
-			if( rs.next() ) {
-				int emo_no = rs.getInt(1);
-				return emo_no;
-			}
-		} catch (Exception e) {System.out.println( e + "감정 번호 가져오기 메소드 오류" );}
-		return -1;
-	}
-	*/
 	public boolean ifalreadywr( String today , int cy_num ) {											// 오늘 작성한 일기가 있는지 확인하는 메소드
 		System.out.println("오늘 일기 유무 메소드 실행");
 		String sql = "select * from diary where di_date = ? and cy_num =?";
@@ -101,8 +86,8 @@ public class DiaryDao extends Dao{
 			ps = con.prepareStatement(sql);
 			ps.setString(1, today);
 			ps.setInt(2, cy_num);
+			rs = ps.executeQuery();
 			if( rs.next() ) {
-				System.out.println("오늘 일기 유므 확인 메소드 트루 반환");
 				return true;
 			}
 		} catch (Exception e) {System.out.println(e+"오늘 작성한 일기 있는지 확인하는 메소드 오류");}
@@ -110,7 +95,6 @@ public class DiaryDao extends Dao{
 	}
 	
 	public boolean update_today_di( String content , String date , int emo_no , int cy_num ) {  // 오늘 일기 수정 메소드
-		System.out.println("오늘일기수정메소드");
 		String sql = "update diary set di_content = ? , emo_no = ? where di_date = ? and cy_num = ? ";
 		try {
 			ps = con.prepareStatement(sql);
@@ -119,7 +103,6 @@ public class DiaryDao extends Dao{
 			ps.setString(3, date);
 			ps.setInt(4, cy_num);
 			ps.executeUpdate();
-			System.out.println("오늘일기수정메소드들어왔어요");
 			return true;
 		} catch (Exception e) {System.out.println(e+"오늘 일기 수정 메소드 오류");}
 		return false;

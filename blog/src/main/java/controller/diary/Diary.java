@@ -72,31 +72,4 @@ public class Diary extends HttpServlet {
 		
 	}
 
-	
-	@Override	// 오늘 일기 수정 관련
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-			String today = (String.valueOf(request.getParameter("today")));
-			int cy_num = MemberDao.getInstance().getcy_id( 
-		            (String)request.getSession().getAttribute("cy_id") );
-			
-			boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num);
-			
-			response.getWriter().print(result);		// 널값만 전달돼서 테스트 위해 임의로 이렇게 써둠
-	}
-	
-	@Override
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String content = request.getParameter("content");
-		String today = request.getParameter("today");
-		int cy_num = MemberDao.getInstance().getcy_id( 
-	            (String)request.getSession().getAttribute("cy_id") );
-		int emono = Integer.parseInt(request.getParameter("emono")) ;
-			
-		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
-		System.out.println("result : " + result);
-		
-		response.getWriter().print(result);
-	}
 }

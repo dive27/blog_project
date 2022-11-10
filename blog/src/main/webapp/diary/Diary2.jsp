@@ -71,7 +71,6 @@
 			position: absolute;
 			left: 7%;
 			bottom: 5%;
-			opacity: 0.95;
 		}
 		
 		.c_emobox{					/* 감정테이블 */
@@ -124,7 +123,6 @@
 			background-position: center;
 			position: absolute;
 			bottom: 10%;
-			opacity: 0.95;
 		}
 		
 		#content{					/* 다이어리 내용박스 */
@@ -191,6 +189,10 @@
 			height: 45px;
 		}
 		
+		.emoji:hover{
+			opacity: 0.8;
+		}
+		
 		.c_emobox td{
 			font-size: 25px;
 			vertical-align: middle;
@@ -201,22 +203,7 @@
 		.emotioninput{
 			margin-left: 5%;
 		}
-		
-		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? 
-		
-		.c_emobox tr > .emotioninput , .emoji{
-			opacity: 0.8;
-			background-color: red;
-			color: red;
-		}
-	
-		{
-
-			transform: rotate( -20deg );
-			transition: all ease 0.3s;
-		}
-		*/
-		 
+			 
 		.emotioninput:hover{
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
@@ -226,8 +213,8 @@
 		.stamp{						
 			z-index: 3;
 			position: absolute;
-			right: 10%;
-			bottom: 8%;
+			right: 12%;
+			bottom: 12%;
 		}
 		
 	</style>
