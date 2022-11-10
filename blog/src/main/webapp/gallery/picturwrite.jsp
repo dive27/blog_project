@@ -20,7 +20,7 @@
     <div class ="gallry_box">
  		<form>
 			제목 : <input type="text" name="imgb_title"> <br>
-			내용 : <textarea id="summernote" name="imgb_content"></textarea><br>
+			내용 : <textarea name="imgb_content"></textarea><br>
 			첨부파일 : <input type="file" name ="imgb_file"> <br>
 		   
 			<button type="button" onclick="imgwrite()">등록</button>
@@ -32,10 +32,9 @@
  
   
     <!-- 사용자정의 js -->
-	<script type="text/javascript" src="/blog/js/gallery/imgwirte.js"></script>
+    <script type="text/javascript" src="/blog/js/gallery/imgwirte.js"></script>
  
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+  
 
 </body>
 </html>

@@ -6,7 +6,7 @@
 /* 썸머노트 실행 */
 
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 
   $('#summernote').summernote( {
 	
@@ -19,6 +19,7 @@ $(document).ready(function() {
   
 }); 
 
+*/
 alert('cc')
 
 /*function pagechange(  ){

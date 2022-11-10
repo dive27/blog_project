@@ -48,7 +48,7 @@ public class bimgOutPut extends HttpServlet {
 			  object.put("imbb_view", list.get(i).getImbb_view());
 			  array.add(object);
 		  }
-		 
+		  
 		 response.setCharacterEncoding("UTF-8");
 		 response.getWriter().print( array );
 		 System.out.println( array );

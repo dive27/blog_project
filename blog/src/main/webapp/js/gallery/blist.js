@@ -58,13 +58,18 @@ function imglist( page ){
 	success : function( re ){
 
 		let output = JSON.parse(re)
-		console.log (output)
+		
+		alert( output )
 		
 		let html = '';
-		let lastpage = 9;
-		let startpage = 0;
 		
-		for ( let i = startpage; i<lastpage; i++){
+		
+		/*let lastpage = 9;
+		let startpage = 0;
+		*/
+		
+	
+		for ( let i = 0; i<output.length; i++){  // size vs length 사용 기준 ?
            let b = output[i]
 			 html +=  '<div id ="box1">'+
                       '<div>'+

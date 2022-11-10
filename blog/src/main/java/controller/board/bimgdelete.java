@@ -29,6 +29,7 @@ public class bimgdelete extends HttpServlet {
 		
 		//요청
 		  int imgb_no = Integer.parseInt(request.getParameter("imgb_no"));
+		  System.out.println("bimgdelete.java imgb_no 확인" + imgb_no);
 		  
 		  imgBoardDto dto = ImgBoardDao.getInstance().getboard( imgb_no);
 		  
