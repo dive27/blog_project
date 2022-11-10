@@ -14,10 +14,9 @@ let datebox = document.querySelector('.dateboximg')
 
 let cy_num = localStorage.getItem("cy_num_se");	// 원래 로그인하고 어디 저장해두는거같은데 어디에 뭘로 저장했는지 모르겠음 지금 데이터 보내는것도 다 1이니 나중에 수정하기~!!
 
-if( cy_num <= 0 ){
-	alert('로그인 하지 않으면 이용할 수 없어요😥')			// 모든게 cy_num과 연결되어 있어서 없으면 열람 불가능
-	pagechange('/blog/member/login.jsp')
-}else{
+
+	
+if( cy_num > 0 ){
 	alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
 	alert('더블클릭을 하면 이벤트가 있어요!👂')
 	
@@ -258,6 +257,9 @@ if( cy_num <= 0 ){
 			}	
 		})
 	}
+}else{
+	alert('로그인 하지 않으면 이용할 수 없어요😥')			// 모든게 cy_num과 연결되어 있어서 없으면 열람 불가능
+	pagechange('/blog/member/login.jsp')
 }
 
 

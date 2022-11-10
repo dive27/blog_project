@@ -27,12 +27,11 @@
 			box-sizing: border-box;
 		}
 		
-		.mainbox{					/* 전체박스 */
+		.mainbox{							/* 전체박스 */
 			height: 30vh;
-			
 		}
 		
-		.todaydate , .c_emobox , #content{	/* 글 있는 부분 */
+		.todaydate , .c_emobox , #content , #date{	/* 글 있는 부분 */
 			font-family: 'Humanbumsuk';		
 			color: #463C3C;
 		}
