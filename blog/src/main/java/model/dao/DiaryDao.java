@@ -15,13 +15,14 @@ public class DiaryDao extends Dao{
 	private static DiaryDao ddao = new DiaryDao();
 	public static DiaryDao getInstance() { return ddao; }
 	
-	public boolean dwrite( String content , int emono , int cy_num ) {									// 다이어리 작성 메소드
-		String sql = "insert into diary ( di_content , emo_no , cy_num ) values( ? , ? , ?)";
+	public boolean dwrite( String content , int emono , int cy_num , int backno ) {									// 다이어리 작성 메소드
+		String sql = "insert into diary ( di_content , emo_no , cy_num , back_img_no ) values( ? , ? , ? , ?)";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
 			ps.setInt(2, emono );
 			ps.setInt(3, cy_num);
+			ps.setInt(4, backno);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println("다이어리 작성 메소드 오류" + e);}
@@ -81,7 +82,7 @@ public class DiaryDao extends Dao{
 	
 	public boolean ifalreadywr( String today , int cy_num ) {											// 오늘 작성한 일기가 있는지 확인하는 메소드
 		System.out.println("오늘 일기 유무 메소드 실행");
-		String sql = "select * from diary where di_date = ? and cy_num =?";
+		String sql = "select * from diary where di_date = ? and cy_num =? ";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, today);
@@ -94,14 +95,15 @@ public class DiaryDao extends Dao{
 		return false;
 	}
 	
-	public boolean update_today_di( String content , String date , int emo_no , int cy_num ) {  // 오늘 일기 수정 메소드
-		String sql = "update diary set di_content = ? , emo_no = ? where di_date = ? and cy_num = ? ";
+	public boolean update_today_di( String content , String date , int emo_no , int cy_num , int backno) {  // 오늘 일기 수정 메소드
+		String sql = "update diary set di_content = ? , emo_no = ? where di_date = ? and cy_num = ? and back_img_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
 			ps.setInt(2, emo_no);
 			ps.setString(3, date);
 			ps.setInt(4, cy_num);
+			ps.setInt(5, backno);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println(e+"오늘 일기 수정 메소드 오류");}

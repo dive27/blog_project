@@ -30,7 +30,7 @@ public class Diary_update extends HttpServlet {
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
 		
-		boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num);
+		boolean result = DiaryDao.getInstance().ifalreadywr(today , cy_num );
 		
 		response.getWriter().print(result);		// 널값만 전달돼서 테스트 위해 임의로 이렇게 써둠
 	}
@@ -42,8 +42,9 @@ public class Diary_update extends HttpServlet {
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
 		int emono = Integer.parseInt(request.getParameter("emono")) ;
+		int backno = Integer.parseInt(request.getParameter("backno"));
 			
-		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num);
+		boolean result = DiaryDao.getInstance().update_today_di(content, today, emono , cy_num , backno );
 		
 		response.getWriter().print(result);
 	}

@@ -13,7 +13,7 @@ let emosrc = null;											// 클릭한 하트 이미지 경로
 let emotionlist = document.querySelectorAll('.emotioninput')// 감정 설명 부분
 	
 /* 배경 이미지 변경 */
-let imglist = 1;
+let backno = 1;
 let emotableimg = document.querySelector('.emotableimg')
 let back_img = document.querySelector('.diary_img')
 let datebox = document.querySelector('.dateboximg')
@@ -146,7 +146,8 @@ if( cy_num > 0 ){
 		
 		$.ajax({
 			url : "/blog/Diary" ,
-			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no } ,
+			type : "get" ,
+			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
 			async:false,
 			success : function( re ){
 				if( count == -1 && choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
@@ -181,7 +182,8 @@ if( cy_num > 0 ){
 				"today" : today , 
 				"content" : content ,
 			 	"emono" : emo_no ,
-			 	"cy_num" : cy_num } ,
+			 	"cy_num" : cy_num,
+			 	"backno" : backno } ,
 				async:false,
 				success : function( re ){
 					
@@ -236,12 +238,12 @@ if( cy_num > 0 ){
 			url : "/blog/backimg" ,
 			async:false,
 			success : function(re){
-					imglist++;	
-					emotableimg.src="/blog/img/배경"+imglist+".png"
-					back_img.src="/blog/img/배경"+imglist+".png"
-					datebox.src="/blog/img/날짜상자"+imglist+".png"
-					if( imglist == re ){
-						imglist = 1;
+					backno++;	
+					emotableimg.src="/blog/img/배경"+backno+".png"
+					back_img.src="/blog/img/배경"+backno+".png"
+					datebox.src="/blog/img/날짜상자"+backno+".png"
+					if( backno == re ){
+						backno = 1;
  						return;
 					}
 				}
@@ -282,6 +284,7 @@ if( cy_num > 0 ){
 		}
 	}
 	
+	// 기능 알려주는 함수
 	let oncealarmemo = 1;
 	function alarmchangeemo(){
 		if(oncealarmemo == 1){

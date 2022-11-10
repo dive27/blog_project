@@ -37,8 +37,9 @@ public class Diary extends HttpServlet {
 		int emono = Integer.parseInt(request.getParameter("emono")); 
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
+		int backno = Integer.parseInt(request.getParameter("backno")); 
 		
-		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num);
+		boolean result = DiaryDao.getInstance().dwrite(content, emono, cy_num,backno);
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
