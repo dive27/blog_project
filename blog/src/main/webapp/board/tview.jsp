@@ -50,7 +50,6 @@
 						<div class="line"></div>
 						<button type="button">다음</button>
 						<span> 다음 글제목 </span> <!-- 다음글 이동 -->
-					
 				</div>
 			</div> <!-- 이전, 이후 글 조회 테이블 박스 end -->
 			

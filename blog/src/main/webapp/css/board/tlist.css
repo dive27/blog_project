@@ -27,7 +27,6 @@
 
 /* 글 목록 전체 박스권 */
 .all_list_box{
-	border: solid 2px red;
 	margin: 40px auto;
 }
 .list_sbox{
@@ -103,7 +102,6 @@ tr{
 }
 /* 페이징처리 박스 */
 .pagebox{
-	border: solid 3px skyblue;
 	margin: 25px;
 	display: flex;
 	justify-content: center;

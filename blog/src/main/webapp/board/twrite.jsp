@@ -65,9 +65,6 @@
 			
 		</div> <!-- 글쓰기 페이지 전체 end -->
 		
-		
-		<!-- JQUERY 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>  --
 	
 	<!-- JQUERY 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>

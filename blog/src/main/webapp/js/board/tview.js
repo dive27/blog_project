@@ -152,3 +152,8 @@ function rereplywrite( rno ){
 	});
 }
 
+// 7. 이전 글 표시 출력
+
+
+// 8. 다음 글 표시 출력
+
