@@ -68,6 +68,7 @@
 										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/1.new/best.jsp')"> ♡BEST </a></li>
 										<li><a class="nav-link" href="#"> 05 </a></li>
 										<li><a class="nav-link" href="#"> 06 </a></li>
+										
 									</ul>
 								</div>
 								
