@@ -79,13 +79,12 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	// 수정수정..
+	
 	let emoindex = document.querySelectorAll('.emoji')
 	function getemoindex(){
-		for( let j = 0; j<emoindex.length; j++ ){
-			alert()
-		}
+		alert(emoindex.src) 
 	}
+
 	
 	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감♥♥♥
 		emo_no = no;
