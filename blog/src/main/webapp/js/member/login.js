@@ -21,6 +21,7 @@ function login(){
 				/*alert("로그인성공");*/ 				
 				get_cy_num() // 11/7 로그인할때 세션에 cy_num 저장 추가 
 				location.href="/blog/main.jsp";
+				alreadytable()	// 유정
 			}else if(re==='2'){
 				alert("비밀번호틀림")				
 			}else if(re==='3'){
@@ -59,4 +60,32 @@ function sessionremove(){
 	//alert("login.js")
 	//alert('함수 실행')
 	sessionStorage.removeItem("cy_num_se");
+}
+
+// 유정
+function alreadytable(){	
+	
+	$.ajax({
+		url : "/blog/backimg",
+		async:false,
+		type : "post" ,
+		success : function(re){
+			if(re == 'true'){
+				youremotable()
+			}
+		}
+	})
+	
+}
+
+function youremotable(){	// 아직 디비가 추가 안됐을때만 실행
+	
+	$.ajax({
+		url : "/blog/yourtable" ,
+		async:false ,
+		type : "get" ,
+		success : function(re){
+		}
+	})
+	
 }

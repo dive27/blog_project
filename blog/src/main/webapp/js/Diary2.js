@@ -180,7 +180,7 @@ if( cy_num > 0 ){
 			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
 			async:false,
 			success : function( re ){
-				if( count == true && choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
+				if( choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
 					if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
 					if( re == 'true' ){
 						alert('다이어리 작성 완료🤗'); return;
@@ -308,19 +308,19 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	/*
+	
 	// 기능 알려주는 함수
-	let oncealarmback = 1;								
-	function alarmback(){
-		if(oncealarmback == 1){
+	let oncealarm = 1;								
+	function oncealarmback (){
+		if(oncealarm == 1){
 			back_img.style.opacity="0.5"
 			alert('더블클릭하면 테마를 수정할 수 있어요!')
 			setTimeout(() => back_img.style.opacity="1.0", 200);
-			oncealarmback--;
+			oncealarm--;
 		}
 	}
-	*/
 	
+	/*
 	// 기능 알려주는 함수
 	let oncealarmemo = 1;
 	function alarmchangeemo(){
@@ -331,7 +331,7 @@ if( cy_num > 0 ){
 			oncealarmemo--;
 		}
 	}
-	
+	*/
 
 	
 }else{

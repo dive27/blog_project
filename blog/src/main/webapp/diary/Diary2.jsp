@@ -12,11 +12,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 <style type="text/css">
+
 		@font-face {
+	    font-family: 'Humanbumsuk';
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
 	    font-weight: normal;
 	    font-style: normal;
 		}
+
 		
 		body{
 			position: relative;
@@ -28,12 +31,6 @@
 		
 		.mainbox{							/* 전체박스 */
 			height: 30vh;
-			font-family: 'Humanbumsuk';		/* 왜 안되지? */
-			color: #463C3C;
-		}
-		
-		.todaydate , .c_emobox , #content , #date{	/* 글 있는 부분 왜 안됨?! */
-			
 		}
 		
 		#calendar{					/* 인풋 데이트 넣을 th */
@@ -42,6 +39,8 @@
 		
 		#date{						/* 인풋 데이트 */
 			font-size: 2vh;
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		.diary{						/* 다이어리 넣을 박스 */
@@ -79,6 +78,8 @@
 			position: absolute;
 			bottom: 6%;
 			left: 13%;
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 				
 		.choice_emo{				/* 선택한 감정 */
@@ -144,6 +145,9 @@
 			text-align: center;
 			
 			overflow: hidden;		/* 스크롤 숨기기 */
+			
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
@@ -152,8 +156,8 @@
 			top: 2%;
 			right: 33%;
 			font-size: 35px;
-			
-			
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		.clickbtn{					/* 연필 */
@@ -181,6 +185,8 @@
 		.c_emotion_t td:nth-child(2) {
 			width: 70%;
 			text-align: left;
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		.emoji{
@@ -201,11 +207,15 @@
 		
 		.emotioninput{
 			margin-left: 5%;
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 			 
 		.emotioninput:hover{
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		
@@ -232,7 +242,7 @@
 			<img class="dateboximg" alt="날짜상자" src="/blog/img/날짜상자1.png">
 			<img class="stamp" src="/blog/img/투명.png">
 			<img class="diarytextbox" src="/blog/img/레이스종이.png">
-			<img onmouseover="alarmback()" ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
+			<img onmouseover="oncealarmback()" ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
@@ -242,7 +252,7 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img onmouseover="alarmchangeemo()" class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
 			<table class="c_emobox" >
 			</table>
