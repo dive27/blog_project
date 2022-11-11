@@ -15,13 +15,13 @@
 </head>
 <body>
 
-
+   <div id="img_sub"> 이미지 등록</div>
 
     <div class ="gallry_box">
  		<form>
-			제목 : <input type="text" name="imgb_title"> <br>
-			내용 : <textarea name="imgb_content"></textarea><br>
-			첨부파일 : <input type="file" name ="imgb_file"> <br>
+			<div> 제목 : <input type="text" name="imgb_title"> </div>
+			<div> 내용 : <textarea name="imgb_content"></textarea> </div>
+			<div> 첨부파일 : <input type="file" name ="imgb_file"> </div>
 		   
 			<button type="button" onclick="imgwrite()">등록</button>
 			
