@@ -45,7 +45,7 @@ if( cy_num > 0 ){
 	
 //////////////////////////////////////////////// 감정 관련 함수 ////////////////////////////////////////////////
 	
-	/*
+
 	let login = 1;
 	myemotable()
 	function myemotable(){
@@ -60,7 +60,7 @@ if( cy_num > 0 ){
 				})
 		}
 	}
-	*/
+
 	
 	function getemotiontable(){		// 감정 테이블 나타내기 
 		
@@ -72,7 +72,7 @@ if( cy_num > 0 ){
 			success : function(re){
 				let json = JSON.parse(re)
 				 for( let i = 0 ; i <json.length; i++ ){
-				 	html += '<tr><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
+				 	html += '<tr><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img ondblclick="getemoindex()" class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
 				 }
 				document.querySelector('.c_emobox').innerHTML = html
 			}
@@ -80,9 +80,11 @@ if( cy_num > 0 ){
 	}
 	
 	// 수정수정..
-	function getemoindex(i){
-		let emoindex = document.querySelectorAll('.emoji')
-		alert('클릭한 하트 순서'+emoindex[i])
+	let emoindex = document.querySelectorAll('.emoji')
+	function getemoindex(){
+		for( let j = 0; j<emoindex.length; j++ ){
+			alert()
+		}
 	}
 	
 	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감♥♥♥
