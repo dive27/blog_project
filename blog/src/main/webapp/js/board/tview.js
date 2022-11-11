@@ -7,7 +7,12 @@ function bview(){
 		url : "/blog/board/tview" , 
 			/*async : false ,	 동기식 */
 		success : function( re ){ 
-			let board  = JSON.parse( re )
+			
+			let boardlist = JSON.parse( re )
+			console.log( boardlist )
+			
+			
+			let board  = boardlist[0];
 			console.log( board )
 			document.querySelector('.bno').innerHTML = board.bno;
 			document.querySelector('.btitle').innerHTML = board.btitle;
@@ -36,12 +41,57 @@ function bview(){
 			}
 			////////////////// 댓글출력 ///////////////////
 			rlist()
-		
+			
+			
+			let board1 = null;
+			let board2 = null;
+			
+			if( boardlist.length == 2 ){ // 현재글 + 이전 혹은 다음
+				
+				if( board.bno > boardlist[1].bno ){	// 현재 글보다 작으면 
+					board1 = boardlist[1]; // 이전글 
+				}else{
+					board2 = boardlist[1];	// 다음글
+				}
+				
+			}else{ // 현재글 + 이전 + 다음 
+				board1 = boardlist[1]; // 이전글 
+				board2 = boardlist[2]; // 다음글
+			}
+			
+			let l_box = document.querySelector('.l_box')
+			
+			let html = '';
+			
+			if(  board1 != null ) { html += '<button type="button" onclick="viewload('+board1.bno+')">이전글 : '+board1.btitle+'</button>' }
+			else{ html += '<button type="button">이전글 : 없음</button>' }
+			
+			html += '<div class="line"></div>'
+			
+			if(  board2 != null ) { html += '<button type="button" onclick="viewload('+board2.bno+')">다음글 : '+board2.btitle+'</button>' }
+			else{ html += '<button type="button">다음글 : 없음</button>' }
+			
+			l_box.innerHTML = html; 
 		}
 	})
 	
 	
 }
+
+
+// 2. 제목 클릭했을때 이동
+function viewload( bno ){
+	$.ajax({
+		url : "/blog/board/tviewload" , 
+		data : { "bno" : bno },
+		success : function( re ){
+			$(".mainbox").load("/blog/board/tview.jsp");
+								// 이동할 페이지 경로
+		}
+	})
+}
+
+
 
 function pagechange(  ){
 	$(".mainbox").load("/blog/board/tupdate.jsp")

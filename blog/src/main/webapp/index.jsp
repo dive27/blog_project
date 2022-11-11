@@ -104,6 +104,10 @@
 				</div> <!-- 하단헤더 end -->
 
 		</div> <!-- 웹페이지 박스 end -->
+		
+		<div class="mainbox">
+		
+		</div>
 
 
 	<!-- JQUERY 라이브러리 -->

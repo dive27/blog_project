@@ -1,12 +1,15 @@
 package controller.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import model.dao.TBoardDao;
@@ -29,15 +32,17 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			int bno = (Integer)request.getSession().getAttribute("bno");
 			
 			// 2. DAO 처리 
-			TBaordDto dto = TBoardDao.getInstance().getboard(bno);
-			// 3. DTO --> JSON 형변환
-			JSONObject object = new JSONObject();
-			object.put("bno", dto.getBno());
-			object.put("btitle", dto.getBtitle());
-			object.put("bcontent", dto.getBcontent());
-			object.put("mid", dto.getMid() );
-			object.put("bfile", dto.getBfile() );
+			ArrayList<TBaordDto> list  = TBoardDao.getInstance().getboard(bno);
 			
+			JSONArray array = new JSONArray();
+			
+			for( TBaordDto dto : list ) {// 3. DTO --> JSON 형변환
+				JSONObject object = new JSONObject();
+				object.put("bno", dto.getBno());
+				object.put("btitle", dto.getBtitle());
+				object.put("bcontent", dto.getBcontent());
+				object.put("mid", dto.getMid() );
+				object.put("bfile", dto.getBfile() );
 				// * 삭제 , 수정 버튼을 활성화를 위한 식별변수 선언 [ 본인글 판단 ]
 				// 1. 로그인한 세션 정보 호출 
 				String mid = (String)request.getSession().getAttribute("cy_id");
@@ -47,11 +52,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				// 로그인 했으   면서  로그인된아이디와 현재게시물의 작성자 아이디 가 동일하면 
 					object.put("btnaction", true );
 				}
-			
+				
+				array.add(object);
+			}
 			
 			// 4. 응답 
 			response.setCharacterEncoding("utf-8");
-			response.getWriter().print( object );
+			response.getWriter().print( array );
 
 	}
 

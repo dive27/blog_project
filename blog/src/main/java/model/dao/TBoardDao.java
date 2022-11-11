@@ -68,23 +68,27 @@ public class TBoardDao extends Dao{
 	
 	
 	// 3. 글 조회
-	public TBaordDto getboard( int bno ) {
+	public ArrayList<TBaordDto> getboard( int bno ) {
 																			// +bno : 선택한 게시물 출력
-		String sql ="select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno = "+bno;
+		ArrayList<TBaordDto> list = new ArrayList<>();
+		
+		String sql ="select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno = "+bno
+				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno < "+bno+" order by bno desc limit 1)"
+				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno > "+bno+" order by bno asc limit 1);";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			if( rs.next() ) {
+			while( rs.next() ) {
 				TBaordDto dto = new TBaordDto(
 						rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getInt(6),
 						rs.getInt(7), rs.getInt(8),
 						rs.getString(9) );
-				return dto;
+				list.add(dto);
 			}
 		}catch (Exception e) {System.out.println( "글조회 오류"+e );}
-		return null;
+		return list;
 	} // end
 	
 	// 4. 글삭제
