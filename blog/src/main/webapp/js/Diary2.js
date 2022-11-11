@@ -21,6 +21,7 @@ let datebox = document.querySelector('.dateboximg')
 /* 로그인한 사람 회원번호 */
 let cy_num = localStorage.getItem("cy_num_se");	
 
+//let cy = sessionStorage.getItem("cy_num_se")
 
 
 	

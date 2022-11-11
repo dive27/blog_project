@@ -27,7 +27,7 @@
 				<div class="my_infor">
 
 					<div class="profile_img">
-						<img alt="" src="">
+						<img class="cy_profile_img" alt="profileimg" src="/blog/img/profileimg/my_profile_img.jpg">
 					</div><!-- profile_img -->
 					
 
@@ -68,7 +68,29 @@
 						<div class="follower_profile_img">
 							<img alt="" src="">
 						</div><!-- follower_profile_img -->
-						<div class="follower_name">이름없음</div>
+						<div class="follower_name">이젠컴퓨터 공식 블로그</div>
+					</div><!-- follower -->
+					
+					<div class="follower">
+						<div class="follower_profile_img">
+							<img alt="" src="">
+						</div><!-- follower_profile_img -->
+						<div class="follower_name">나는야 개발자</div>
+					</div><!-- follower -->
+					
+					<div class="follower">
+						<div class="follower_profile_img">
+							<img alt="" src="">
+						</div><!-- follower_profile_img -->
+						<div class="follower_name">프론트엔드 개발자</div>
+					</div><!-- follower -->					
+					
+					
+					<div class="follower">
+						<div class="follower_profile_img">
+							<img alt="" src="">
+						</div><!-- follower_profile_img -->
+						<div class="follower_name">날아라 백엔드</div>
 					</div><!-- follower -->
 					
 					<div class="follower">
@@ -76,37 +98,7 @@
 							<img alt="" src="">
 						</div><!-- follower_profile_img -->
 						<div class="follower_name">이름없음</div>
-					</div><!-- follower -->
-					
-					<div class="follower">
-						<div class="follower_profile_img">
-							<img alt="" src="">
-						</div><!-- follower_profile_img -->
-						<div class="follower_name">이름없음</div>
-					</div><!-- follower -->
-					
-					<div class="follower">
-						<div class="follower_profile_img">
-							<img alt="" src="">
-						</div><!-- follower_profile_img -->
-						<div class="follower_name">이름없음</div>
-					</div><!-- follower -->
-					
-					
-					<div class="follower">
-						<div class="follower_profile_img">
-							<img alt="" src="">
-						</div><!-- follower_profile_img -->
-						<div class="follower_name">이름없음</div>
-					</div><!-- follower -->
-					
-					<div class="follower">
-						<div class="follower_profile_img">
-							<img alt="" src="">
-						</div><!-- follower_profile_img -->
-						<div class="follower_name">이름없음</div>
-					</div><!-- follower -->
-					
+					</div><!-- follower -->					
 					
 					<div class="follower">
 						<div class="follower_profile_img">
@@ -189,13 +181,6 @@
 			
 			<!-- //////////////////////////////////////////////////////////////////////// -->
 			
-					
-			
-			
-			
-		
-
-
 			<!-- ////////////////////////친구 소식들 영역////////////////////////// -->
 			<h2>최근 내 이웃소식</h2>
 			<div class="friend_news_wrap section">
@@ -206,7 +191,7 @@
 
 						<div class="intro_section">
 							<div class="friend_profile_img"><!-- 친구 프로필 이미지 영역 -->								
-								<img alt="" src="">
+								<img alt="pfofileimg" src="/blog/img/profileimg/friend_profile_img.png">
 							</div><!-- friend_profile -->
 							
 
@@ -243,6 +228,8 @@
 			</div><!-- friend_news_wrap -->
 		</div><!-- infor_wrap -->		
 	</div><!-- wrap -->
+	
+	<script type="text/javascript" src="/blog/js/member/main.js"></script>
 	
 	<%@include file="../footer.jsp"%>
 

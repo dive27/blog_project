@@ -127,6 +127,25 @@ public class MemberDao extends Dao {
 		return 0;
 	}
 	
+	
+	
+	// 11/10 예은 추가 
+	//8-2 회원 이름을 가지고 회원 이름을 찾는 메소드	
+	
+	public String getcy_name(String cy_name) {
+		String sql = "select cy_name from Cywold_signup where cy_id = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, cy_name);
+			rs = ps.executeQuery();			
+			if(rs.next()); return rs.getString(1);			
+		} catch (Exception e) {System.out.println("MemberDao 8-1 회원 이름을 가지고 회원 이름을 찾는 메소드 오류" + e);}
+		
+		return null;
+	}
+	
+	
+	
 	// 9. 내 회원정보 호출하기
 	public MemberDto getmyinfor(String cy_id ) {
 		MemberDto dto = null;
@@ -209,6 +228,47 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	
-	
+	// 13. 회원이미지 등록하기
+	public boolean imgadd(String cy_profile_img, int cy_num) {
+		String sql = "null";
+		// 1.먼저 이미지 테이블에 해당 회원번호가 존재하는지 select
+		sql = "select * from Cywold_signup_pforile_img where cy_num=?";
+
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cy_num);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				// 1. 만약에 존재하면 update
+				sql = "update Cywold_signup_pforile_img set cy_profile_img= ? , cy_num= ? ";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, cy_profile_img);
+				ps.setInt(2, cy_num);
+				ps.executeUpdate();
+				return true;
+			} else {
+				// 2. 존재하지 않으면 insert
+				sql = "insert into Cywold_signup_pforile_img( cy_profile_img , cy_num ) values(?,?)";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, cy_profile_img);
+				ps.setInt(2, cy_num);
+				ps.executeUpdate();
+				return true;
+			}
+		} catch (Exception e) {
+			System.out.println("MemberDao 13 회원이미지 등록하기 오류" + e);
+		}
+		return false;
+	}
+	// 14 
+	public String getimg( int cy_num )  {
+		String sql = "select cy_profile_img from Cywold_signup_pforile_img where cy_num = "+cy_num;
+		try {
+			ps = con.prepareStatement(sql);  // 3. SQL 연결
+			rs = ps.executeQuery();			// 4. SQL 실행
+			if( rs.next() ) { return rs.getString(1); }
+		} catch (Exception e) {System.out.println("MemberDao 14. 모든 회원 호출하기 오류 " + e);}
+		return null;
+	}
 	
 }//MemberDao end

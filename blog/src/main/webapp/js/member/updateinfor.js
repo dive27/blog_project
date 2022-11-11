@@ -35,7 +35,7 @@ function updateinforbtn(){
 		type : "post",
 		data : updateinput ,  
 		success: function(re) { 
-			alert(re)
+			//alert(re)
 			if(re=="true"){
 				alert("수정이 완료되었습니다.")
 			}
