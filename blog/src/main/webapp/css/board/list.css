@@ -1,69 +1,25 @@
 @charset "UTF-8";
 
 
-
-
-/* 상단 2개 
-
-
-#b1{ width: 95%;
-     height: 35px;
-     border: rgb(0, 0, 0) 1px solid;
-     margin-bottom: 10px;
-      }
-      
-#b2{ width: 95%;
-     height: 250px;
-     border: rgb(0, 0, 0) 1px solid;
-     margin-bottom: 10px;
-     position: relative;
-     }
-     
-#b3{ width: 200px; 
-     height: 500px;
-     border: rgb(0, 0, 0) 1px solid;
-     position: absolute; top: 320px;
-     float: left;
-      }
-
-#b4{ width:  200px; 
-     height: 500px;
-     position: absolute; top: 830px; bottom :30px;
-     border: rgb(0, 0, 0) 1px solid;
-
-}
-
-*/
-
+/*------공통 ------*/
 
 .gallry_box{
 	width : 900px;
 	height: auto;
 	margin : 0 auto ;
+	padding-top: 70px;
 	padding: 70px;
 	display: flex;
 	flex-wrap: wrap;	
 }
-.gallery_img{
-	width: 100px;
-	height: 100px;
-	background:pink;
-	margin: 0 10px;
-	
-}
 
 
-#write{
-  display:inline-block;
-  margin-left: 90%;
-}
 
-#b5{ width: 80%; 
-     height: 1000px;
-     display: block; 
-     /* border: rgb(0, 0, 0) 1px solid; */ 
-     position: absolute; top :850px;  left:260px;
-     }
+
+
+
+/*--------- 게시물 전체 출력 구역--------*/
+
 
 #box1 {
 	display: flex;
@@ -72,3 +28,43 @@
     /* border: blue 2px solid; */
 }
 
+
+#btnbox1{
+	
+	margin-left: 600px;	
+}
+
+
+
+/*------------자세히보기-------------------*/
+
+
+.gallery_img{
+	width: 800px;
+	/* height:  */;
+    border: solid 1px blue;
+	margin: 0 10px;
+}
+
+
+
+
+
+
+
+.imno{
+	display: inline-block;
+}
+
+.title{
+	display: inline-block;
+}
+
+.b_img{
+	
+	display: inline-block;
+}
+
+.b_content{
+	 display: inline-block;
+}
