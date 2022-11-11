@@ -1,290 +1,311 @@
+/* 다이어리 작성 관련 */
+let date = null;											// 선택한 날짜
+let today = null;											// 오늘 날짜
 
-let date = null;
-let today = null;
-let choice_emo = document.querySelector('.choice_emo')
-let emosrc = null;
-let count = -1;
-let emo_no = -1;
+/* 제어 변수 */
+let count = -1;												// 수정 메소드 연결을 위한 변수 0이면 작성가능 / -1이면 작성불가
+let choecedate = -1;										// 날짜 선택 안하고 작성 눌렀을 경우 작성 막기위한 변수 0이면 글 작성함수 가능 / -1이면 불가능
+	
+/* 감정관련 */	
+let emo_no = -1;											// 선택한 하트 / 선택 안한 경우 -1
+let choice_emo = document.querySelector('.choice_emo')		// 클릭한 하트
+let emosrc = null;											// 클릭한 하트 이미지 경로
+let emotionlist = document.querySelectorAll('.emotioninput')// 감정 설명 부분
+	
+/* 배경 이미지 변경 */
+let backno = 1;
+let emotableimg = document.querySelector('.emotableimg')
+let back_img = document.querySelector('.diary_img')
+let datebox = document.querySelector('.dateboximg')
 
-let cy_num = sessionStorage.getItem("cy_id");	// 원래 로그인하고 어디 저장해두는거같은데 어디에 뭘로 저장했는지 모르겠음 지금 데이터 보내는것도 다 1이니 나중에 수정하기~!!
+/* 로그인한 사람 회원번호 */
+let cy_num = localStorage.getItem("cy_num_se");	
 
-getToday()		  // 오늘 날짜 가져오는 함수		
-getemotiontable() // 감정 테이블 출력하는 함수
 
-alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
-alert('더블클릭을 하면 이벤트가 있어요!👂')
 
-let cy = sessionStorage.getItem("cy_num_se")
-alert(cy)
+	
+if( cy_num > 0 ){
+	alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n오늘의 감정과 일기를 작성한 후 연필모양을 눌러주시면 됩니다✍️')
+	
+	getToday()		  // 오늘 날짜 가져오는 함수		
+	getemotiontable() // 감정 테이블 출력하는 함수
 
-function getToday(){		// 오늘 날짜 가져오는 함수
-    date = new Date();
-    
-    let year = date.getFullYear();
-    let month = ("0" + (1 + date.getMonth())).slice(-2);
-    let day = ("0" + date.getDate()).slice(-2);
-    today = year + "-" + month + "-" + day;
-    
-    document.querySelector('.todayinput').value = today;
-  
-    //document.querySelector('.todaydate').innerText = today;
-    return year + "-" + month + "-" + day;
- 
-}
 
+	function getToday(){		// 오늘 날짜 가져오는 함수
+	    date = new Date();
+	    let year = date.getFullYear();
+	    let month = ("0" + (1 + date.getMonth())).slice(-2);
+	    let day = ("0" + date.getDate()).slice(-2);
+	    today = year + "-" + month + "-" + day;
+	    
+	    document.querySelector('.todayinput').value = today;
+	    //document.querySelector('.todaydate').innerText = today;
+	    return year + "-" + month + "-" + day;
+	}
+	
 //////////////////////////////////////////////// 감정 관련 함수 ////////////////////////////////////////////////
-
-function getemotiontable(){		// 감정 테이블 나타내기 [ 완 ] 
 	
-	let html = '';
-	$.ajax({
-		url : "/blog/emotion" ,
-		data : { "cy_num" : cy_num } ,
-		async:false,
-		success : function(re){
-			let json = JSON.parse(re)
-				
-			for( let i = 0 ; i <json.length; i++ ){
-				html += '<tr><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
+	function getemotiontable(){		// 감정 테이블 나타내기 
+		
+		let html = '';
+		$.ajax({
+			url : "/blog/emotion" ,
+			data : { "cy_num" : cy_num } ,
+			async:false,
+			success : function(re){
+				let json = JSON.parse(re)
+				 for( let i = 0 ; i <json.length; i++ ){
+				 	html += '<tr><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
+				 }
+				document.querySelector('.c_emobox').innerHTML = html
 			}
-			document.querySelector('.c_emobox').innerHTML = html
-		}
-	})
-}
-
-function choiceemono(no){							// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
-	emo_no = no;
-	let emosrc = '/blog/img/하트'+emo_no+'.gif'
-	//sessionStorage.setItem("emono" , emo_no);		// 다른데서 쓰려고 세션에 저장
-	//let asdf = sessionStorage.getItem("emono");	// 아니 근데 이미 emo_no가 있어서 굳이 세션을 쓸 필요가 없자나..
-	choice_emo.src=emosrc;		
-	alert("감정 선택할때마다 알려주지"+emo_no)					
-}
-
-//////////////////////////////////////////////// 다이어리 관련 함수 ////////////////////////////////////////////////
-
-function loadtoday(){		// 오늘일기장으로 전환 [ 완 ]
-	document.querySelector('.todaydate').value = today					// 오늘 날짜 보이도록	// 날짜 왜 오늘로 안바뀜?
-	document.getElementById('content').value = ''						// 일기장 비워주기
-	document.getElementById('content').readOnly=false;					// 글 수정 가능
-	document.querySelector('.stamp').src = "/blog/img/투명.png"			// 도장 없애기
-	choice_emo.src='/blog/img/투명.png';
-}
-
-function load_diary(){			// [ 완 ] - 선택한 날짜의 일기 불러오기
-
-getToday()
-	date = document.getElementById('date').value			// 캘린더에서 선택한 값을 date변수에 넣어주고
-	document.getElementById('date').innerText = date;		// 그걸 캘린더에 넣어주고 ?? 왜했더라
-	document.querySelector('.todaydate').innerText = date	// 오늘 날짜 나타내는 곳에 넣어줌
-	choice_emo = document.querySelector('.choice_emo') 		// 뭐지? 선택한 감정같은데 이게 뭐지? 이미지 경로때매 만든거같은데 지금 emo_no사용해서 안쓰는거 아닌가 잘 모르겠음
+		})
+	}
 	
-	$.ajax({
+	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
+		emo_no = no;
+		let emosrc = '/blog/img/하트반짝'+emo_no+'.gif'
+		choice_emo.src=emosrc;							
+	}
+	
+//////////////////////////////////////////////// 다이어리 관련 함수 ////////////////////////////////////////////////
+	
+	function loadtoday(){		// 오늘일기장으로 전환 [ 완 ]
+		document.querySelector('.todaydate').value = today					// 오늘 날짜 보이도록	// 날짜 왜 오늘로 안바뀜?
+		document.getElementById('content').value = ''						// 일기장 비워주기
+		document.getElementById('content').readOnly=false;					// 글 수정 가능
+		document.querySelector('.stamp').src = "/blog/img/투명.png"			// 도장 없애
+		choice_emo.src='/blog/img/투명.png';
+	}
+	
+	function load_diary(){			// - 선택한 날짜의 일기 불러오기
+	getToday()
+		date = document.getElementById('date').value			// 캘린더에서 선택한 값을 date변수에 넣어주고
+		document.getElementById('date').innerText = date;		// 그걸 캘린더에 넣어주고 ?? 왜했더라
+		document.querySelector('.todaydate').innerText = date	// 오늘 날짜 나타내는 곳에 넣어줌
+		
+		$.ajax({
+			url : "/blog/Diary" ,
+			type : "post" ,
+			async:false,
+			data : { "date" : date  , "cy_num" : cy_num } ,
+			success : function(re){	
+				choecedate = 0;					// 날짜를 선택하면 0이 돼서 이때만 글 작성 가능
+				let json = JSON.parse( re )	
+				if( re != 'null' ){	// 일기가 있으면
+						if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}									// 하트를 아직 선택 안했으면 투명으로
+						else{ emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc; }	// 선택했으면 선택한 이미지로 변경
+				
+						if( date != today ){ // 일기가 있고 오늘이 아니면 글 불러오기
+							
+									document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
+									document.getElementById('content').value = '';							// 일기장 비워주기
+									document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+									document.getElementById('content').readOnly=true;						// 글 수정 불가
+									document.querySelector('.stamp').src = "/blog/img/도장.png";				// 도장 찍어주기	
+									changebackno()															// 꾸미기 및 감정 가져옴
+
+						}else if( date == today ){		
+							  loadtoday() 																	// 일단은 비워주고
+							  ifalreadywr()																	// 오늘 일기가 있는지 확인하는 함수 호출
+							  return;
+						}
+							
+				}else if( re == 'null' ){
+						alert('일기를 쓰지 않은 날이에요😅')
+						document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
+						document.getElementById('content').readOnly=true;							// 글 수정 불가
+				}
+			}
+		})
+	}
+	
+//////////////////////////////////////////////// 일기수정 관련 함수 //////////////////////////////////////////////// 
+	// 수정했던거같은데 배경 이미지 번호를 안보내고 있다.. 수정하기~
+	function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
+		
+		today = document.querySelector('.todayinput').value
+		$.ajax({	
+			url : "/blog/Diary_update" ,
+			type : "get" , 
+			async:false,
+			data : { "today" : today , "cy_num" : cy_num } ,	
+			success : function( re ){
+					if ( re == 'true' ){	
+					alert('오늘은 이미 작성한 일기가 있습니다.')
+						if(confirm('수정할까요?')){
+							count++;		
+						}else{document.getElementById('content').readOnly=true;}
+					}
+			}
+		})
+	}
+	
+	function writediary(){			// 다이어리 작성 함수 
+		let content = document.querySelector('#content').value
+		
+		$.ajax({
+			url : "/blog/Diary" ,
+			type : "get" ,
+			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
+			async:false,
+			success : function( re ){
+				if( count == -1 && choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
+					if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
+					if( re == 'true' ){
+						alert('다이어리 작성 완료🤗'); return;
+					}else if( re == null ){
+						alert('다이어리 내용을 입력해주세요😅');
+					}else{
+						alert('다이어리 작성 실패😅 \n [관리자 문의]');
+					}		
+				}else if( choecedate == -1 ){	// 만약 체인지를 안하고 기본값에서 작성을 누르면 작성 막아줌
+					alert('날짜를 선택하고 다시 눌러주세요😅')
+					loadtoday();
+				}else if( date != today ){
+					alert('일기는 당일에만 작성할 수 있어요😅')
+				}
+			}
+		})
+	}
+	
+	function update_today_di(){ // 오늘 일기 수정하는 메소드
+		if( count == 0 && emo_no != -1 ){
+			
+			let content = document.querySelector('#content').value
+			today = document.querySelector('.todayinput').value
+	
+			$.ajax({	
+				url : "/blog/Diary_update" ,
+				type : "post" ,
+				data : { 
+				"today" : today , 
+				"content" : content ,
+			 	"emono" : emo_no ,
+			 	"cy_num" : cy_num,
+			 	"backno" : backno } ,
+				async:false,
+				success : function( re ){
+					
+					if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
+					if( re == 'true' ){
+						alert('오늘 일기 수정완료👍')
+						document.getElementById('content').readOnly=true;						// 글 수정 불가
+						document.querySelector('.stamp').src = "/blog/img/도장.png";				// 도장 찍어주기
+						return;
+					}
+				}		
+			})
+		}else if(emo_no == -1){
+			alert('감정을 선택해주세요')
+		}
+	}
+	
+//////////////////////////////////////////////// 그 외 효과 함수 //////////////////////////////////////////////// 
+		
+	function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
+		if(confirm('감정 수정이 가능해요! 수정할까요?')){
+			emotionlist[i].readOnly=false;											// 잘만 되다가 갑자기 왜이럴가?
+			emotionlist[i].style.color="#656565";	
+			emotionlist[i].value = '';
+		
+			document.addEventListener("keyup", function(e) {
+			    if (e.keyCode === 13) {
+					emotionlist[i].readOnly=true;
+					emotionlist[i].style.color="black";
+					let emotion = emotionlist[i].value;
+					let emono = i+1;												// DB 번호 수정되면 안됨!
+			        	$.ajax({
+							url : "/blog/emotion" ,
+							type : "post" ,
+							async:false,
+							data : { "emono" : emono , "emotion" : emotion , "cy_num" : cy_num } ,
+							success : function(re){
+					    		if( re == 'true' ){
+									alert('감정 수정 완료🤗')
+								}else{
+									alert('감정 수정 실패😅 \n [관리자 문의]')
+								}
+					   		 }
+					});
+				}
+			})		
+		}
+	}
+	
+	function change_back_img(){		// 배경 더블클릭시 배경 이미지 변경해주는 함수 
+		$.ajax({
+			url : "/blog/backimg" ,
+			async:false,
+			success : function(re){
+					backno++;	
+					emotableimg.src="/blog/img/배경"+backno+".png"
+					back_img.src="/blog/img/배경"+backno+".png"
+					datebox.src="/blog/img/날짜상자"+backno+".png"
+					if( backno == re ){
+						backno = 1;
+ 						return;
+					}
+				}
+			})
+		}
+
+	function changebackno(){	// 지난 일기 테마/선택한 감정 가져오기
+		$.ajax({
 		url : "/blog/Diary" ,
 		type : "post" ,
 		async:false,
 		data : { "date" : date  , "cy_num" : cy_num } ,
 		success : function(re){
 			let json = JSON.parse( re )	
-			if( re != 'null' ){	// 일기가 있으면 로드
-					if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}		// 하트를 아직 선택 안했으면 투명으로
-					else{emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc;}	// 선택했으면 선택한 이미지로 변경
-					
-					if( json[0].di_date != today ){
-								document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
-								document.getElementById('content').value = '';							// 일기장 비워주기
-								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
-								document.getElementById('content').readOnly=true;						// 글 수정 불가
-								document.querySelector('.stamp').src = "/blog/img/도장.png";				// 도장 찍어주기					
-					}else if( json[0].di_date == today ){	// 만약 오늘 일기면
-								  loadtoday() 				// 일단은 비워주고
-								  ifalreadywr()				// 오늘 일기가 있는지 확인하는 함수 호출
-								  return;
-					}
-						
-			}else if(  re == 'null'  ){alert('일기를 쓰지 않은 날이에요😅')	// 만약 일기가 존재하지 않는다면 오늘로 이동
-				loadtoday()	
-			}
-		}
-	})
-}
-
-//////////////////////////////////////////////// 일기수정 관련 함수 //////////////////////////////////////////////// 
-
-function ifalreadywr(){ // 오늘 일기가 있는지 확인하는 메소드
 	
-	today = document.querySelector('.todayinput').value
-	$.ajax({	
-		url : "/blog/Diary" ,
-		type : "put" , 
-		async:false,
-		data : { "today" : today , "cy_num" : cy_num } ,	// 이게 왜 널이야~ alert하면 뜨는데
-		success : function( re ){
-				if ( re == 'true' ){	// true여야 하지만 지금  데이터를 못읽으니 false라 치고 작업
-				alert('오늘은 이미 작성한 일기가 있습니다.')
-					if(confirm('수정할까요?')){
-						count++;		// 만약 수정한다면 - 오늘 글이 있으면 카운트 수 바꿔주고
-						alert('===========현재 카운트 : '+count)
-						update_today_di()
-					}
-				}
-		}
-	})
-}
-
-function writediary(){			// 다이어리 작성 함수 [ 완 ] 
-	let content = document.querySelector('#content').value
-	
-	$.ajax({
-		url : "/blog/Diary" ,
-		data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no } ,
-		async:false,
-		success : function( re ){
-			if( count == -1 ){ // 카운트가 변동하지 않고 그대로 -1일때만 글쓰기 작동
-				if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
-				if( re == 'true' ){
-					alert('다이어리 작성 완료🤗'); return;
-				}else if( re == null ){
-					alert('다이어리 내용을 입력해주세요😅');
-				}else{
-					alert('다이어리 작성 실패😅 \n [관리자 문의]');
-				}		
-			}
-		}
-	})
-}
-
-function update_today_di(){ // 오늘 일기 수정하는 메소드
-	if( count == 0 ){
-		alert('최종적으론 수정버튼을 거쳐 연필을 선택하면 여기서 데이터를 보내는겁니다![5]')
-		
-		let content = document.querySelector('#content').value
-		today = document.querySelector('.todayinput').value
-
-		$.ajax({	
-			url : "/blog/Diary" ,
-			type : "delete" ,
-			data : { 
-			"today" : today , 
-			"content" : content ,
-		 	"emono" : emo_no ,
-		 	"cy_num" : cy_num } ,
-			async:false,
-			success : function( re ){
-				if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
-				if( re == 'true' ){
-					alert('오늘 일기 수정완료👍')
-					return;
-				}
-			}		
-		})
-	}
-}
-
-//////////////////////////////////////////////// 그 외 효과 함수 //////////////////////////////////////////////// 
-	
-function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
-	if(confirm('감정 수정이 가능해요! 수정할까요?')){
-		let emonolist = document.querySelectorAll('.emotioninput')	
-		let emotionlist = document.querySelectorAll('.emotioninput')
-		
-		emotionlist[i].readOnly=false;
-		emotionlist[i].style.color="#656565";	
-		emotionlist[i].value = '';
-	
-		document.addEventListener("keyup", function(e) {
-		    if (e.keyCode === 13) {
-				emotionlist[i].readOnly=true;
-				emotionlist[i].style.color="black";
-				let emotion = emotionlist[i].value;
-				let emono = i+1;												// DB 번호 수정되면 안됨!
-		        	$.ajax({
-						url : "/blog/emotion" ,
-						type : "post" ,
-						async:false,
-						data : { "emono" : emono , "emotion" : emotion , "cy_num" : cy_num } ,
-						success : function(re){
-				    		if( re == 'true' ){
-								alert('감정 수정 완료🤗')
-							}else{
-								alert('감정 수정 실패😅 \n [관리자 문의]')
-							}
-				   		 }
-				});
-			}
-		})		
-	}
-}
-
-let emotableimg = document.querySelector('.emotableimg')
-let back_img = document.querySelector('.diary_img')
-
-let imglist = 1;
-function change_back_img(){										// 배경 더블클릭시 배경 이미지 변경해주는 함수 
-	$.ajax({
-		url : "/blog/backimg" ,
-		async:false,
-		success : function(re){
-				imglist++;	
-				let back_img_src = "/blog/img/배경"+imglist+".png";
-				emotableimg.src=back_img_src
-				back_img.src=back_img_src
-				
-				if( imglist == re ){ imglist = 1; return;}
-			}
+			let back_img_src2 = "/blog/img/배경"+json[0].backno+".png"
+			let load_emo_src = "/blog/img/하트반짝"+json[0].backno+".gif"
+			let todayback = "/blog/img/날짜상자"+json[0].backno+".png"
+			
+			back_img.src = back_img_src2
+			emotableimg.src = back_img_src2		
+			choice_emo.src = load_emo_src
+			datebox.src = todayback
+			
+			}	
 		})
 	}
 	
-// ///////////////////////////////////////////// 미완성 함수 ////////////////////////////////////////////////
-// 복붙해서 오타도 아닐텐데 왜 안될까? 안되면 그냥 첫 alert때 말해주거나 발표할때 만든 기능들 숨기지말고 구현만 해주면 됨
-
-
-/*
-	더 구현해야되는 부분
-	 
-	집가서 이미지 바꾸기~!
-	 
-	1. 호버 효과 같이
-	2. 클릭 효과 하나만
-	3. 달력에 그날 선택한 색상 or 하트 이미지 출력하기
-		3-1 다른 일기 열람할때 하트 선택하면 바뀌니까 막아주기
-	4. 하트가 일기장이랑 겹쳐서 잘 안보이니까 효과주기 1-gif로 광택효과 2-흰테두리 그린 이미지로 대체 
-
-
-function hovercss(){
-	let emoimglist = document.querySelectorAll('.emoji')
-	let emotextlist = document.querySelectorAll('.emotioninput')
 	
-	let emoimg = emoimglist[i];
-	let emotext = emotextlist[i];
-	
-}
-
-function emojiclick(no){				// 클릭한 감정만 효과주기 [ 미완 ]
-	let emoimglist = document.querySelectorAll('.emoji')
-	emo = sessionStorage.getItem("emono")
-	for(let i = 0; i<emoimglist.length; i++){
-		document.querySelector('.emoji'+i+'').style.transform="scale(1.0)";
-		if( emo == no ){						// 만약 가져온 번호가 일치하면 ( 클릭한 번호에 )
-			document.querySelector('.emoji'+no+'').style.transform="scale(1.2)";	// 왜 이건 for문에만 넣으면 안되지?
-			document.querySelector('.emoji'+no+'').style.transition="transform .2s";		
-			emo = sessionStorage.removeItem("emono");	// 비워줌
+	// 기능 알려주는 함수
+	let oncealarmback = 1;								
+	function alarmback(){
+		if(oncealarmback == 1){
+			back_img.style.opacity="0.5"
+			alert('더블클릭하면 테마를 수정할 수 있어요!')
+			setTimeout(() => back_img.style.opacity="1.0", 200);
+			oncealarmback--;
 		}
 	}
-}
-
-//calendar_day()
-function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
-	let html = '';
-	for( let i = 0; i<31; i++ ){
-		if( i % 7 == 0 ){
-			html += '<br>'	
+	
+	// 기능 알려주는 함수
+	let oncealarmemo = 1;
+	function alarmchangeemo(){
+		if(oncealarmemo == 1){
+			emotableimg.style.opacity="0.5"
+			alert('더블클릭하면 감정 설명을 수정할 수 있어요!')
+			setTimeout(() => emotableimg.style.opacity="1.0", 200);
+			oncealarmemo--;
 		}
-		html += '<img src="/blog/img/패닉.png" style="width: 40px" id="day'+i+'" style="border-radius: 50%; width: 10px; height: 10px; background-color: #eeeeee;"></img>';
 	}
-	document.querySelector('.calendar_day').innerHTML = html
+	
+
+	
+}else{
+	alert('로그인 하지 않으면 이용할 수 없어요😥')			// 모든게 cy_num과 연결되어 있어서 없으면 열람 불가능 - 로그인 안하면 세션에 암것도 없어서 이게 안됨
+	pagechange('/blog/member/login.jsp')
 }
 
-*/
+
+	
+
+
+
 
 

@@ -1,17 +1,20 @@
 package model.dto;
 
 public class EmotionDto {
-	int emo_no ;
-    String emotion ; 
-    String emo_img ;
+	
+	private int emo_no ;
+	private String emotion ; 
+	private String emo_img ;
+	private int cy_num ;
     
     public EmotionDto() {}
 
-	public EmotionDto(int emo_no, String emotion, String emo_img) {
+	public EmotionDto(int emo_no, String emotion, String emo_img, int cy_num) {
 		super();
 		this.emo_no = emo_no;
 		this.emotion = emotion;
 		this.emo_img = emo_img;
+		this.cy_num = cy_num;
 	}
 
 	public int getEmo_no() {
@@ -38,10 +41,20 @@ public class EmotionDto {
 		this.emo_img = emo_img;
 	}
 
+	public int getCy_num() {
+		return cy_num;
+	}
+
+	public void setCy_num(int cy_num) {
+		this.cy_num = cy_num;
+	}
+
 	@Override
 	public String toString() {
-		return "EmotionDto [emo_no=" + emo_no + ", emotion=" + emotion + ", emo_img=" + emo_img + "]";
+		return "EmotionDto [emo_no=" + emo_no + ", emotion=" + emotion + ", emo_img=" + emo_img + ", cy_num=" + cy_num
+				+ "]";
 	}
+    
     
     
 }

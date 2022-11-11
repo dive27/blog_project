@@ -35,7 +35,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
-	
+			
 		ArrayList<EmotionDto> list = DiaryDao.getInstance().getemotion( cy_num );
 		
 		JSONArray array = new JSONArray();
@@ -44,9 +44,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			object.put("emo_no", dto.getEmo_no());
 			object.put("emotion", dto.getEmotion());
 			object.put("emo_img", dto.getEmo_img());
+			object.put("cy_num", dto.getCy_num());
 			array.add(object);
 		}
-		
+				
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(array);
 	}
@@ -55,10 +56,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		int emono = Integer.parseInt(request.getParameter("emono"));
-		System.out.println(emono);
 		
 		String emotion = request.getParameter("emotion");
-		System.out.println(emotion);
 		
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );
