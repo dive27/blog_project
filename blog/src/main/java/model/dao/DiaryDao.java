@@ -50,16 +50,15 @@ public class DiaryDao extends Dao{
 			return null;
 		}
 	
-	public ArrayList<EmotionDto> getemotion( int cy_num ) {												// 전체 감정 가져오기 테이블 출력용
-		String sql = "select * from emotion where cy_num = ?";
+	public ArrayList<EmotionDto> getemotion() {												// 전체 감정 가져오기 테이블 출력용
+		String sql = "select * from emotion";
 		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, cy_num);
 			rs = ps.executeQuery();
 			while( rs.next() ) {						
 				EmotionDto dto = new EmotionDto(
-						rs.getInt(1), rs.getString(2), rs.getString(3) , rs.getInt(4)
+						rs.getInt(1), rs.getString(2), rs.getString(3)
 						);
 				list.add(dto);
 			}
@@ -67,13 +66,12 @@ public class DiaryDao extends Dao{
 		return list;
 	}
 	
-	public boolean updateemtion( String emotion , int emono , int cy_num ) { 							// 감정 설명 수정 메소드
-		String sql = "update emotion set emotion = ? where emo_no = ? and cy_num = ?";
+	public boolean updateemtion( String emotion , int emono ) { 							// 감정 설명 수정 메소드
+		String sql = "update emotion set emotion = ? where emo_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 ,emotion );
 			ps.setInt( 2, emono );
-			ps.setInt(3, cy_num);
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println(e+"감정 설명 수정 메소드 오류");}
@@ -81,7 +79,6 @@ public class DiaryDao extends Dao{
 	}
 	
 	public boolean ifalreadywr( String today , int cy_num ) {											// 오늘 작성한 일기가 있는지 확인하는 메소드
-		System.out.println("오늘 일기 유무 메소드 실행");
 		String sql = "select * from diary where di_date = ? and cy_num =? ";
 		try {
 			ps = con.prepareStatement(sql);
@@ -123,4 +120,24 @@ public class DiaryDao extends Dao{
 		return -1;
 	}
 	
+	// 로그인 시 기본 감정테이블 부여
+	public boolean youremotable( int cy_num ) {
+		String sql = "insert into emotion values"
+				+ "( null , '슬픈 날' , '하트1.gif' , ?),"
+				+ "( null , '행복한 날' , '하트2.gif' , ?),"
+				+ "( null , '화나는 날' , '하트3.gif' , ?),"
+				+ "( null , '즐거운 날' , '하트4.gif' , ?),"
+				+ "( null , '행복한 날' , '하트5.gif' , ?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cy_num);
+			ps.setInt(2, cy_num);
+			ps.setInt(3, cy_num);
+			ps.setInt(4, cy_num);
+			ps.setInt(5, cy_num);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {System.out.println(e+"기본 감정 테이블 부여 메소드 오류");}
+		return false;
+	}
 }
