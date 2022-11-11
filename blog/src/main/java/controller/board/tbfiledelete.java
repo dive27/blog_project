@@ -32,7 +32,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		// 3. 실제 파일 삭제처리
 		if( result ) {
 //			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile() );
-//			File file = new File(deletepath);
+//	 		File file = new File(deletepath);
 //			if( file.exists() ) file.delete();
 		}
 		// 4. 결과반환

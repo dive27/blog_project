@@ -58,7 +58,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		if( result ) { // 업데이트 성공시 [ 기존 첨부파일 변경되었을때 ] 기존파일 삭제
 			if( bfilechange ) {
 //		오류:		String deletepath = request.getSession().getServletContext().getRealPath("/upload"+dto.getBfile() );
-//				File file = new File( deletepath );	if( file.exists() ) file.delete();
+//	 			File file = new File( deletepath );	if( file.exists() ) file.delete();
 			}
 			
 		}
