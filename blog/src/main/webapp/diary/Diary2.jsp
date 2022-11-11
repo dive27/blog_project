@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 <style type="text/css">
 		@font-face {
-	    
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
 	    font-weight: normal;
 	    font-style: normal;
@@ -29,11 +28,12 @@
 		
 		.mainbox{							/* 전체박스 */
 			height: 30vh;
+			font-family: 'Humanbumsuk';		/* 왜 안되지? */
+			color: #463C3C;
 		}
 		
-		.todaydate , .c_emobox , #content , #date{	/* 글 있는 부분 */
-			font-family: 'Humanbumsuk';		
-			color: #463C3C;
+		.todaydate , .c_emobox , #content , #date{	/* 글 있는 부분 왜 안됨?! */
+			
 		}
 		
 		#calendar{					/* 인풋 데이트 넣을 th */
