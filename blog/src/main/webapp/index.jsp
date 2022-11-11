@@ -102,7 +102,7 @@
 							</div> <!-- sns box end-->
 					</div>
 				</div> <!-- 하단헤더 end -->
-
+            <div class="mainbox"> </div>
 		</div> <!-- 웹페이지 박스 end -->
 
 
