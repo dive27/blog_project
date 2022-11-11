@@ -56,6 +56,7 @@ create table reply(
 
 
 --  다이어리 관련 --
+
 -- 다이어리 
 
 -- 다이어리 배경 이미지
@@ -83,9 +84,7 @@ drop table if exists emotion;
 create table emotion(
 	emo_no int auto_increment primary key ,			-- 감정식별번호
     emotion varchar(20) ,							-- 감정설명	
-    emo_img varchar(20) ,							-- 감정이미지이름	
-	cy_num int ,
-    constraint cy_num_em_fk foreign key (cy_num) references Cywold_signup (cy_num)
+    emo_img varchar(20) 							-- 감정이미지이름	
 );
 select * from emotion;
 
@@ -95,6 +94,14 @@ insert into backimg values( null , '배경2' );
 insert into backimg values( null , '배경3' );
 insert into backimg values( null , '배경4' );
 insert into backimg values( null , '배경5' );
+
+-- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
+
+insert into emotion values( null , '슬픈 날' , '하트1.gif');
+insert into emotion values( null , '즐거운 날' , '하트2.gif');
+insert into emotion values( null , '우울한 날' , '하트3.gif');
+insert into emotion values( null , '화나는 날' , '하트4.gif');
+insert into emotion values( null , '행복한 날' , '하트5.gif');
 
 create table imgboard(
 imgb_no  int auto_increment primary key,

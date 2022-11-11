@@ -3,7 +3,7 @@ let date = null;											// 선택한 날짜
 let today = null;											// 오늘 날짜
 
 /* 제어 변수 */
-let count = -1;												// 수정 메소드 연결을 위한 변수 0이면 작성가능 / -1이면 작성불가
+let count = false;												// 수정 메소드 연결을 위한 변수 t이면 작성가능 / f이면 작성불가
 let choecedate = -1;										// 날짜 선택 안하고 작성 눌렀을 경우 작성 막기위한 변수 0이면 글 작성함수 가능 / -1이면 불가능
 	
 /* 감정관련 */	
@@ -21,7 +21,12 @@ let datebox = document.querySelector('.dateboximg')
 /* 로그인한 사람 회원번호 */
 let cy_num = localStorage.getItem("cy_num_se");	
 
+/*
+	안전한 버전
+	어떤 회원인지 상관없이 동일한 감정테이블 / 테마 가지고 잇음
+	감정 수정 불가
 
+ */
 
 	
 if( cy_num > 0 ){
@@ -45,7 +50,7 @@ if( cy_num > 0 ){
 	
 //////////////////////////////////////////////// 감정 관련 함수 ////////////////////////////////////////////////
 	
-
+/*
 	let login = 1;
 	myemotable()
 	function myemotable(){
@@ -61,13 +66,17 @@ if( cy_num > 0 ){
 		}
 	}
 
+	let emoindex = document.querySelectorAll('.emoji')
+	function getemoindex(){
+		alert(emoindex.src) 
+	}
+ */
 	
 	function getemotiontable(){		// 감정 테이블 나타내기 
 		
 		let html = '';
 		$.ajax({
 			url : "/blog/emotion" ,
-			data : { "cy_num" : cy_num } ,
 			async:false,
 			success : function(re){
 				let json = JSON.parse(re)
@@ -79,13 +88,6 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	
-	let emoindex = document.querySelectorAll('.emoji')
-	function getemoindex(){
-		alert(emoindex.src) 
-	}
-
-	
 	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감♥♥♥
 		emo_no = no;
 		let emosrc = '/blog/img/하트반짝'+emo_no+'.gif'
@@ -95,11 +97,10 @@ if( cy_num > 0 ){
 //////////////////////////////////////////////// 다이어리 관련 함수 ////////////////////////////////////////////////
 	
 	function loadtoday(){		// 오늘일기장으로 전환 [ 완 ]
-		document.querySelector('.todaydate').value = today					// 오늘 날짜 보이도록	// 날짜 왜 오늘로 안바뀜?
 		document.getElementById('content').value = ''						// 일기장 비워주기
 		document.getElementById('content').readOnly=false;					// 글 수정 가능
 		document.querySelector('.stamp').src = "/blog/img/투명.png"			// 도장 없애
-		choice_emo.src='/blog/img/투명.png';
+		choice_emo.src='/blog/img/투명.png';									// 감정없애
 	}
 	
 	function load_diary(){			// - 선택한 날짜의 일기 불러오기
@@ -135,16 +136,21 @@ if( cy_num > 0 ){
 							  return;
 						}
 							
-				}else if( re == 'null' ){
+					}else if( re == 'null' ){
 						alert('일기를 쓰지 않은 날이에요😅')
-						document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
-						document.getElementById('content').value = '';								// 일기장 비워주기
-						choice_emo.src='/blog/img/투명.png';											// 감정 없애주기
-						document.getElementById('content').readOnly=true;							// 글 수정 불가
-						back_img.src = "/blog/img/배경1.png"
-						emotableimg.src = "/blog/img/배경1.png"
-						datebox.src = "/blog/img/날짜상자1.png"
-				}
+						back_img.src = "/blog/img/배경1.png"												// 기본 이미지로 변경
+							emotableimg.src = "/blog/img/배경1.png"
+							datebox.src = "/blog/img/날짜상자1.png"
+							document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
+							document.getElementById('content').value = '';								// 일기장 비워주기
+							choice_emo.src='/blog/img/투명.png';											// 감정 없애주기
+						if( date != today ){
+							document.getElementById('content').readOnly=true;							// 글 수정 불가
+						}else{
+							loadtoday()
+						}
+							
+					}
 			}
 		})
 	}
@@ -163,7 +169,7 @@ if( cy_num > 0 ){
 					if ( re == 'true' ){	
 					alert('오늘은 이미 작성한 일기가 있습니다.')
 						if(confirm('수정할까요?')){
-							count++;		
+							count = true;		
 						}else{document.getElementById('content').readOnly=true;}
 					}
 			}
@@ -179,7 +185,7 @@ if( cy_num > 0 ){
 			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
 			async:false,
 			success : function( re ){
-				if( count == -1 && choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
+				if( count == true && choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
 					if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
 					if( re == 'true' ){
 						alert('다이어리 작성 완료🤗'); return;
@@ -188,10 +194,11 @@ if( cy_num > 0 ){
 					}else{
 						alert('다이어리 작성 실패😅 \n [관리자 문의]');
 					}		
-				}else if( choecedate == -1 ){	// 만약 체인지를 안하고 기본값에서 작성을 누르면 작성 막아줌
+				}
+				if( choecedate == -1 ){	// 만약 체인지를 안하고 기본값에서 작성을 누르면 작성 막아줌
 					alert('날짜를 선택하고 다시 눌러주세요😅')
 					loadtoday();
-				}else if( date != today ){
+				}if( date != today ){
 					alert('일기는 당일에만 작성할 수 있어요😅')
 				}
 			}
@@ -199,7 +206,7 @@ if( cy_num > 0 ){
 	}
 	
 	function update_today_di(){ // 오늘 일기 수정하는 메소드
-		if( count == 0 && emo_no != -1 ){
+		if( count == true && emo_no != -1 ){
 			
 			let content = document.querySelector('#content').value
 			today = document.querySelector('.todayinput').value
@@ -235,7 +242,7 @@ if( cy_num > 0 ){
 		
 	
 //////////////////////////////////////////////// 그 외 효과 함수 //////////////////////////////////////////////// 
-		
+	/*	
 	function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
 		if(confirm('감정 수정이 가능해요! 수정할까요?')){
 			emotionlist[i].readOnly=false;											// 잘만 되다가 갑자기 왜이럴가?
@@ -265,6 +272,7 @@ if( cy_num > 0 ){
 			})		
 		}
 	}
+	*/
 	
 	function change_back_img(){		// 배경 더블클릭시 배경 이미지 변경해주는 함수 
 		$.ajax({
@@ -305,7 +313,7 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	
+	/*
 	// 기능 알려주는 함수
 	let oncealarmback = 1;								
 	function alarmback(){
@@ -316,6 +324,7 @@ if( cy_num > 0 ){
 			oncealarmback--;
 		}
 	}
+	*/
 	
 	// 기능 알려주는 함수
 	let oncealarmemo = 1;
