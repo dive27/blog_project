@@ -45,7 +45,11 @@
 				<!-- header_top_ul -->
 
 				<div class="main_header">
-					<div class="logo_section"><a href="/blog/index.jsp">로고영역</a></div>
+					<div class="logo_section">
+						<a href="/blog/index.jsp">
+							<img src="/blog/img/logo/logo.png" alt="logoimg" >
+						</a>
+					</div>
 
 					<div class="search_section">
 						<span class="search_section_span">

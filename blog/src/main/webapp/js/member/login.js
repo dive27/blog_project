@@ -21,6 +21,7 @@ function login(){
 				/*alert("로그인성공");*/ 				
 				get_cy_num() // 11/7 로그인할때 세션에 cy_num 저장 추가 
 				location.href="/blog/main.jsp";
+				myemotable()
 			}else if(re==='2'){
 				alert("비밀번호틀림")				
 			}else if(re==='3'){
@@ -30,6 +31,24 @@ function login(){
 	})
 
 }
+
+   let login_diary = 1;  
+   function myemotable(){
+      if( login_diary == 1 ){
+            $.ajax({
+            url : "/blog/emotable" ,
+            async:false,
+            data : { "cy_num" : cy_num } ,
+            success : function(re){
+               login_diary = 0;
+               }
+            })
+      }
+   }
+
+
+
+
 
 // 11/7 로그인할때 세션에 cy_num 저장 추가
 let cy_num = -1

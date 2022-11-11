@@ -10,7 +10,7 @@
 <body>
 	<div class="wrap">
 		<div class="logo_section">
-				<span>로고가 들어갈 예정</span>
+			<img src="/blog/img/logo/logo.png" alt="logoimg" >
 		</div>
 		<div class="login_wrap">		
 			<div class="login_section">
