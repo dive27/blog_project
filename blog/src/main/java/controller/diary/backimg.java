@@ -34,7 +34,13 @@ public class backimg extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		doGet(request, response);
+		int cy_num = MemberDao.getInstance().getcy_id( 
+	            (String)request.getSession().getAttribute("cy_id") );	
+		
+		boolean result = DiaryDao.getInstance().youremotable(cy_num);
+		
+		response.getWriter().print(result);
+		
 	}
 
 }

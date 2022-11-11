@@ -50,11 +50,12 @@ public class DiaryDao extends Dao{
 			return null;
 		}
 	
-	public ArrayList<EmotionDto> getemotion() {												// 전체 감정 가져오기 테이블 출력용
-		String sql = "select * from emotion";
+	public ArrayList<EmotionDto> getemotion( int cy_num ) {												// 전체 감정 가져오기 테이블 출력용
+		String sql = "select * from emotion where cy_num = ?";
 		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, cy_num);
 			rs = ps.executeQuery();
 			while( rs.next() ) {						
 				EmotionDto dto = new EmotionDto(
@@ -123,11 +124,11 @@ public class DiaryDao extends Dao{
 	// 로그인 시 기본 감정테이블 부여
 	public boolean youremotable( int cy_num ) {
 		String sql = "insert into emotion values"
-				+ "( null , '슬픈 날' , '하트1.gif' , ?),"
-				+ "( null , '행복한 날' , '하트2.gif' , ?),"
-				+ "( null , '화나는 날' , '하트3.gif' , ?),"
-				+ "( null , '즐거운 날' , '하트4.gif' , ?),"
-				+ "( null , '행복한 날' , '하트5.gif' , ?)";
+				+ "( 1 , '슬픈 날' , '하트1.gif' , ?),"
+				+ "( 2 , '행복한 날' , '하트2.gif' , ?),"
+				+ "( 3 , '화나는 날' , '하트3.gif' , ?),"
+				+ "( 4 , '즐거운 날' , '하트4.gif' , ?),"
+				+ "( 5 , '행복한 날' , '하트5.gif' , ?)";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, cy_num);
