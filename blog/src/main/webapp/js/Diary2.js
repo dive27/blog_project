@@ -30,6 +30,7 @@ if( cy_num > 0 ){
 	getToday()		  // 오늘 날짜 가져오는 함수		
 	getemotiontable() // 감정 테이블 출력하는 함수
 
+
 	function getToday(){		// 오늘 날짜 가져오는 함수
 	    date = new Date();
 	    let year = date.getFullYear();
@@ -45,11 +46,6 @@ if( cy_num > 0 ){
 //////////////////////////////////////////////// 감정 관련 함수 ////////////////////////////////////////////////
 	
 /*
-	수정해야 될 부분
-	디비 / 이모션테이블에 싸이넘 추가하기
-	디비번호말고 클릭한 이모지 번호로 emo_no바꾸기
-
-
 	let login = 1;
 	myemotable()
 	function myemotable(){
@@ -70,15 +66,12 @@ if( cy_num > 0 ){
 		alert(emoindex.src) 
 	}
  */
- 
-
 	
 	function getemotiontable(){		// 감정 테이블 나타내기 
 		
 		let html = '';
 		$.ajax({
 			url : "/blog/emotion" ,
-			data : { "cy_num" : cy_num } ,
 			async:false,
 			success : function(re){
 				let json = JSON.parse(re)
@@ -187,7 +180,6 @@ if( cy_num > 0 ){
 			data : { "content" : content , "cy_num" : cy_num , "emono" : emo_no , "backno" : backno } ,
 			async:false,
 			success : function( re ){
-				alert( count + " " +  choecedate + " " + date)
 				if( choecedate == 0 && date == today ){ // 날짜를 선택해서 값이 0일때만 작성가능
 					if( emo_no == -1 ){ alert('이모티콘을 선택해주세요');}
 					if( re == 'true' ){
@@ -316,19 +308,19 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	/*
+	
 	// 기능 알려주는 함수
-	let oncealarmback = 1;								
-	function alarmback(){
-		if(oncealarmback == 1){
+	let oncealarm = 1;								
+	function oncealarmback (){
+		if(oncealarm == 1){
 			back_img.style.opacity="0.5"
 			alert('더블클릭하면 테마를 수정할 수 있어요!')
 			setTimeout(() => back_img.style.opacity="1.0", 200);
-			oncealarmback--;
+			oncealarm--;
 		}
 	}
-	*/
 	
+	/*
 	// 기능 알려주는 함수
 	let oncealarmemo = 1;
 	function alarmchangeemo(){
@@ -339,7 +331,7 @@ if( cy_num > 0 ){
 			oncealarmemo--;
 		}
 	}
-	
+	*/
 
 	
 }else{

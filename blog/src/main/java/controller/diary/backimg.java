@@ -37,10 +37,9 @@ public class backimg extends HttpServlet {
 		int cy_num = MemberDao.getInstance().getcy_id( 
 	            (String)request.getSession().getAttribute("cy_id") );	
 		
-		boolean result = DiaryDao.getInstance().youremotable(cy_num);
+		boolean result = DiaryDao.getInstance().alreadytable(cy_num);
 		
 		response.getWriter().print(result);
-		
 	}
 
 }

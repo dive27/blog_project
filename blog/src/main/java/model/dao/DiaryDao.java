@@ -121,6 +121,21 @@ public class DiaryDao extends Dao{
 		return -1;
 	}
 	
+	// 만약 이미 감정 테이블이 존재하면 안됨
+	public boolean alreadytable( int cy_num ) {
+		String sql = "select * from emotion where cy_num = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cy_num);
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				return false;
+			}
+		} catch (Exception e) {System.out.println(e+"감정 테이블 이미 있는지 확인하는 메소드 오류");}
+		return true;
+	}
+	
+
 	// 로그인 시 기본 감정테이블 부여
 	public boolean youremotable( int cy_num ) {
 		String sql = "insert into emotion values"
@@ -141,4 +156,5 @@ public class DiaryDao extends Dao{
 		} catch (Exception e) {System.out.println(e+"기본 감정 테이블 부여 메소드 오류");}
 		return false;
 	}
+
 }
