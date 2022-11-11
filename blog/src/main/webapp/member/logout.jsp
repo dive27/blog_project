@@ -22,7 +22,14 @@
 	response.sendRedirect("/blog/index.jsp");
 %>
 
-<script src ="/blog/js/member/login.js"></script>
+<script type="text/javascript">
+sessionremove()
+function sessionremove(){
+	//alert("login.js")
+	//alert('함수 실행')
+	localStorage.removeItem("cy_num_se");
+}
+</script>
 
 
 

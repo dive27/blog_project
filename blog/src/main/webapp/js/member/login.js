@@ -56,11 +56,7 @@ function enterkey(){
 	}
 }
 
-function sessionremove(){
-	//alert("login.js")
-	//alert('함수 실행')
-	sessionStorage.removeItem("cy_num_se");
-}
+
 
 // 유정
 function alreadytable(){	

@@ -134,7 +134,6 @@ create table emotion(
     constraint cy_num_em_fk foreign key (cy_num) references Cywold_signup (cy_num)
 );
 select * from emotion ;
-select * from emotion where cy_num = 1;
 
 insert into backimg values( null , '배경1' );
 insert into backimg values( null , '배경2' );
