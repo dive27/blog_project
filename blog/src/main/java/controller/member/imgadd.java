@@ -18,7 +18,7 @@ import model.dao.MemberDao;
 @WebServlet("/member/imgadd")
 public class imgadd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       //test
   
     public imgadd() {super();}
 
@@ -45,12 +45,22 @@ public class imgadd extends HttpServlet {
 				new DefaultFileRenamePolicy() 	// 5. 업로드된 파일의 이름이 중복일경우 자동으로 이름 변경
 		); // 생성자 end
 		
-		// 
+		// 11/10 프로필이미지 수정
 		String cy_profile_img = multi.getFilesystemName("cy_profile_img"); //파일명가져올때 사용함 
-		int cy_num = MemberDao.getInstance().getcy_id((String) request.getSession().getAttribute("cy_id"));
+		
+		
+		int cy_num = MemberDao.getInstance().getcy_id((String) request.getSession().getAttribute("cy_id"));		
+		
+		
+		
+		
+			
+		
 		
 		//
 		boolean result =  MemberDao.getInstance().imgadd(cy_profile_img, cy_num);
+		
+
 		
 		response.getWriter().print(result);
 		

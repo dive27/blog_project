@@ -86,13 +86,13 @@
 margin: 0px 3px 10px 3px;
     text-align: center;
     width: 210px;
-    height: 300px;
-    background: #c8c8c8;
+    height: 300px;    
 }
 
 
 .profileimg img{
-	width: 85%;
+	width: 100%;
+	height: 100%;
 }
 
 .profilename{ /* 별명, 인사말 */

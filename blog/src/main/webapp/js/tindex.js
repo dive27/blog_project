@@ -24,8 +24,12 @@ document.querySelector('.imgadd').addEventListener( 'click' , e=>{
 
 
 let profileimg = document.querySelector(".profileimg>img")
-console.log(profileimg)
+let change_profile_div = document.querySelector(".change_profile_div>img")
 
+console.log(profileimg)
+console.log(change_profile_div)
+
+// 프로필 이미지 수정
 $.ajax({
 	url: "/blog/member/imgadd",
 	success: function(img) {
@@ -33,12 +37,15 @@ $.ajax({
 		if (img == 'null') {
 			profileimg.src = '/blog/member/img/pforileimg.jpg';
 		}
-		else {
+		else {			
 			profileimg.src = '/blog/member/img/' + img;
-			//profileimg = '/blog/member/img/' + img;
-			//test
+			change_profile_div.src = '/blog/member/img/'+ img;
+			
 		}
 	}
 })
+
+
+
 
 

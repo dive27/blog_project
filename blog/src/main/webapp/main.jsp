@@ -41,11 +41,11 @@
 				<div class="visit_num_box"><!-- 방문자수  -->
 					
 					<div class="today_box num_box">
-						<span class="num_text">Today</span> <span class="num">10</span>
+						<span class="num_text">Today</span> <span class="num">0</span>
 					</div>
 
 					<div class="total_box num_box">
-						<span class="num_text">Total</span> <span class="num">169</span>
+						<span class="num_text">Total</span> <span class="num">0</span>
 					</div>
 				</div><!-- visit_num_box -->
 				

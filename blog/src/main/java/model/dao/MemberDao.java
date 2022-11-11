@@ -271,4 +271,8 @@ public class MemberDao extends Dao {
 		return null;
 	}
 	
+	
+
+	
+	
 }//MemberDao end

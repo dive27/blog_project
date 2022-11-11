@@ -19,8 +19,16 @@
 </head>
 <body>
 
+
+
 	<%@include file="../header.jsp" %>
-	
+
+
+	<% 
+		//만약에 로그인을 하지 않았으면 로그인페이지로 보내버림
+		if(loginid == null) { response.sendRedirect("/blog/member/login.jsp");}
+	%> 
+
 	<!-- 성지혜 : 헤더페이지  -->
 		<!-- 게시판 부트스트랩 사용o,	<a>태그 class="nav-link" 추가해서 부트스트랩 적용제외 -->
 	
@@ -35,6 +43,7 @@
 						<!-- 자기소개 타이틀 박스 -->
 						<span> ABOUT ME </span>
 					</div>
+					
 					<div class="about_me">
 						<!-- 자기소개 이미지, 내용 박스 -->
 						<div class="profileimg">
@@ -42,7 +51,9 @@
 							<img alt="" src="" class="profile_img">
 						</div>
 						<div class="profilename">
-							<span> 별명 : 소공녀 </span><br> <span> 소개글 : 아기자기하게 꾸미는걸 좋아하는 나의 블로그 </span>
+							<span class="my_name"> <%=cy_name%> 의 블로그 입니다. </span><br> 
+							<p class="self_introduction"> 자기소개가 없습니다.<br> 자기소개를 작성해주세요! </p>
+							<span>자기소개 수정하기</span>
 							<!-- 방문자 수 기록 코드 작성 칸 -->
 						</div>
 						<div> <p><a href="#ex1" rel="modal:open">프로필사진변경</a></p> <button>이웃신청</button></div>
@@ -124,19 +135,26 @@
 	</div> <!-- 웹페이지 박스 end -->
 	
 	
-			<div id="ex1" class="modal">
+			<!-- 프로필 이미지 변경하는 div -->
+			<div id="ex1" class="modal" style="width: 800px; height: 500px;">
 			  <p>프로필변경</p>
 			  
 			  <!--  프로필 미리 보기 있으면 좋음  -->
+			  <!-- 11/11 시도중 예은 -->
+			  <div class="change_profile_div">
 			  
+			  	
+			  
+			  	<img alt="" src="" class="change_profile_img" style="width:50%; margin:0 auto;">
+			  </div>
+			  
+			  <!--  -->			  
 			  
 			  <form>
 			  	<input type="file" name="cy_profile_img">
 			  	<button type="button" class="imgadd">등록</button>
 			  </form>
-			</div>
-			
-			<!-- Link to open the modal -->
+			</div><!-- Link to open the modal -->
 			
 	
 	
