@@ -2,6 +2,8 @@ package controller.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,16 +24,16 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int bno = (Integer)request.getSession().getAttribute("bno");
 		
 		// 삭제할 게시물 정보호출
-		TBaordDto dto = TBoardDao.getInstance().getboard(bno);
+		ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno);
 			
 		// 2. DAO 처리[ 업데이터 ]
 		boolean result = TBoardDao.getInstance().tbfiledelete( bno );
 		
 		// 3. 실제 파일 삭제처리
 		if( result ) {
-			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile() );
-			File file = new File(deletepath);
-			if( file.exists() ) file.delete();
+//			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile() );
+//			File file = new File(deletepath);
+//			if( file.exists() ) file.delete();
 		}
 		// 4. 결과반환
 		response.getWriter().print(result);

@@ -17,14 +17,14 @@
 				<div class="login_box">
 					<span class="text_box"> 아이디 </span> 
 					<span class="span_box">
-						<input type="text" class="inputbox" id="cy_id">
+						<input type="text" class="inputbox" id="cy_id" onkeyup="enterkey()">
 					</span>
 				</div><!-- login_box -->
 
 				<div class="login_box">
 					<span class="text_box"> 비밀번호 </span> 
 					<span class="span_box">
-						<input type="password" class="inputbox" id="cy_password">
+						<input type="password" class="inputbox" id="cy_password" onkeyup="enterkey()">
 					</span><!-- text_box -->
 				</div><!-- login_box -->
 

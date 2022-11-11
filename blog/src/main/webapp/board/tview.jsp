@@ -35,7 +35,7 @@
 			<div class="replybox">
 				<div class="r_box"> <!-- 댓글달기 -->
 					<textarea class="rcontent" cols="60" rows="5"></textarea>
-					<button type="button" onclick="rwrite()">댓글 작성</button>
+					<button class="button1" type="button" onclick="rwrite()">댓글 작성</button>
 				</div>
 				
 				<div class="replylist"> <!-- 댓글출력 -->

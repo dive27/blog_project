@@ -33,10 +33,10 @@ function bview(){
 			
 			if( board.btnaction == true ){
 				// 삭제 버튼 활성화
-				let deletebtn = '<button onclick="bdelete('+board.bno+')"> 삭제 </button>'
+				let deletebtn = '<button class="button1" onclick="bdelete('+board.bno+')"> 삭제 </button>'
 				btnbox.innerHTML += deletebtn;
 				// 수정 버튼 활성화 
-				let updatebtn = '<button onclick="pagechange()">수정</button>'
+				let updatebtn = '<button class="button1" onclick="pagechange()">수정</button>'
 				btnbox.innerHTML += updatebtn;
 			}
 			////////////////// 댓글출력 ///////////////////
@@ -157,7 +157,7 @@ function rlist(){
 									'<span>'+reply.rcontent+'</sapn>'+
 									'<span>'+reply.rdate+'</sapn>'+
 									'<span>'+reply.mid+'</sapn>'+
-									'<button type="button" onclick="rereplyview('+reply.rno+')">답글</button>'+
+									'<button type="button" class="button1" onclick="rereplyview('+reply.rno+')">답글</button>'+
 									'<div class="reply'+reply.rno+'"></div>';	
 						////// 대댓글 html 구성 
 						for( let j = 0 ; j<rereplylist.length ; j++ ){

@@ -38,7 +38,7 @@ public class detailload extends HttpServlet {
 		
 		
 		// 4. 로그인한 회원아이디
-		  //String mid = (String)session.getAttribute("mid");
+		  String mid = (String)session.getAttribute("cy_num");
 		
 		
 		/*

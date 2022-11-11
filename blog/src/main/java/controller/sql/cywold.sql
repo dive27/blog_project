@@ -17,8 +17,53 @@ cy_nickname varchar(30),	-- 이름도 가능하지만, 닉네임으로도 **의 
 cy_signuptime datetime default now(), -- 가입날짜 추가...10/30
 cy_cash int default 0		-- 노래구매 및 스킨구매 용으로 도토리
 );
-
 select * from Cywold_signup;
+
+-- 이미지변경
+drop table if exists Cywold_signup_pforile_img;
+create table Cywold_signup_pforile_img(
+	cy_imgno int auto_increment primary key  ,  -- 프로필 식별 번호 피케이 
+    cy_profile_img longtext, -- 프로필 사진 이름 
+    cy_num int,  -- 프로필 사진 주인 fk
+    constraint profile_cy_num foreign key (cy_num) references Cywold_signup (cy_num)
+);
+
+select * from Cywold_signup_pforile_img;
+
+select cy_profile_img from Cywold_signup_pforile_img where cy_num="6";
+select cy_num from Cywold_signup_pforile_img ;
+
+
+-- 1.먼저 이미지 테이블에 해당 회원번호가 존재하는지 select
+select * from Cywold_signup_pforile_img where cy_num="7";
+
+-- 1. 만약에 존재하면 update
+update Cywold_signup_pforile_img set cy_profile_img="coffee.jpg" , cy_num="7";
+
+
+-- 2. 존재하지 않으면 insert
+insert into Cywold_signup_pforile_img (cy_profile_img) values ("coffee.jpg");
+insert into Cywold_signup_pforile_img( cy_profile_img , cy_num ) values("coffee.jpg","7");
+select * from Cywold_signup;
+
+
+drop table if exists Cywold_signup_follow;
+create table Cywold_signup_follow(
+	cy_follow_no int auto_increment primary key,  -- 이웃 식별 번호 피케이 
+    cy_num_from int,   -- 이웃 신청한 회원번호  fk
+    cy_num_to int, -- 이웃 신청 받은 회원번호  fk
+    cy_follow_message varchar(100), -- 간단한 메세지
+    constraint cy_num_from foreign key (cy_num_from) references Cywold_signup (cy_num), -- 이웃신청을 한 사람
+    constraint cy_num_to foreign key (cy_num_to) references Cywold_signup (cy_num) -- 이웃신청을 받은사람
+);
+
+select * from Cywold_signup_follow;
+select * from Cywold_signup_pforile_img where cy_num = 7;
+
+-- 8-2 회원 이름을 가지고 회원 이름을 찾는 메소드
+
+select cy_name from Cywold_signup where cy_id = "admin";
+
 
 DROP TABLE if exists category;
 create table category( cno int auto_increment primary key , cname varchar(100)  );
@@ -38,6 +83,8 @@ CREATE TABLE board(
     constraint bmno_fk foreign key (cy_num) references cywold_signup(cy_num) on delete cascade
 );
 
+
+
 -- 댓글 : 1.게시물번호 2.회원번호 3.내용 4.답글식별필드
 drop table if exists reply;
 create table reply(
@@ -56,8 +103,8 @@ create table reply(
 
 
 --  다이어리 관련 --
-
 -- 다이어리 
+
 drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,		-- 다이어리 식별번호
@@ -65,9 +112,15 @@ create table diary(
     di_content varchar(200) not null, 					-- 작성한 다이어리 내용
     emo_no int ,								-- 선택한 감정 번호
     cy_num int ,								-- 회원 식별번호
-    constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num) 
+    back_img_no int ,							-- 배경 이미지 번호
+    constraint cy_num_di_fk foreign key (cy_num) references Cywold_signup (cy_num),
+    constraint back_img_no_di_fk foreign key (back_img_no) references backimg (back_img_no)
 );
 select * from diary;
+select * from emotion where cy_num = 1;
+
+select back_img_no from backimg order by back_img_no desc limit 1;
+
 -- 감정
 drop table if exists emotion;
 create table emotion(
@@ -82,32 +135,39 @@ select * from emotion;
 -- 다이어리 배경 이미지
 drop table if exists backimg;
 create table backimg(
-	back_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
-    back_img varchar(20) ,										-- 다이어리 배경 이미지 이름
-	cy_num int ,
-    constraint cy_num_ba_fk foreign key (cy_num) references Cywold_signup (cy_num)
+	back_img_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
+    back_img varchar(20) 										-- 다이어리 배경 이미지 이름
 );
 select * from backimg;
 
--- js와 관련되어 추가해둡니다.
-insert into backimg values( null , '배경1' , 1 );
-insert into backimg values( null , '배경2' , 1 );
-insert into backimg values( null , '배경3' , 1 );
-insert into backimg values( null , '배경4' , 1 );
-insert into backimg values( null , '배경5' , 1 );
+-- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
+insert into emotion values( null , '슬픈 날' , '하트1.gif' , 1);
+insert into emotion values( null , '즐거운 날' , '하트2.gif' , 1);
+insert into emotion values( null , '우울한 날' , '하트3.gif' , 1);
+insert into emotion values( null , '화나는 날' , '하트4.gif' , 1);
+insert into emotion values( null , '행복한 날' , '하트5.gif' , 1);
 
--- js와 관련되어 추가해둡니다
-insert into emotion value( null , '슬픈 날' , '하트1.gif' , 1);
-insert into emotion value( null , '즐거운 날' , '하트2.gif' , 1);
-insert into emotion value( null , '우울한 날' , '하트3.gif' , 1);
-insert into emotion value( null , '화나는 날' , '하트4.gif' , 1);
-insert into emotion value( null , '행복한 날' , '하트5.gif' , 1);
+insert into backimg values( null , '배경1' );
+insert into backimg values( null , '배경2' );
+insert into backimg values( null , '배경3' );
+insert into backimg values( null , '배경4' );
+insert into backimg values( null , '배경5' );
 
+
+
+-- 이미지 board
+
+drop table if exists imgboard;
 create table imgboard(
 imgb_no  int auto_increment primary key,
 imgb_title varchar(20),
 imgb_content varchar(30),
 imgb_file longtext ,
 imbb_date  datetime default now(),
-imbb_view int default 0 
+imbb_view int default 0 ,
+cno	int ,				-- 카테고리번호 FK 
+cy_num 	int	,			-- 작성자  
+constraint icno_fk foreign key (cno) references category(cno) on update cascade ,
+constraint imno_fk foreign key (cy_num) references cywold_signup(cy_num) on delete cascade
 );
+

@@ -18,7 +18,7 @@
 	<div class="wrap">
 	
 		<div class="infor_wrap">
-			<h3 class="myinfor_title">내정보</h3>
+			<h3 class="myinfor_title"><%=loginid%> 님의 정보 입니다.</h3>
 
 
 

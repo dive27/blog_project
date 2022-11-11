@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 <style type="text/css">
 		@font-face {
-	    font-family: 'Humanbumsuk';
+	    
 	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
 	    font-weight: normal;
 	    font-style: normal;
@@ -25,11 +25,15 @@
 		
 		*{
 			box-sizing: border-box;
-			font-family: 'Humanbumsuk';
 		}
 		
-		.mainbox{					/* 전체박스 */
+		.mainbox{							/* 전체박스 */
 			height: 30vh;
+		}
+		
+		.todaydate , .c_emobox , #content , #date{	/* 글 있는 부분 */
+			font-family: 'Humanbumsuk';		
+			color: #463C3C;
 		}
 		
 		#calendar{					/* 인풋 데이트 넣을 th */
@@ -66,7 +70,6 @@
 			position: absolute;
 			left: 7%;
 			bottom: 5%;
-			opacity: 0.95;
 		}
 		
 		.c_emobox{					/* 감정테이블 */
@@ -83,8 +86,8 @@
 			z-index: 5;
 			width: 6%;
 			height: 6%;
-			top: 8%;
-			left: 87%;
+			top: 17%;
+			left: 77%;
 		}
 		
 		.diary_img{					/* 다이어리 배경 */
@@ -98,7 +101,16 @@
 			background-position: top;
 		}
 		
-		.diatytextbox{				/* 다이어리 흰색박스 */
+		.dateboximg{				/* 날짜 상자 이미지 */
+			z-index: 3;
+			position: absolute;
+			top: 2%;
+			left: 2%;
+			width: 550px;
+			height: 80px;
+		}
+		
+		.diarytextbox{				/* 다이어리 흰색박스 */
 			z-index: 2;
 			position: absolute;
 			top: 10%;
@@ -110,7 +122,6 @@
 			background-position: center;
 			position: absolute;
 			bottom: 10%;
-			opacity: 0.95;
 		}
 		
 		#content{					/* 다이어리 내용박스 */
@@ -138,9 +149,11 @@
 		.todaydate{					/* 오늘 날짜 띄워줄 곳 */
 			z-index: 3;
 			position: absolute;
-			top: 70px;
-			right: 100px;
+			top: 2%;
+			right: 33%;
 			font-size: 35px;
+			
+			
 		}
 		
 		.clickbtn{					/* 연필 */
@@ -149,15 +162,12 @@
 			width: 70%;										
 			float: right;
 			margin-top: 30%;
-			
 		}
 				
 		.c_emotion_t{				/* 감정 테이블 포함한 박스 */
 			height: 700px;
 			position: relative;
 		}		
-				
-
 				
 		.c_emotion_t tr{
 			width: 100%;
@@ -178,6 +188,10 @@
 			height: 45px;
 		}
 		
+		.emoji:hover{
+			opacity: 0.8;
+		}
+		
 		.c_emobox td{
 			font-size: 25px;
 			vertical-align: middle;
@@ -188,22 +202,7 @@
 		.emotioninput{
 			margin-left: 5%;
 		}
-		
-		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? 
-		
-		.c_emobox tr > .emotioninput , .emoji{
-			opacity: 0.8;
-			background-color: red;
-			color: red;
-		}
-	
-		{
-
-			transform: rotate( -20deg );
-			transition: all ease 0.3s;
-		}
-		*/
-		 
+			 
 		.emotioninput:hover{
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
@@ -213,15 +212,15 @@
 		.stamp{						
 			z-index: 3;
 			position: absolute;
-			right: 10%;
-			bottom: 8%;
+			right: 12%;
+			bottom: 12%;
 		}
 		
 	</style>
 </head>
 <body>
 
-	<input type="text" class="todayinput">
+	<input type="hidden" class="todayinput">
 	<table class="mainbox">
 		<th id="calendar">
 			<input id="date" type="date" onchange="load_diary()">
@@ -230,9 +229,10 @@
 		</th>
 		
 		<th rowspan="2" class="diary">
+			<img class="dateboximg" alt="날짜상자" src="/blog/img/날짜상자1.png">
 			<img class="stamp" src="/blog/img/투명.png">
-			<img class="diatytextbox" src="/blog/img/레이스종이.png">
-			<img ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
+			<img class="diarytextbox" src="/blog/img/레이스종이.png">
+			<img onmouseover="alarmback()" ondblclick="change_back_img()" class="diary_img" src="/blog/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/blog/img/투명.png">
 			<textarea id="content"></textarea> 
@@ -242,7 +242,7 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
+			<img onmouseover="alarmchangeemo()" class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
 			<table class="c_emobox" >
 			</table>

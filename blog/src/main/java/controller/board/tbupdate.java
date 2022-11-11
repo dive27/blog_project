@@ -2,6 +2,8 @@ package controller.board;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,21 +44,21 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int bno = (Integer)request.getSession().getAttribute("bno");
 		
 		// 수정되기 전 게시물 정보
-		TBaordDto dto = TBoardDao.getInstance().getboard(bno);
+		 ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno);
 		
 		// * 기존 첨부파일 변경여부 판단
 		boolean bfilechange = true;
 		
 		// * 수정시 첨부파일 등록 없을 경우[ 기존 첨부파일 호출 ]
-		if( bfile == null ) { bfile = dto.getBfile();	bfilechange = false; }
+			// 오류 : if( bfile == null ) { bfile = dto.getBfile();	bfilechange = false; }
 			
 		// 4. dao 처리[ 업데이트 = 새로운 첨부파일 ]
 		boolean result = TBoardDao.getInstance().bupdate( bno, btitle, bcontent, bfile );
 		
 		if( result ) { // 업데이트 성공시 [ 기존 첨부파일 변경되었을때 ] 기존파일 삭제
 			if( bfilechange ) {
-				String deletepath = request.getSession().getServletContext().getRealPath("/upload"+dto.getBfile() );
-				File file = new File( deletepath );	if( file.exists() ) file.delete();
+//		오류:		String deletepath = request.getSession().getServletContext().getRealPath("/upload"+dto.getBfile() );
+//				File file = new File( deletepath );	if( file.exists() ) file.delete();
 			}
 			
 		}

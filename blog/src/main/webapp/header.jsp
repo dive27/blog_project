@@ -1,3 +1,4 @@
+<%@page import="model.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,9 +18,12 @@
 				//세션호출 할 때 request.getSession().getAttribute("세션변수명")  -->
 
 				<%
-				String loginid = (String) session.getAttribute("cy_id");
+					String loginid = (String) session.getAttribute("cy_id");
 				%>
-
+				
+				<%
+					String cy_name = MemberDao.getInstance().getcy_name( loginid ) ;				
+				%>
 
 				<ul class="header_top_ul">
 					<!-- loginid가 null이면 로그인을 하지 않았다. -->
@@ -31,7 +35,7 @@
 
 					<!-- 세션이 존재한다는다. 로그인을 했다. -->
 					<% } else { %>
-					<li class="header_top_li"><%=loginid%> 님 반갑습니다! :)</li>
+					<li class="header_top_li"><%=cy_name%> 님 반갑습니다! :)</li>
 					<li class="header_top_li"><a href="/blog/member/logout.jsp">로그아웃</a></li>
 					<li class="header_top_li"><a href="/blog/member/myinfor.jsp">마이페이지</a></li>
 					<% } %>

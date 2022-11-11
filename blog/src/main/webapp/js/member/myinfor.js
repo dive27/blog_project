@@ -2,10 +2,7 @@
 
 /*-----------회원정보 호출----------- */
 myinfor();
-function myinfor() {
-	
-	
-	
+function myinfor() {	
 	$.ajax({
 		url: "/blog/member/myinfor",	
 		success: function(re) {
@@ -36,8 +33,7 @@ function viewdelete()	{
 	deletebox.innerHTML = deletebtn;	
 }
 	
-function memberdelete(){
-	
+function memberdelete(){	
 		//alert("확인")		
 	//1.입력된 비밀번호를 가져온다
 	let cy_password = document.querySelector("#cy_password").value;

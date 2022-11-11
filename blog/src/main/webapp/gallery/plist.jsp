@@ -10,25 +10,25 @@
 </head>
 <body>
 
+
       <div class ="gallry_box">
         	
       
-      
-           <div id ="box1">   <!-- 게시물 전체추력   -->
+           <div id ="box1">   <!-- 게시물 전체추력 -->
 	       </div>
 		
-	      <div class="pagebox">	<!-- 3.페이징처리  -->
+	      <div class="pagebox">	<!-- 페이징처리 -->
 		
 		  </div>
 	   
 	   <div>
 
-		<button type="button" onclick="pagechange('/blog/gallery/picturwrite.jsp')">이미지등록</button>
+		<button type="button"  id="btnbox1" onclick="pagechange('/blog/gallery/picturwrite.jsp')">이미지등록</button>
 		</div>	
 	
      </div>
 		
-	   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
        <script src="/blog/js/gallery/blist.js"  type="text/javascript"> </script>
   
 </body>

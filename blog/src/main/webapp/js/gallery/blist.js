@@ -58,13 +58,18 @@ function imglist( page ){
 	success : function( re ){
 
 		let output = JSON.parse(re)
-		console.log (output)
+		
+		alert( output )
 		
 		let html = '';
-		let lastpage = 9;
-		let startpage = 0;
 		
-		for ( let i = startpage; i<lastpage; i++){
+		
+		/*let lastpage = 9;
+		let startpage = 0;
+		*/
+		
+	
+		for ( let i = 0; i<output.length; i++){  // size vs length 사용 기준 ?
            let b = output[i]
 			 html +=  '<div id ="box1">'+
                       '<div>'+
@@ -81,17 +86,20 @@ function imglist( page ){
 	
 	///////////////////////// 3.페이징처리 //////////////////
 			// 1. 페이징버튼 html 구성 
+			
 			let pagehtml = '';
 				// 2. 이전 버튼  // 만일 현재페이지가 첫페이지이면 이전페이지 불가
 				if( page <= 1 ) { pagehtml += '<button onclick="imglist('+(page)+')">이전</button>'; }
 				else { pagehtml += '<button onclick="imglist('+(page-1)+')">이전</button>'; }
+				
+				// 3. 다음 버튼 // 만일 현재페이지가 마지막페이지이면 다음페이지 불가 
+				if( page >= output.totalpage ){ pagehtml += '<button onclick="imglist( '+(page)+');">다음</button>'; }
+				else{ pagehtml += '<button onclick="imglist( '+(page+1)+')">다음</button>'; }
+				
 				// 4. 페이지번호 버튼 [ 시작버튼 ~ 마지막버튼 ]
 				for( let page = output.startbtn ; page<= output.endbtn ; page++ ){
 					pagehtml +='<button type="button" onclick="imglist('+page+')">'+page+'</button>'
 				}
-				// 3. 다음 버튼 // 만일 현재페이지가 마지막페이지이면 다음페이지 불가 
-				if( page >= output.totalpage ){ pagehtml += '<button onmousover="plus()" onclick="imglist( '+(page)+');">다음</button>'; }
-				else{ pagehtml += '<button onclick="imglist( '+(page+1)+')">다음</button>'; }
 			
 			document.querySelector('.pagebox').innerHTML = pagehtml
 		
@@ -101,6 +109,7 @@ function imglist( page ){
 	
 }
 
+/*
 function plus(){
 	alert('함수들어옴')
 	html=''
@@ -111,6 +120,8 @@ function plus(){
 	alert(lastpage)
 	alert(startpage)
 }
+*/
+
 
 
 /// 이미지 클릭시  상세 출력
