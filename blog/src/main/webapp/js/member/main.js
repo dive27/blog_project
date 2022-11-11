@@ -13,6 +13,7 @@ $.ajax({
 		else {
 			cy_profile_img.src = '/blog/member/img/' + img;
 			//profileimg = '/blog/member/img/' + img;
+			//test
 		}
 	}
 })
