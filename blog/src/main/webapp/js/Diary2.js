@@ -45,6 +45,23 @@ if( cy_num > 0 ){
 	
 //////////////////////////////////////////////// 감정 관련 함수 ////////////////////////////////////////////////
 	
+	/*
+	let login = 1;
+	myemotable()
+	function myemotable(){
+		if( login == 1 ){
+				$.ajax({
+				url : "/blog/emotable" ,
+				async:false,
+				data : { "cy_num" : cy_num } ,
+				success : function(re){
+					login = 0;
+					}
+				})
+		}
+	}
+	*/
+	
 	function getemotiontable(){		// 감정 테이블 나타내기 
 		
 		let html = '';
@@ -62,7 +79,13 @@ if( cy_num > 0 ){
 		})
 	}
 	
-	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감
+	// 수정수정..
+	function getemoindex(i){
+		let emoindex = document.querySelectorAll('.emoji')
+		alert('클릭한 하트 순서'+emoindex[i])
+	}
+	
+	function choiceemono(no){												// 선택한 감정 일기장에 띄우기 DB 비워져 있으면 안돌아감♥♥♥
 		emo_no = no;
 		let emosrc = '/blog/img/하트반짝'+emo_no+'.gif'
 		choice_emo.src=emosrc;							
@@ -114,7 +137,12 @@ if( cy_num > 0 ){
 				}else if( re == 'null' ){
 						alert('일기를 쓰지 않은 날이에요😅')
 						document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
+						document.getElementById('content').value = '';								// 일기장 비워주기
+						choice_emo.src='/blog/img/투명.png';											// 감정 없애주기
 						document.getElementById('content').readOnly=true;							// 글 수정 불가
+						back_img.src = "/blog/img/배경1.png"
+						emotableimg.src = "/blog/img/배경1.png"
+						datebox.src = "/blog/img/날짜상자1.png"
 				}
 			}
 		})
@@ -201,6 +229,10 @@ if( cy_num > 0 ){
 		}
 	}
 	
+	
+
+		
+	
 //////////////////////////////////////////////// 그 외 효과 함수 //////////////////////////////////////////////// 
 		
 	function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
@@ -214,7 +246,7 @@ if( cy_num > 0 ){
 					emotionlist[i].readOnly=true;
 					emotionlist[i].style.color="black";
 					let emotion = emotionlist[i].value;
-					let emono = i+1;												// DB 번호 수정되면 안됨!
+					let emono = i+1;												// DB 번호 수정되면 안됨!♥♥♥
 			        	$.ajax({
 							url : "/blog/emotion" ,
 							type : "post" ,

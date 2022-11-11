@@ -58,6 +58,14 @@ create table reply(
 --  다이어리 관련 --
 -- 다이어리 
 
+-- 다이어리 배경 이미지
+drop table if exists backimg;
+create table backimg(
+	back_img_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
+    back_img varchar(20) 										-- 다이어리 배경 이미지 이름
+);
+select * from backimg;
+
 drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,		-- 다이어리 식별번호
@@ -70,10 +78,6 @@ create table diary(
     constraint back_img_no_di_fk foreign key (back_img_no) references backimg (back_img_no)
 );
 select * from diary;
-select * from emotion where cy_num = 1;
-
-select back_img_no from backimg order by back_img_no desc limit 1;
-
 -- 감정
 drop table if exists emotion;
 create table emotion(
@@ -85,27 +89,12 @@ create table emotion(
 );
 select * from emotion;
 
--- 다이어리 배경 이미지
-drop table if exists backimg;
-create table backimg(
-	back_img_no int auto_increment primary key,						-- 다이어리 배경 이미지 식별번호
-    back_img varchar(20) 										-- 다이어리 배경 이미지 이름
-);
-select * from backimg;
-
--- 이미지 변경 시 db 번호랑 연관되어 넣어둡니다.
-insert into emotion values( null , '슬픈 날' , '하트1.gif' , 1);
-insert into emotion values( null , '즐거운 날' , '하트2.gif' , 1);
-insert into emotion values( null , '우울한 날' , '하트3.gif' , 1);
-insert into emotion values( null , '화나는 날' , '하트4.gif' , 1);
-insert into emotion values( null , '행복한 날' , '하트5.gif' , 1);
-
+/* 함수와 관련되어 넣어둠 */
 insert into backimg values( null , '배경1' );
 insert into backimg values( null , '배경2' );
 insert into backimg values( null , '배경3' );
 insert into backimg values( null , '배경4' );
 insert into backimg values( null , '배경5' );
-
 
 create table imgboard(
 imgb_no  int auto_increment primary key,
