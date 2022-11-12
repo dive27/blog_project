@@ -56,7 +56,10 @@
 							<span>자기소개 수정하기</span>
 							<!-- 방문자 수 기록 코드 작성 칸 -->
 						</div>
-						<div> <p><a href="#ex1" rel="modal:open">프로필사진변경</a></p> <button>이웃신청</button></div>
+						<div> 
+						<a href="#ex1" rel="modal:open">프로필사진변경</a> <br>
+						<a href="#ex2" rel="modal:open">이웃신청</a>
+						</div>
 
 						<!-- 프로필이름 end -->
 					</div>
@@ -135,7 +138,7 @@
 	</div> <!-- 웹페이지 박스 end -->
 	
 	
-			<!-- 프로필 이미지 변경하는 div -->
+			<!-- 프로필 이미지 변경하는 div 모달 -->
 			<div id="ex1" class="modal" style="width: 800px; height: 500px;">
 			  <p>프로필변경</p>
 			  
@@ -143,19 +146,27 @@
 			  <!-- 11/11 시도중 예은 -->
 			  <div class="change_profile_div">
 			  
-			  	
-			  
 			  	<img alt="" src="" class="change_profile_img" style="width:50%; margin:0 auto;">
 			  </div>
 			  
 			  <!--  -->			  
 			  
-			  <form>
+			  <form class="form1">
 			  	<input type="file" name="cy_profile_img">
 			  	<button type="button" class="imgadd">등록</button>
 			  </form>
 			</div><!-- Link to open the modal -->
 			
+			
+			<!-- 이웃신청 하는  div 모달   div에 있는 id 와 버튼에 있는 <a href="#id"> 일치 해야합니다  -->
+			<div id="ex2" class="modal" style="width: 800px; height: 500px;">
+			  <p>이웃신청</p>
+			  <form>
+			  	<input type="text" class="cy_id"> <br>
+			  	<textarea rows="10" cols="30" class="cy_follow_message"></textarea> <br>
+			  	<button type="button" class="followadd">이웃신청</button>
+			  </form>
+			</div><!-- Link to open the modal -->			
 	
 	
 	

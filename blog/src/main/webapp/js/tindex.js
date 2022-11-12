@@ -6,8 +6,7 @@ function pagechange( page ){
 /* */
 document.querySelector('.imgadd').addEventListener( 'click' , e=>{
 	
-	
-	let form = document.querySelector("form");
+	let form = document.querySelector(".form1");
 	let formData = new FormData( form );
 	
 	$.ajax({
@@ -39,11 +38,42 @@ $.ajax({
 		}
 		else {			
 			profileimg.src = '/blog/member/img/' + img;
-			change_profile_div.src = '/blog/member/img/'+ img;
-			
+			change_profile_div.src ='/blog/member/img/'+ img;			
 		}
 	}
 })
+
+
+document.querySelector('.followadd').addEventListener( 'click' , e=>{
+	
+	let data = {
+		cy_id : document.querySelector(".cy_id").value ,
+		cy_follow_message : document.querySelector(".cy_follow_message").value 
+	}
+	console.log( data )
+	
+		// 1. 이미 이웃신청한 사람인지 유효성검사 진행 해서 이미 이웃신청한 사람이면 이웃신청 불가 아님녀 이웃신청  ㄱㄱ 
+		
+	// 이웃신청 
+	$.ajax({
+		url: "/blog/member/followadd",
+		data : data , 
+		type : "post",
+		success: function(re) { 
+			if( re =="true"){alert('이웃신청이 완료되었습니다..');}
+			else{ alert("없는 회원 입니다."); }
+		}
+
+	})
+
+})
+	
+
+
+
+
+
+
 
 
 
