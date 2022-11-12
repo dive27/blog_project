@@ -128,7 +128,7 @@ function detailload( imgb_no ){
 		 url:"/blog/board/detailload",
 		 data: { "imgb_no" : imgb_no },
 		 success : function ( re) {
-			 alert( imgb_no)
+		
 			$(".mainbox").load("/blog/gallery/pdtail.jsp")
 			
 		}
