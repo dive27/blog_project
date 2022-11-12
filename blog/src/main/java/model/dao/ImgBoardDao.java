@@ -79,6 +79,25 @@ public class ImgBoardDao extends Dao{
 		}
 		return null;
 	}
+	
+	
+	
+	
+	// 8. 전체 게시물 수 
+	public int imggettotalsize() {
+		String sql = "select  count(*) from imgboard";
+		//String sql = "select count(*) from cywold_signup m, imgboard ib where m.cy_num = ib.cy_num";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery(); 
+			if( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) {System.out.println("게시물수오류:" + e);} return 0;
+	}
+
+	
+
+	
 		 
    // 수정
 

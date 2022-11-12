@@ -4,26 +4,39 @@
 */
 /*--------- 게시물 전체 출력 구역--------*/
 
+
+
 .gallry_box{
-	width : 900px;
-	height: auto;
-	margin : 0 auto ;
-	padding: 70px;
-	display: flex;
-	flex-wrap: wrap;	
+    
+    width: 900px;
+    height: 98%;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 70px;
+    display: flex;
+    flex-wrap: wrap;	
 }
 
 
-#box1 {
+.box_s {
     display: flex;
     justify-content: flex-start;
     margin: 12px;
     flex-wrap: wrap; /* 가로배치 시 사이즈가 넘쳤을때 자동으로 줄바꿈*/
-    
+    width: 750px;
+    height: 750px;
     
     
     /* border: blue 2px solid; */
 }
+
+
+.box_s2{ margin: 12px;}
+
+
+.boxs2{ display: flex;
+    margin-top: 12%;}
+
 
 #btnbox1{
 	
