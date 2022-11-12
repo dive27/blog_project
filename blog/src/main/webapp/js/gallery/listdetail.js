@@ -2,7 +2,6 @@
  * 
  */
 
-
 detail();
 function detail() {  //1. 글쓰기 출력
 	$.ajax({
@@ -13,19 +12,28 @@ function detail() {  //1. 글쓰기 출력
 
 			console.log( Iboard  )
 			
-			document.querySelector('.imno').innerHTML = Iboard.imgb_no;
-			document.querySelector('.title').innerHTML = Iboard.imgb_title;
-			document.querySelector('.b_img').innerHTML = Iboard.imgb_file;
-			document.querySelector('.b_content').innerHTML = Iboard.imgb_content;
+		document.querySelector('.imno').innerHTML = Iboard.imgb_no;
+		document.querySelector('.title').innerHTML = Iboard.imgb_title; 
+		//document.querySelector('.b_img').innerHTML = Iboard.imgb_file;
+		//	document.querySelector('.b_content').innerHTML = Iboard.imgb_content;
+		
+        //let b_img = document.querySelector('.b_img')
+         // let b_content = document.querySelector('.b_content')
 
+         html = '';
+       
+         html += '<div class="b_img">'+'<img src="/blog/upload/'+Iboard.imgb_file+'"style= width:500px;height:500px;"></div>'+
+                  '<div class="b_content">'+Iboard.imgb_content+'</div>';
 
+         document.querySelector('.bb_box').innerHTML += html;
+         
+         
 
 
 
 
 			let btnbox = document.querySelector('.btnbox')
-			alert("btnbox 확인");
-			alert(btnbox);
+		
 
 			if (Iboard.btnaction == true) {
 				let deletebtn = '<button onclick="imgdelete(' + Iboard.imgb_no + ')"> 삭제</button>'
@@ -43,12 +51,17 @@ function detail() {  //1. 글쓰기 출력
 
 
 
+
+
+
+
+
+
+
 //삭제 
 
-
 function imgdelete(imgb_no) {
-	alert('cc')
-
+	
 	$.ajax({
 		url: "/blog/board/bimgdelete",
 		data: { "imgb_no": imgb_no },

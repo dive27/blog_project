@@ -15,15 +15,19 @@
 </head>
 <body>
 
+
+  <div class ="gallry_R_box">
+
    <div id="img_sub"> 이미지 등록</div>
 
-    <div class ="gallry_box">
+  
  		<form>
-			<div> 제목 : <input type="text" name="imgb_title"> </div>
-			<div> 내용 : <textarea name="imgb_content"></textarea> </div>
-			<div> 첨부파일 : <input type="file" name ="imgb_file"> </div>
+ 		
+			<div id = "im_title"> 제목 : <input type="text" name="imgb_title"  id ="im_title2"> </div>
+			<div id = "im_content">내용: <textarea name="imgb_content"></textarea> </div>
+			<div id = "cc"> <input type="file" name ="imgb_file"> </div>
 		   
-			<button type="button" onclick="imgwrite()">등록</button>
+			<button id="bu_cs" type="button" onclick="imgwrite()">등록</button>
 			
 		
 		</form>

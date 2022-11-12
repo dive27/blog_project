@@ -20,7 +20,7 @@
 }); 
 
 */
-alert('cc')
+
 
 /*function pagechange(  ){
 
@@ -29,7 +29,6 @@ alert('cc')
 
 function imgwrite(){
 
-alert('dd')
     //form 버전
     let form = document.querySelector('form') 	
 	console.log( form )

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-
+/*div {border: solid 2px yellow;}  
+*/
 /*--------- 게시물 전체 출력 구역--------*/
 
 .gallry_box{
@@ -14,9 +15,13 @@
 
 
 #box1 {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px;
     flex-wrap: wrap; /* 가로배치 시 사이즈가 넘쳤을때 자동으로 줄바꿈*/
+    
+    
+    
     /* border: blue 2px solid; */
 }
 
@@ -26,7 +31,49 @@
 }
 
 
+/*------------ 등록 페이지 ----------------------------*/
+
+
+
+
+.gallry_R_box{
+    border: solid 1px skyblue;
+    padding: 5%;
+    margin-top: 4%;
+    height: 80%;
+    background-color: white;
+}
+	
+#im_title {
+	  margin-top: 4%;
+}
+
+
+#im_title2{ width: 100%; }
+
+#im_content{
+	margin-top: 5px;
+	height: 500px;
+	margin-bottom: 5px;
+}
+
+
+
+textarea{
+	width:100%;
+    height: 500px; 
+	}
+
+#cc{ margin-top: 30px; }
+
+#bu_cs{ margin-left:95%}
+
+
 /*------------자세히보기-------------------*/
+
+tr{ border-bottom: solid 2px black;}
+
+td{ height : 10px;}
 
 .gallry_detail_box{
     border: solid 1px skyblue;
@@ -47,27 +94,37 @@
 
 
 #d_box{
-  border: solid 1px black;
-  margin-top: 4%;
-  width: 100%;
-  height: 85%;
+    border-bottom: solid 1px black;
+    margin-top: 1%;
+    margin-bottom: 3%;
+    width: 100%;
+    height: 10%;
 	
 }
 
-.box1{ height: 50px;}
 
 
-#n_b{ width: 10%; border: solid 1px red;  text-align: center;}
+.bb_box{ width:100%; height: 60%;}
+
+
+.box1{ height: 50px; border-bottom: solid 1px black;}
+
+
+#n_b{ width: 10%; text-align: center;}
 
 .imno{ display: inline-block;}
 
 
-tr,td { border: solid 1px black;}
-
-.sebtn {  display: flex;
-          margin-top: 10px; 
-          border: solid 1px green;;}
+.sebtn { display: flex;
+         margin-top: 110px;
+         padding-top: 20px;
+         height: 50px;
+         border-top: solid 1px black;
+         }
          
-.btnbox{ width:300px; margin-left:85%;  border: solid 1px red;}
 
-.sebtn2{ width:800px; border: solid 1px gray;}
+      
+
+.btnbox{ margin-left:85%; }
+
+

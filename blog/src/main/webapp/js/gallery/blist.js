@@ -52,14 +52,12 @@ imglist( )
 
 // 이미지 전체 출력 
 function imglist( page ){
-	alert('cc')
+	
   $.ajax({
 	url: "/blog/board/bimgOutPut",
 	success : function( re ){
 
 		let output = JSON.parse(re)
-		
-		alert( output )
 		
 		let html = '';
 		
@@ -73,7 +71,7 @@ function imglist( page ){
            let b = output[i]
 			 html +=  '<div id ="box1">'+
                       '<div>'+
-                      '<img class="bimg" onclick="detailload('+b.imgb_no+')" src="/blog/upload/'+b.imgb_file+'"style= width:250px;height:250px;">'+
+                      '<img class="bimg" onclick="detailload('+b.imgb_no+')" src="/blog/upload/'+b.imgb_file+'"style= width:220px;height:250px;">'+
                       '</div><br> '+
                       //'<div class="imgtitle">'+output[i].imgb_title+'</div>'+
                       //'<div class="imgdate">'+output[i].imbb_view +'</div>'+

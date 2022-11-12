@@ -22,20 +22,20 @@
 		       <td> <div class="title"></div></td>  <!--  제목 -->
 		    </tr>
 		    
-		    <tr>
-		      <td colspan='2'>
-		      <div class="b_img"></div> <!--  첨부한 이미지 -->
-		      </td>  
-		    </tr>
-		    
-		    <tr>  
-		     <td colspan='2'>
-		      <div class="b_content"> </div> <!--  내용 -->
-		      </td>
-		    </tr>
+		     </table>
 		    
 		    
-            </table>
+		     <div class="bb_box">
+	
+	
+	
+		    <!--  <div class="b_img"></div>  첨부한 이미지
+		      <div class="b_content"> </div>  내용 -->
+		      
+		    </div>
+		    
+		    
+           
 
 
            
