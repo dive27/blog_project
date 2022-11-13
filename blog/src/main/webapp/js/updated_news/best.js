@@ -66,6 +66,7 @@ function tlistall(  ){
 						
 			let best_imghtml =''
 			for( let i = 0 ; i<boards.length ; i++ ){
+				if( i == 3 ){ break; }
 				let b = boards[i];
 				best_imghtml +=  '<div class="container">'+
 						'	  <img src="/blog/upload/'+b.bfile+'" width="20%" alt="Avatar" class="image">'+
