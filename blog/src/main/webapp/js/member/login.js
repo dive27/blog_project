@@ -21,6 +21,7 @@ function login(){
 				/*alert("로그인성공");*/ 				
 				get_cy_num() // 11/7 로그인할때 세션에 cy_num 저장 추가 
 				location.href="/blog/main.jsp";
+				
 			 	alreadytable()	// 유정
 
 				
