@@ -11,35 +11,31 @@ import model.dao.DiaryDao;
 import model.dao.MemberDao;
 
 /**
- * Servlet implementation class backimg
+ * Servlet implementation class yourtable
  */
-@WebServlet("/backimg")
-public class backimg extends HttpServlet {
+@WebServlet("/yourtable")
+public class yourtable extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public backimg() {
+    public yourtable() {
         super();
 
     }
 
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int result = DiaryDao.getInstance().backimglist();
+		int cy_num = MemberDao.getInstance().getcy_id( 
+	            (String)request.getSession().getAttribute("cy_id") );
+		boolean result = DiaryDao.getInstance().youremotable(cy_num);
 		
 		response.getWriter().print(result);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		int cy_num = MemberDao.getInstance().getcy_id( 
-	            (String)request.getSession().getAttribute("cy_id") );	
-		
-		boolean result = DiaryDao.getInstance().alreadytable(cy_num);
-		
-		response.getWriter().print(result);
+		doGet(request, response);
 	}
 
 }
