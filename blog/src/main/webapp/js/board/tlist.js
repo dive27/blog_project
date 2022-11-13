@@ -19,7 +19,7 @@ function list( page ){ // 함수 정의한다
 			
 			let boards = JSON.parse( re )
 			let boardlist = boards.data
-			let html = "<tr><th> 번호 </th> <th> 제목 </th><th>작성자</th><th> 작성일 </th> <th> 조회수 </th></tr>"
+			let html = "<tr><th> 번호 </th> <th> 제목 </th><th> 작성일 </th> <th> 조회수 </th></tr>"
 			
 
 			// 게시물 출력
@@ -31,7 +31,6 @@ function list( page ){ // 함수 정의한다
 				html += '<tr>' +
 							'<td>'+b.bno+'</td>'+
 							'<td onclick="viewload('+b.bno+')">'+b.btitle+'</td>'+
-							'<td>'+b.mid+'</td>'+
 							'<td>'+b.bdate+'</td>'+
 							'<td>'+b.bview+'</td>'+
 						'</tr>';

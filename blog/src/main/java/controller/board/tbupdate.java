@@ -23,6 +23,7 @@ import model.dto.TBaordDto;
 public class tbupdate extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+	int blogno = (Integer)request.getSession().getAttribute("blogno");
 		// 1. 서버내 업로드 폴더 경로 찾기
 		String uploadpath = request.getSession().getServletContext().getRealPath("/upload");
 				
@@ -44,21 +45,21 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		int bno = (Integer)request.getSession().getAttribute("bno");
 		
 		// 수정되기 전 게시물 정보
-		 ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno);
+		 ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno ,  blogno);
 		
 		// * 기존 첨부파일 변경여부 판단
 		boolean bfilechange = true;
 		
 		// * 수정시 첨부파일 등록 없을 경우[ 기존 첨부파일 호출 ]
-			// 오류 : if( bfile == null ) { bfile = dto.getBfile();	bfilechange = false; }
+			오류 : if( bfile == null ) { bfile = list.get(0).getBfile();	bfilechange = false; }
 			
 		// 4. dao 처리[ 업데이트 = 새로운 첨부파일 ]
 		boolean result = TBoardDao.getInstance().bupdate( bno, btitle, bcontent, bfile );
 		
 		if( result ) { // 업데이트 성공시 [ 기존 첨부파일 변경되었을때 ] 기존파일 삭제
 			if( bfilechange ) {
-//		오류:		String deletepath = request.getSession().getServletContext().getRealPath("/upload"+dto.getBfile() );
-//	 			File file = new File( deletepath );	if( file.exists() ) file.delete();
+				String deletepath = request.getSession().getServletContext().getRealPath("/upload"+list.get(0).getBfile() );
+				File file = new File( deletepath );	if( file.exists() ) file.delete();
 			}
 			
 		}

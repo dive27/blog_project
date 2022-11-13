@@ -19,21 +19,22 @@ import model.dto.TBaordDto;
 @WebServlet("/board/tbfiledelete")
 public class tbfiledelete extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
+	int blogno = (Integer)request.getSession().getAttribute("blogno");
 		// 1. 삭제할 게시물번호 = 현제 보고있는 게시물번호 = 세션( Object --> 형변환 )
 		int bno = (Integer)request.getSession().getAttribute("bno");
 		
 		// 삭제할 게시물 정보호출
-		ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno);
+		ArrayList<TBaordDto> list = TBoardDao.getInstance().getboard(bno , blogno );
 			
 		// 2. DAO 처리[ 업데이터 ]
 		boolean result = TBoardDao.getInstance().tbfiledelete( bno );
 		
 		// 3. 실제 파일 삭제처리
 		if( result ) {
-//			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile() );
-//	 		File file = new File(deletepath);
-//			if( file.exists() ) file.delete();
+			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+list.get(0).getBfile() );
+	 		File file = new File(deletepath);
+			if( file.exists() ) file.delete();
 		}
 		// 4. 결과반환
 		response.getWriter().print(result);

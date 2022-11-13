@@ -19,7 +19,7 @@
 	
 	//페이지전환
 	//알림창을 띄우고싶어요  로그아웃되었습니다 이런식으로요
-	response.sendRedirect("/blog/index.jsp");
+	response.sendRedirect("/blog/main.jsp");
 %>
 
 <script type="text/javascript">
@@ -30,9 +30,6 @@ function sessionremove(){
 	localStorage.removeItem("cy_num_se");
 }
 </script>
-
-
-
 
 
 

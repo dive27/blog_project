@@ -42,8 +42,6 @@ public class signup extends HttpServlet {
 		
 		MemberDto dto = new MemberDto(0, cy_id, cy_password, cy_name, cy_phone, cy_email, null, null, 0);
 		
-			//System.out.println(dto.toString());
-		
 		
 		//db 찍고 컴백
 		//MemberDao 1. 회원가입 

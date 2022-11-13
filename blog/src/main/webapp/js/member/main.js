@@ -50,12 +50,14 @@ $.ajax({
 			///////////////////////////////////////////////////
 			// html 구성한다.. 
 			html += 
+					'<a href="/blog/index.jsp?id='+m.cy_id+'">'+
 					'<div class="follower">'+
 						'<div class="follower_profile_img">'+
 							'<img alt="" src="'+imgsrc+'">'+		// 반복하여 위에서 구성된 이미지 넣기 
 						'</div>'+
 						'<div class="follower_name">'+m.cy_id+'</div>'+ // 반복하여 이웃회원명 넣기 
-					'</div>'
+					'</div>'+
+					'</a>';
 		}) // 반복 종료
 		
 		document.querySelector('.my_follower_list').innerHTML = html;

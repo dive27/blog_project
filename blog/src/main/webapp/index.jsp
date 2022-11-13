@@ -15,7 +15,6 @@
 	<!-- 폰트어썸[ 아이콘 ] -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 	
-	
 </head>
 <body>
 
@@ -27,6 +26,10 @@
 	<% 
 		//만약에 로그인을 하지 않았으면 로그인페이지로 보내버림
 		if(loginid == null) { response.sendRedirect("/blog/member/login.jsp");}
+		String blogid = request.getParameter("id");
+		String blogname = MemberDao.getInstance().getcy_name( blogid );
+		session.setAttribute("blogno",  MemberDao.getInstance().getcy_id(  blogid ) ) ;
+		
 	%> 
 
 	<!-- 성지혜 : 헤더페이지  -->
@@ -51,7 +54,7 @@
 							<img alt="" src="" class="profile_img">
 						</div>
 						<div class="profilename">
-							<span class="my_name"> <%=cy_name%> 의 블로그 입니다. </span><br> 
+							<span class="my_name"> <%=blogname%> 의 블로그 입니다. </span><br> 
 							<p class="self_introduction"> 자기소개가 없습니다.<br> 자기소개를 작성해주세요! </p>
 							<span>자기소개 수정하기</span>
 							<!-- 방문자 수 기록 코드 작성 칸 -->
@@ -90,7 +93,10 @@
 									<ul>
 										<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
 									    <li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> ♡갤러리 </a></li>
+									    <% if( blogid.equals(loginid) ){ %>
 									    <li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> ♡다이어리 </a></li>
+									    <%} %>
+									    
 									</ul>
 								</div>
 
@@ -122,7 +128,9 @@
 					</div>
 				</div> <!-- 하단헤더 end -->
 
-        <div class="mainbox"></div>
+        <div class="mainbox">
+
+        </div>
 
 
 		</div> <!-- 웹페이지 박스 end -->
@@ -155,18 +163,18 @@
 			<div id="ex2" class="modal" style="width: 800px; height: 500px;">
 			  <p>이웃신청</p>
 			  <form>
-			  	<input type="text" class="cy_id"> <br>
+			  	
+			  	<input type="text" class="cy_id" readonly="readonly" value="<%=blogid%>">님 블로그<br>
+			  	- 신청 메시지 - <br>
 			  	<textarea rows="10" cols="30" class="cy_follow_message"></textarea> <br>
 			  	<button type="button" class="followadd">이웃신청</button>
 			  </form>
 			</div><!-- Link to open the modal -->			
 	
 	
+	<!-- 사용자정의 js -->
+	<script src="/blog/js/updated_news/best.js" type="text/javascript"></script>
 	
-	<!-- JQUERY 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	
-
 	<!-- 사용자지정 JS -->
 	<script type="text/javascript" src="/blog/js/tindex.js"></script>
 	

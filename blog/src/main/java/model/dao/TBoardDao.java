@@ -32,19 +32,19 @@ public class TBoardDao extends Dao{
 	} // end
 	
 	// 2. 글출력
-	public ArrayList< TBaordDto > getlist( int startrow , int listsize , String key , String keyword ) {
+	public ArrayList< TBaordDto > getlist( int startrow , int listsize , String key , String keyword , int blogno ) {
 		ArrayList< TBaordDto > list = new ArrayList<>();
 		String sql = "";
 		if( !key.equals("") && !keyword.equals("") ) { // 검색이 있을경우 
 			sql = "select b.* , m.cy_id "
-					+ "from cywold_signup m , board b "
-					+ "where m.cy_num = b.cy_num and "+key+" like '%"+keyword+"%' "
-					+ "order by b.bdate desc "
-					+ "limit "+startrow+" , "+listsize;
+					+ " from cywold_signup m , board b "
+					+ " where m.cy_num = b.cy_num and "+key+" like '%"+keyword+"%' and b.cy_num="+blogno
+					+ " order by b.bdate desc "
+					+ " limit "+startrow+" , "+listsize;
 		}else { // 검색이 없을경우
 			sql = "select b.* , m.cy_id from cywold_signup m , board b "
-					+ "where m.cy_num = b.cy_num "
-					+ "order by b.bdate desc limit "+startrow+" , "+listsize;
+					+ " where m.cy_num = b.cy_num and b.cy_num="+blogno
+					+ " order by b.bdate desc limit "+startrow+" , "+listsize;
 		}
 		try {
 			ps = con.prepareStatement(sql);
@@ -68,13 +68,13 @@ public class TBoardDao extends Dao{
 	
 	
 	// 3. 글 조회
-	public ArrayList<TBaordDto> getboard( int bno ) {
+	public ArrayList<TBaordDto> getboard( int bno , int blogno ) {
 																			// +bno : 선택한 게시물 출력
 		ArrayList<TBaordDto> list = new ArrayList<>();
 		
-		String sql ="select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno = "+bno
-				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno < "+bno+" order by bno desc limit 1)"
-				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno > "+bno+" order by bno asc limit 1);";
+		String sql ="select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno = "+bno +" and b.cy_num = "+blogno
+				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno < "+bno+" and b.cy_num = "+blogno +" order by bno desc limit 1)"
+				+ " union all (  select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and bno > "+bno+" and b.cy_num = "+blogno +" order by bno asc limit 1);";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -164,13 +164,13 @@ public class TBoardDao extends Dao{
 	
 	
 	// 8. 전체 게시물 수 
-	public int tgettotalsize( String key, String keyword ) {
+	public int tgettotalsize( String key, String keyword , int blogno ) {
 		String sql = "";
 		// 검색이 있을 경우
 		if( !key.equals("") && !keyword.equals("") ) {
-			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and "+key+" like '%"+keyword+"%'";
+			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num "+blogno +" and "+key+" like '%"+keyword+"%'";
 		}else {  // 검색이 없을경우
-			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num";
+			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num "+blogno;
 		}
 		try {
 			ps = con.prepareStatement(sql);
@@ -253,7 +253,28 @@ public class TBoardDao extends Dao{
 		}
 		
 
-		
-		
+	// 
+	public ArrayList< TBaordDto > gettlistall(  int blogno ) {
+		ArrayList< TBaordDto > list = new ArrayList<>();
+		String sql = "select b.* , m.cy_id from cywold_signup m , board b where m.cy_num = b.cy_num and b.cy_num = "+blogno+" order by b.bdate desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while( rs.next() ) {
+				TBaordDto dto = new TBaordDto(
+						rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getInt(6),
+						rs.getInt(7), rs.getInt(8),
+						rs.getString(9)
+						);
+				list.add(dto); // 리스트에 담기
+			}
+			return list;
+		}
+		catch (Exception e) {System.out.println(e);} return list;
+	}
+	
 	
 } // class end

@@ -30,11 +30,11 @@ public class ImgBoardDao extends Dao{
 
    ///// 갤러리 전체 출력
 
-	public ArrayList<imgBoardDto> getImglist() { // list에 매개변수가 안들어 가는 건가?
+	public ArrayList<imgBoardDto> getImglist( int blogno) { // list에 매개변수가 안들어 가는 건가?
 
 		ArrayList<imgBoardDto> list = new ArrayList<>();
 
-		String sql = "select * from imgboard where imgb_file is not null order by imbb_date desc ;";
+		String sql = "select * from imgboard where imgb_file is not null and cy_num= " + blogno +" order by imbb_date desc ;";
 
 		// set string ( 인덱스 , 명) // get( 인덱스)
 		try {
@@ -84,8 +84,8 @@ public class ImgBoardDao extends Dao{
 	
 	
 	// 8. 전체 게시물 수 
-	public int imggettotalsize() {
-		String sql = "select  count(*) from imgboard";
+	public int imggettotalsize( int blogno) {
+		String sql = "select  count(*) from imgboard where cy_num= "+blogno ;
 		//String sql = "select count(*) from cywold_signup m, imgboard ib where m.cy_num = ib.cy_num";
 		
 		try {

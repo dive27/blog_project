@@ -42,7 +42,7 @@
 
 				<div class="main_header">
 					<div class="logo_section">
-						<a href="/blog/index.jsp">
+						<a href="/blog/main.jsp">
 							<img src="/blog/img/logo/logo.png" alt="logoimg" >
 						</a>
 					</div>
@@ -60,9 +60,12 @@
 
 	</div><!-- wrap -->
 	
-	
-	
 	<!-- jquery  -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
+	<script type="text/javascript" src="/blog/js/header.js"></script>
+	
+	
+	
 </body>
 </html>

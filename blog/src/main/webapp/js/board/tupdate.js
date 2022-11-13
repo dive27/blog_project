@@ -5,8 +5,8 @@ function bview(){
 	$.ajax({
 		url : "/blog/board/tview" , 
 		success : function( re ){
-			let board = JSON.parse(re)
-			console.log( board )
+			let boardlist = JSON.parse(re)
+			let board = boardlist[0];
 			
 			document.querySelector('.btitle').value = board.btitle;
 			// 썸머노트는 내용 저장시 html 형식으로 저장하기 때문에 
@@ -17,21 +17,9 @@ function bview(){
 				document.querySelector('.oldbfilebox').innerHTML = filedelete;	// 위에서 구성된 html 넣기
 			}
 			
-			/* 썸머노트 실행 */
-			$(document).ready(function() {
-			  //$('#summernote').summernote( {설정객체} );
-			  $('#summernote').summernote( {
-				
-					plasceholder : '내용 입력 해주세요' , 
-					maxHeight : null , 
-					minHeight : 300
-				});
-				
-			}); 
 		}
 	})
 }
-
 
 // 2. 첨부파일 삭제 버튼을 눌렀을때 ( 1.경로 2.보낼데이터 3.받을데이터 )
 function bfiledelete(){

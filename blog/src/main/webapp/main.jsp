@@ -51,7 +51,7 @@
 				
 
 				<div class="my_blog_visit">
-					<a href="/blog/index.jsp">내 블로그 가기</a>
+					<a href="/blog/index.jsp?id=<%=loginid%>">내 블로그 가기</a>
 				</div><!-- my_blog_visit -->
 				
 

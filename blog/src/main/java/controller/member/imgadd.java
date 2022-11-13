@@ -24,9 +24,12 @@ public class imgadd extends HttpServlet {
 		
 		// 이미지를 가져올 회원번호 요청 
 		int mno = Integer.parseInt(  request.getParameter("mno") ) ;
-			System.out.println("imgadd.java mno 확인" + mno );		
 		if( mno == 0  ) { // 0 이면 현재 로그인된 회원번호로 이미지 호출 
 			int cy_num = MemberDao.getInstance().getcy_id((String) request.getSession().getAttribute("cy_id"));
+			String img = MemberDao.getInstance().getimg( cy_num );
+			response.getWriter().print(img);
+		}else if( mno == -1){
+			int cy_num = (Integer)request.getSession().getAttribute("blogno");
 			String img = MemberDao.getInstance().getimg( cy_num );
 			response.getWriter().print(img);
 		}else { // 0이 아니면 요청으로 부터 가져온 회원번호로 이미지 호출  [이웃회원들]

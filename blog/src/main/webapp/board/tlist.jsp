@@ -19,7 +19,6 @@
 						<select class="key">
 							<option value="b.btitle">제목</option>
 							<option value="b.bcontent">내용</option>
-							<option value="m.mid">작성자</option>
 						</select>
 						<input class="keyword" type="text" placeholder="검색어">
 						<button type="button" onclick="bsearch()">검색</button>

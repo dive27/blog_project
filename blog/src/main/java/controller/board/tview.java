@@ -22,7 +22,7 @@ import model.dto.TBaordDto;
 public class tview extends HttpServlet {
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+	int blogno = (Integer)request.getSession().getAttribute("blogno");
 	// 1. 요청 
 			//int bno = Integer.parseInt( request.getParameter("bno") ) ;
 			//System.out.println( bno );
@@ -32,7 +32,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			int bno = (Integer)request.getSession().getAttribute("bno");
 			
 			// 2. DAO 처리 
-			ArrayList<TBaordDto> list  = TBoardDao.getInstance().getboard(bno);
+			ArrayList<TBaordDto> list  = TBoardDao.getInstance().getboard(bno , blogno);
 			
 			JSONArray array = new JSONArray();
 			

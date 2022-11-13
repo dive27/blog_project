@@ -33,6 +33,8 @@ public class bimgOutPut extends HttpServlet {
 		
 		//1. 요청
 		 request.setCharacterEncoding("UTF-8");
+		 
+		 int blogno = (Integer)request.getSession().getAttribute("blogno");
 		
 		// 1. 전체 게시물수 
 		
@@ -40,7 +42,7 @@ public class bimgOutPut extends HttpServlet {
 		 
 		 System.out.println( "게시물수 : " + listsize);
 		 
-		int totalsize = ImgBoardDao.getInstance().imggettotalsize( );
+		int totalsize = ImgBoardDao.getInstance().imggettotalsize(  blogno );
 		
 		 System.out.println( "전체 게시물수 : " + totalsize);
 		
@@ -74,7 +76,7 @@ public class bimgOutPut extends HttpServlet {
 			
 		JSONObject output = new JSONObject();// 페이징 처리 ?	
 			
-		  ArrayList< imgBoardDto > list =  ImgBoardDao.getInstance().getImglist ();
+		  ArrayList< imgBoardDto > list =  ImgBoardDao.getInstance().getImglist ( blogno );
 
 		  JSONArray array = new JSONArray();
 		  

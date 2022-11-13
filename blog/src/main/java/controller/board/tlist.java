@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import model.dao.MemberDao;
 import model.dao.TBoardDao;
 import model.dto.TBaordDto;
 
@@ -24,16 +25,24 @@ public class tlist extends HttpServlet {
 		
 		
 		request.setCharacterEncoding("UTF-8"); // 한글인코딩
+		int blogno = (Integer)request.getSession().getAttribute("blogno");
+		
+		
+		
 		///// 검색처리 /////////////
 		String key		= request.getParameter("key");			System.out.println( key );
 		String keyword	= request.getParameter("keyword");		System.out.println( keyword );
+		
+		
+		
+		
 
 
 		// 1. 페이지당 게시물수 
 		int listsize = Integer.parseInt(request.getParameter("listsize"));
 		
 		// 2. 전체 게시물수 vs 검색된 게시물 수 
-		int totalsize = TBoardDao.getInstance().tgettotalsize( key , keyword);
+		int totalsize = TBoardDao.getInstance().tgettotalsize( key , keyword , blogno);
 		
 		// 3. *전체 페이지수 계산
 		int totalpage = 0;
@@ -58,7 +67,7 @@ public class tlist extends HttpServlet {
 		// * 페이징처리에 필요한 정보 담는 jsonobject 
 		JSONObject boards = new JSONObject();
 		// 2. 전체 게시물 호출 vs 검색된 게시물 호출 
-		ArrayList<TBaordDto> list =  TBoardDao.getInstance().getlist( startrow , listsize , key , keyword);
+		ArrayList<TBaordDto> list =  TBoardDao.getInstance().getlist( startrow , listsize , key , keyword ,  blogno);
 			// ** arraylist ---> jsonarray 변환[ js에서 쓸려고 ]
 			JSONArray array = new JSONArray();
 			for( int i = 0  ; i<list.size() ; i++ ) {

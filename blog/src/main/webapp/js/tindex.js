@@ -1,4 +1,4 @@
-
+pagechange('/blog/updated_news/1.new/best.jsp')
 function pagechange( page ){
 	$(".mainbox").load(page)
 }
@@ -25,12 +25,11 @@ document.querySelector('.imgadd').addEventListener( 'click' , e=>{
 let profileimg = document.querySelector(".profileimg>img")
 let change_profile_div = document.querySelector(".change_profile_div>img")
 
-console.log(profileimg)
-console.log(change_profile_div)
 
 // 프로필 이미지 수정
 $.ajax({
 	url: "/blog/member/imgadd",
+	data : {"mno" : -1} , 
 	success: function(img) {
 		// 이미지가 없으면 기본 프로필 적용
 		if (img == 'null') {
