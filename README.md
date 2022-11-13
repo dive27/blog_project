@@ -1,17 +1,23 @@
 # 👩‍💻blog_project
 
+<details>
 
-**🔥주제 선정이유 및 구현목표🔥**
+<summary>🔥주제 선정이유 및 구현목표🔥</summary> 
 
 ###### 주제선정 이유
+
     수업시간에 배운 내용을 활용할 수 있는 주제를 고안하다가 블로그가 가장 적합하다고 생각되어 선정
+
+
 
 ###### 구현목표
 
     싸이월드/블로그 등의 기능을 하는 개인 페이지
     회원가입 / 글 작성 및 삭제 / 카테고리가 나뉘어진 글 작성
 
-------------
+</details>
+
+---
 
 <details>
 <summary>🖐️역할분담🖐️</summary>
@@ -216,6 +222,38 @@
 </details>
 </details>
 
-------------
+---
+<details>
+<summary>🌻Data Base🌻</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201527044-9560d98f-575e-418f-ace0-0b391b4967eb.png)
+
+![image](https://user-images.githubusercontent.com/110512929/201527200-0313deab-c970-4006-837a-98f10e8b0904.png)
+
+</details>
+
+<details>
+<summary>🌼구현 이미지🌼</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201527612-1e23c552-557a-40a6-8a79-8d5f6b63ef22.png)
+
+![image](https://user-images.githubusercontent.com/110512929/201527890-25a2d249-5d46-4734-8c28-142c9997a33a.png)
+
+![image](https://user-images.githubusercontent.com/110512929/201527926-685c2463-9836-4a57-88cc-86c1043b8bda.png)
+
+</details>
+
+---
+
+<details>
+<summary>🌿추후 개발 목표🌿</summary>
+ 
+ + 친구 페이지 이동 기능
+ + 오류난 메소드 복구
+ + 조회수 및 스크랩
+
+</details>
+
+---
 
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
