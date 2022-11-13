@@ -122,25 +122,12 @@
 					</div>
 				</div> <!-- 하단헤더 end -->
 
+        <div class="mainbox"></div>
+
+
 		</div> <!-- 웹페이지 박스 end -->
 		
-		<div class="mainbox">
 		
-		</div>
-
-
-	<!-- JQUERY 라이브러리 -->
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-			</div>
-
-			</div> <!-- 하단헤더 end -->
-			
-			<div class="mainbox"> </div>
-			
-		</div> <!-- 웹페이지 박스 end -->
-
-	
 	
 			<!-- 프로필 이미지 변경하는 div 모달 -->
 			<div id="ex1" class="modal" style="width: 800px; height: 500px;">
@@ -175,15 +162,18 @@
 			</div><!-- Link to open the modal -->			
 	
 	
+	
+	<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 
 	<!-- 사용자지정 JS -->
 	<script type="text/javascript" src="/blog/js/tindex.js"></script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	<link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 	
-	<!--    	JQUERY 라이브러리
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+
 	
 
 </body>

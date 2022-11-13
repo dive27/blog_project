@@ -12,7 +12,7 @@
 
 	<!-- 성지혜 : 게시판 - 수정 페이지 -->
 
-	<div class="webbox">
+	<div >
 		<h3 class="webbox_title">게시물 수정</h3>
 
 		<form>

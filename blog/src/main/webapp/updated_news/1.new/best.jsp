@@ -13,7 +13,7 @@
 <body>
 	
 
-		<div class="webbox"> <!-- 웹페이지 박스 -->
+		<div class= "webbox"> <!-- 웹페이지 박스 -->
 			
 			<div class="b_box"> <!-- 보조 틀 -->
 				<div class="best_box"> <!-- 인기 게시물 전체박스 -->
