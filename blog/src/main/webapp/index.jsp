@@ -118,13 +118,28 @@
 										</div>
 									</div>
 							</div> <!-- sns box end-->
+
 					</div>
+				</div> <!-- 하단헤더 end -->
+
+		</div> <!-- 웹페이지 박스 end -->
+		
+		<div class="mainbox">
+		
+		</div>
+
+
+	<!-- JQUERY 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+			</div>
 
 			</div> <!-- 하단헤더 end -->
 			
 			<div class="mainbox"> </div>
 			
-	</div> <!-- 웹페이지 박스 end -->
+		</div> <!-- 웹페이지 박스 end -->
+
 	
 	
 			<!-- 프로필 이미지 변경하는 div 모달 -->

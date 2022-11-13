@@ -35,7 +35,7 @@
 			<div class="replybox">
 				<div class="r_box"> <!-- 댓글달기 -->
 					<textarea class="rcontent" cols="60" rows="5"></textarea>
-					<button type="button" onclick="rwrite()">댓글 작성</button>
+					<button class="button1" type="button" onclick="rwrite()">댓글 작성</button>
 				</div>
 				
 				<div class="replylist"> <!-- 댓글출력 -->
@@ -45,11 +45,8 @@
 			
 			<div class="list_box"> <!-- 이전, 이후 글 조회 테이블 박스 -->
 				<div class="l_box">
-						<button type="button">이전</button>
-						<span> 이전 글제목 </span> <!-- 이전글 이동 -->
-						<div class="line"></div>
-						<button type="button">다음</button>
-						<span> 다음 글제목 </span> <!-- 다음글 이동 -->
+						
+						
 				</div>
 			</div> <!-- 이전, 이후 글 조회 테이블 박스 end -->
 			

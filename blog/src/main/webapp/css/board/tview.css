@@ -76,15 +76,15 @@
 
 /* 버튼 */
 button{
-	width: 100px;
+	width: 100%;
 	padding: 10px;
 	margin: 0 10px;
-	background-color: #DAEAF1;
+	background-color: white;
 	border: none;
+	font-size: 15px;
 }
 button:hover{
-	border: solid 2px #FFE6E6;
-	color: white;
+	border: double 3px #F2D1D1;
 }
 
 
@@ -100,6 +100,8 @@ button:hover{
 }
 .v_table .row1{
 	background-color: #F2D1D1;
+	font-size: 20px;
+    font-weight: bold;
 }
 
 /* 댓글입력창 */
@@ -111,14 +113,22 @@ button:hover{
 	border: solid 3ps red;
 	margin-left: 30px;
 }
+.button1{
+	width: 100px;
+	padding: 10px;
+	margin: 0 10px;
+	background-color: white;
+	border: none;
+}
+button1:hover{
+	border: double 3px #F2D1D1;
+}
+
 
 
 /* 이전/ 다음글 이동 박스 */
 .list_box{
-	border: solid 1px skyblue;
 	margin: 15px;
-	display: flex;
-	flex-direction: row;
 	padding: 5px;
 }
 
