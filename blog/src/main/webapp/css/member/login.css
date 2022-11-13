@@ -2,7 +2,6 @@
 
 /*reset*/
 *{
-	margin:0; 
 	padding:0;
 	box-sizing:border-box;
 	font-family: 'GangwonEdu_OTFBoldA';
@@ -51,7 +50,15 @@ a{
 .logo_section{
 	width: 800px;
 	height: 80px;
-	background: #c8c8c8;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+
+.logo_section img{
+	width: 250px;
+    height: 100%;
 }
 
 

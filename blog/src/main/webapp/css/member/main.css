@@ -30,8 +30,7 @@
     margin: 20px 0px;
 }
 .section{
-	padding: 25px 30px;
-   
+	padding: 25px 30px;   
 }
 
 h2{
@@ -141,6 +140,11 @@ h2{
 }
 
 /*//////////////////내 이웃친구 목록////////////////*/
+.follower_seciton{
+	width:100%;
+	margin:30px 0;
+}
+
 .follower_h5{
 	margin: 15px 0px;
 	font-size: 16px;

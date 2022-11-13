@@ -230,6 +230,7 @@ public class MemberDao extends Dao {
 	
 	// 13. 회원이미지 등록하기
 	public boolean imgadd(String cy_profile_img, int cy_num) {
+		System.out.println("xxxx:"+ cy_profile_img  );
 		String sql = "null";
 		// 1.먼저 이미지 테이블에 해당 회원번호가 존재하는지 select
 		sql = "select * from Cywold_signup_pforile_img where cy_num=?";
@@ -260,7 +261,7 @@ public class MemberDao extends Dao {
 		}
 		return false;
 	}
-	// 14 
+	// 14 회원번호가지고 
 	public String getimg( int cy_num )  {
 		String sql = "select cy_profile_img from Cywold_signup_pforile_img where cy_num = "+cy_num;
 		try {
@@ -271,4 +272,43 @@ public class MemberDao extends Dao {
 		return null;
 	}
 	
+	// 15 이웃신청 한 사람에게 아이디 및 메세지 보내기
+	
+	public boolean followadd( int cy_num_from , int cy_num_to , String cy_follow_message ) {
+		String sql = "insert into Cywold_signup_follow(  cy_num_from,cy_num_to,cy_follow_message  )values(?,?,?)";
+		try {
+			ps = con.prepareStatement(sql);  // 3. SQL 연결
+			ps.setInt( 1 , cy_num_from);	ps.setInt( 2 , cy_num_to);	ps.setString( 3 , cy_follow_message);
+			ps.executeUpdate();
+			return  true;
+		} catch (Exception e) {System.out.println("MemberDao 15. 모든 회원 호출하기 오류 " + e);}
+		return false;
+	}
+	
+	// 16 이웃신청 리스트 가져오기
+	public ArrayList<MemberDto> followget( int cy_num_from){
+		ArrayList<MemberDto> list = new ArrayList<>(); // 1. 리스트선언		
+		String sql = "SELECT cy.* FROM cywold_signup cy , cywold_signup_follow cyf "
+				+ " where cy.cy_num = cyf.cy_num_to and cyf.cy_num_from = "+cy_num_from;	 // 2.SQL 작성
+		try {
+			ps = con.prepareStatement(sql);  // 3. SQL 연결
+			rs = ps.executeQuery();			// 4. SQL 실행
+			while(rs.next()) {				// 5. SQL 결화 레코드 반복호출
+			MemberDto dto = new MemberDto( // 6. 레코드 --> DTO 객체
+				rs.getInt(1), rs.getString(2), 
+				null, rs.getString(4), 
+				rs.getString(5), rs.getString(6), 
+				rs.getString(7), rs.getString(8), rs.getInt(9));
+				list.add(dto);				// 7.  DTO --> 리스트담기
+			}
+			return list;					// 8. 결과반환
+		} catch (Exception e) {System.out.println("MemberDao 16. 모든 회원 호출하기 오류 " + e);}
+		return list;
+	}
+	
+	
 }//MemberDao end
+
+
+
+
