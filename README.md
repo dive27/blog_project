@@ -225,35 +225,34 @@
 <summary>다이어리 주요 코드📆</summary>
 
 
-         function load_diary(){			// - 선택한 날짜의 일기 불러오기
+         function load_diary(){			                                // - 선택한 날짜의 일기 불러오는 함수 / input type="date" 에 onchange로 이벤트 부여
 	    getToday()
 		date = document.getElementById('date').value			// 캘린더에서 선택한 값을 date변수에 넣어주고
-		document.getElementById('date').innerText = date;		// 그걸 캘린더에 넣어주고 ?? 왜했더라
-		document.querySelector('.todaydate').innerText = date	// 오늘 날짜 나타내는 곳에 넣어줌
+		document.getElementById('date').innerText = date;		// 선택한 날짜 나타내는 부분에 넣어줌
+		document.querySelector('.todaydate').innerText = date		// 오늘 날짜를 input type="hidden"에 넣어줌 ( 오늘 날짜를 다른곳에서 가져오기 위해 )
 		
-		$.ajax({
-			url : "/blog/Diary" ,
-			type : "post" ,
-			async:false,
-			data : { "date" : date  , "cy_num" : cy_num } ,
-			success : function(re){	
-				choecedate = 0;					// 날짜를 선택하면 0이 돼서 이때만 글 작성 가능
+		$.ajax({							// ajax 이용
+			url : "/blog/Diary" ,					// 서블릿 경로
+			type : "post" ,						// 서블릿 타입
+			async:false,						// 다른 이벤트와 충돌 막기 위해 작성함
+			data : { "date" : date  , "cy_num" : cy_num } ,		// 보낼 데이터 - 선택한 날짜 , 작성자 식별 번호
+			success : function(re){					
+				choecedate = 0;					// 날짜를 선택해야만 이벤트( 작성/수정 등 ) 작동 하도록 변수로 제어
 				let json = JSON.parse( re )	
-				if( re != 'null' ){	// 일기가 있으면
-						if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}									// 하트를 아직 선택 안했으면 투명으로
-						else{ emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc; }	// 선택했으면 선택한 이미지로 변경
-				
+				if( re != 'null' ){				// 일기가 있으면
+						if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}					  // 하트를 아직 선택 안했으면 투명으로
+						else{ emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc; }	// 선택했으면 선택한 이미지로 변경(DB)
 						if( date != today ){ // 일기가 있고 오늘이 아니면 글 불러오기
-									document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
-									document.querySelector('#content').value = '';							// 일기장 비워주기
-									document.querySelector('#content').value = json[0].di_content;			// 이전 내용 불러오기
-									document.getElementById('content').readOnly=true;						// 글 수정 불가
-									document.querySelector('.stamp').src = "/blog/img/도장.png";				// 도장 찍어주기	
-									changebackno()															// 꾸미기 및 감정 가져옴
+									document.querySelector('.todaydate').value = date	   // 선택한 날짜 보이도록
+									document.querySelector('#content').value = '';		   // 일기장 한번 비워준 후
+									document.querySelector('#content').value = json[0].di_content;	// 이전 내용 불러오기
+									document.getElementById('content').readOnly=true;		// 지난 일기는 수정 불가
+									document.querySelector('.stamp').src = "/blog/img/도장.png";    // 일기 작성완료 도장 찍어주기	
+									changebackno()						// 지난 일기 감정 및 테마 불러오는 함수
 
-						}else if( date == today ){		
-							  loadtoday() 																	// 일단은 비워주고
-							  ifalreadywr()																	// 오늘 일기가 있는지 확인하는 함수 호출
+						}else if( date == today ){						// 만약 오늘 일기면		
+							  loadtoday() 							// 일기 기본으로 돌려주는 함수로 비워주고
+							  ifalreadywr()							// 오늘 일기가 있는 지 확인하는 함수로 변경
 							  return;
 						}
 							
