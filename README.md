@@ -275,8 +275,8 @@
 
 [배경이미지](https://m.blog.naver.com/PostList.naver?blogId=westar4501&categoryNo=0)
 
-실해영상 "https://youtu.be/om6nuNUTVm0"
-
 </details>
+
+<h4>실행영상</h4> "https://youtu.be/om6nuNUTVm0"
 
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
