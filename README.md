@@ -48,7 +48,7 @@
 </details>
 
 <details>
-<summary>🕐개인일정🕞</summary>
+<summary>🕐개인일정 및 주요코드🕞</summary>
 
 
 
@@ -81,7 +81,7 @@
 ||각 페이지 CSS 적용 안되는 페이지 수정|
 |11/11|글 보기 페이지 이전, 이후 페이지로 이동하는 기능 추가 구현|
 
-</details>
+</details> 
 
 <details>
 <summary>최예은</summary>
@@ -103,12 +103,29 @@
 |11/6|클릭하면 상단으로 이동하는 script 제작|
 |11/7|main페이지 제작(프론트만)|
 |11/10|프로필사진 수정하기|
+	
+
+<details>
+	
+<summary>주요 코드 </summary>
+	
+![image](https://user-images.githubusercontent.com/110512929/201577888-d8944694-833b-4f36-ba4c-3db2d0bed7d8.png)
+![image](https://user-images.githubusercontent.com/110512929/201577568-8a93000f-39b5-4929-9ad3-0c20dafaff00.png)
+![image](https://user-images.githubusercontent.com/110512929/201577888-d8944694-833b-4f36-ba4c-3db2d0bed7d8.png)
+![image](https://user-images.githubusercontent.com/110512929/201577933-e81ad941-1c0e-49c8-8b3b-04d5f71c2fb3.png)
+![image](https://user-images.githubusercontent.com/110512929/201577955-ae079379-f1b1-402a-a55b-845e5a241304.png)
+
+	
+</details>
 
 </details>
 
 <details>
 <summary>최유정</summary>
 
+<details>
+<summary>최유정 개인일정</summary>
+	
 |날짜|구현 기능|
 | -- | -- |
 |10/31|다이어리 글쓰기 메소드 구현 및 다이어리 css|
@@ -138,91 +155,11 @@
 ||글꼴 적용|
 |11/11|이미 테이블 가지고 있는지 확인하는 함수,css 수정|
 
-</details>
-
-<details>
-<summary>최윤미</summary>
-
-|날짜|구현 기능|
-| -- | -- |
-|10/28|임시 깃 생성|
-|11/01|사진첩 게시판 등록 및 레이아웃|
-|11/02|사진첩 전체 출력 메소드 생성|
-|11/03|프로젝트 깃 생성  / 합치기|
-|11/04|전체출력 / 상세 확인 기능|
-|11/08|목록보기|
-|11/09|삭제 버튼 기능|
-||글 목록 9개씩 출력 기능( 구현 실패 )|
-|11/10|SQL 추가 및 로그인 멤버와 연결 기능 추가|
-|11/11|전체적인 CSS 작성|
-
-</details>
 
 </details>
 
 <details>
-<summary>🔧페이지 별 기능🔧</summary>
-
-
-<details>
-<summary> 메인💻</summary>
-
-+ 로그인후 처음 보게되는 화면 내 블로그로 이동 기능
-+ 로그인한 회원 이름 상단에 띄워 알려주는 기능
-</details>
-
-<details>
-<summary>index📄</summary>
-
-+ 내 블로그 기본 화면
-+ a 태그를 이용한 카테고리 이동 기능
-+ 왼쪽에 고정해 항상 왼쪽에 존재하도록 제작
-+ 선택한 카테고리 이동 기능
-+ 카테고리 hover 시 색상 변경
-+ 친구추가 기능
-</details>
-
-<details>
-<summary>best👍</summary> 
-
-+ 상단 이미지 hover시 글 제목을 포함한 박스 올라오는 css
-
-</details>
-
-<details>
-<summary>갤러리🎨</summary>
-
-+ 첨부파일을 포함한 글 작성 기능
-+ 작성한 글 중 사진만 3*3으로 출력
-
-</details>
-
-<details>
-<summary>board📘</summary>
-
-+ 첨부파일을 포함한 글쓰기 기능
-+ 작성취소 버튼에 onclick으로 reset 기능을 이용하여 작성 취소를 누르면 작성중인 내용이 지워지는 이벤트 부여
-+ 등록하기 버튼에 onclick으로 이벤트를 부여해 페이지 전환 기능 부여
-+ 글 검색기능 ( 제목/내용/작성자 모두 가능 )
-+ 페이징처리로 5배수 출력 기능
-+ 댓글 , 대댓글 기능
-
-</details>
-
-<details>
-<summary>다이어리📆</summary>
-
-## 주요 기능
-+ 당일 일기 작성 기능
-+ 당일 일기 수정 기능
-+ 일기 작성 시 테마 / 감정 선택 기능 및 저장
-+ input type="date" 를 이용한 달력에 onchange로 이벤트 부여해 날짜 선택 기능 부여
-+ 선택한 날짜의 일기 불러오기 시 감정 / 테마 / 내용 불러오기 기능
-+ 그 외 작성한 날과 작성하지 않은 날 구분을 위한 css
-+ 당일이 아닌 날 테마수정/감정선택/일기작성 및 수정 막는 변수 사용해 기존 기능 보존
-        
-<details>
-<summary>다이어리 주요 코드📆</summary>
+<summary> 주요 코드</summary>
 
 
          function load_diary(){			                                // - 선택한 날짜의 일기 불러오는 함수 / input type="date" 에 onchange로 이벤트 부여
@@ -277,6 +214,109 @@
 
 
 </details>
+	
+</details>
+
+<details>
+<summary>최윤미</summary>
+
+<details>
+<summary>최윤미 개인일정</summary>
+	
+|날짜|구현 기능|
+| -- | -- |
+|10/28|임시 깃 생성|
+|11/01|사진첩 게시판 등록 및 레이아웃|
+|11/02|사진첩 전체 출력 메소드 생성|
+|11/03|프로젝트 깃 생성  / 합치기|
+|11/04|전체출력 / 상세 확인 기능|
+|11/08|목록보기|
+|11/09|삭제 버튼 기능|
+||글 목록 9개씩 출력 기능( 구현 실패 )|
+|11/10|SQL 추가 및 로그인 멤버와 연결 기능 추가|
+|11/11|전체적인 CSS 작성|
+
+</details>
+
+<details>
+
+<summary>최윤미 주요코드</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201578776-e99e5fd2-970c-4a5c-92aa-2ffc84089e5a.png)
+![image](https://user-images.githubusercontent.com/110512929/201578801-60c94a5b-2593-466d-9af5-41dee769e362.png)
+	
+</details>
+	
+</details>
+
+</details>
+
+<details>
+<summary>🔧페이지 별 기능🔧</summary>
+
+
+<details>
+<summary> 메인💻</summary>
+
+## 주요기능
++ 로그인후 처음 보게되는 화면 내 블로그로 이동 기능
++ 로그인한 회원 이름 상단에 띄워 알려주는 기능
+</details>
+
+<details>
+<summary>index📄</summary>
+
+## 주요기능
++ 내 블로그 기본 화면
++ a 태그를 이용한 카테고리 이동 기능
++ 왼쪽에 고정해 항상 왼쪽에 존재하도록 제작
++ 선택한 카테고리 이동 기능
++ 카테고리 hover 시 색상 변경
++ 친구추가 기능
+	
+</details>
+
+<details>
+<summary>best👍</summary> 
+
+## 주요기능
++ 상단 이미지 hover시 글 제목을 포함한 박스 올라오는 css
+
+</details>
+
+<details>
+<summary>갤러리🎨</summary>
+	
+## 주요기능
++ 첨부파일을 포함한 글 작성 기능
++ 작성한 글 중 사진만 3*3으로 출력
+
+</details>
+
+<details>
+<summary>board📘</summary>
+
+## 주요기능
++ 첨부파일을 포함한 글쓰기 기능
++ 작성취소 버튼에 onclick으로 reset 기능을 이용하여 작성 취소를 누르면 작성중인 내용이 지워지는 이벤트 부여
++ 등록하기 버튼에 onclick으로 이벤트를 부여해 페이지 전환 기능 부여
++ 글 검색기능 ( 제목/내용/작성자 모두 가능 )
++ 페이징처리로 5배수 출력 기능
++ 댓글 , 대댓글 기능
+
+</details>
+
+<details>
+<summary>다이어리📆</summary>
+
+## 주요 기능
++ 당일 일기 작성 기능
++ 당일 일기 수정 기능
++ 일기 작성 시 테마 / 감정 선택 기능 및 저장
++ input type="date" 를 이용한 달력에 onchange로 이벤트 부여해 날짜 선택 기능 부여
++ 선택한 날짜의 일기 불러오기 시 감정 / 테마 / 내용 불러오기 기능
++ 그 외 작성한 날과 작성하지 않은 날 구분을 위한 css
++ 당일이 아닌 날 테마수정/감정선택/일기작성 및 수정 막는 변수 사용해 기존 기능 보존
 	
 </details>
 
