@@ -275,6 +275,8 @@
 
 [배경이미지](https://m.blog.naver.com/PostList.naver?blogId=westar4501&categoryNo=0)
 
+<summary> <a> href="https://youtu.be/om6nuNUTVm0" 실행영상 </a> </summary>
+
 </details>
 
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
