@@ -124,7 +124,7 @@
 ||오늘 이미 쓴 일기가 있으면 더이상 insert 안되게 막는 메소드|
 ||오늘 일기가 있는지 확인하는 메소드|
 ||오늘 일기 수정하게해주는 메소드|
-||감정 수정 메소드 선택할 수 있도록 confirm으로 변경(구현안됨)| 
+||감정 수정 메소드 선택할 수 있도록 confirm으로 변경| 
 |11/08|선택한 하트 , 목록에 있는 하트 gif 제작 및 날짜 배경 리본 png 제작|
 ||배경이미지png 제작( 가져온 이미지 수정 )|
 |11/09|로그인시 회원넘버 세션에 저장 함수|
@@ -250,6 +250,7 @@
  
  + ~~친구 페이지 이동 기능~~ ( 완료 )
  + 조회수 및 스크랩
+ + ~~프로필 이미지 변경~~ ( 완료 )
  + 오류난 메소드 복구
    + ~~updateemotion(i) 복구~~ ( 완료 )
    + ~~프로필 이미지 변경 복구~~ ( 완료 )
@@ -257,5 +258,10 @@
 </details>
 
 ---
+<details>
+<summary> 자료 출처 </summary>
 
+[배경이미지](https://m.blog.naver.com/westar4501/221889450553)
+
+</details>
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
