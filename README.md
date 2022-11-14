@@ -53,7 +53,12 @@
 
 
 <details>
-<summary>성지혜❤️</summary>
+<summary>❤️성지혜❤️</summary>
+
+---
+
+<details>
+<summary>성지혜 개인일정</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -83,8 +88,15 @@
 
 </details> 
 
+</details>
+
 <details>
-<summary>최예은🧡</summary>
+<summary>🧡최예은🧡</summary>
+
+---
+
+<details>
+<summary>최예은 개인일정</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -104,6 +116,7 @@
 |11/7|main페이지 제작(프론트만)|
 |11/10|프로필사진 수정하기|
 	
+</details>
 
 <details>
 	
@@ -121,7 +134,9 @@
 </details>
 
 <details>
-<summary>최유정💛</summary>
+<summary>💛최유정💛</summary>
+
+---
 
 <details>
 <summary>최유정 개인일정</summary>
@@ -218,7 +233,9 @@
 </details>
 
 <details>
-<summary>최윤미💚</summary>
+<summary>💚최윤미💚</summary>
+
+---
 
 <details>
 <summary>최윤미 개인일정</summary>
