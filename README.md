@@ -19,6 +19,8 @@
 
 ---
 
+## 프로젝트 관련
+
 <details>
 <summary>🖐️역할분담🖐️</summary>
 
@@ -50,12 +52,8 @@
 <details>
 <summary>🕐개인일정 및 주요코드🕞</summary>
 
-
-
 <details>
 <summary>❤️성지혜❤️</summary>
-
----
 
 <details>
 <summary>성지혜 개인일정</summary>
@@ -88,14 +86,24 @@
 
 </details> 
 
+<details>
+
+<summary>성지혜 주요코드</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201586350-8ab2a094-8e9c-409d-ad6d-0d6fb1420857.png)
+![image](https://user-images.githubusercontent.com/110512929/201586373-2a56799c-c06d-4219-9173-5d4f67763c81.png)
+
 </details>
+
+</details>
+
+## 
 
 <details>
 <summary>🧡최예은🧡</summary>
 
----
-
 <details>
+
 <summary>최예은 개인일정</summary>
 
 |날짜|구현 기능|
@@ -133,10 +141,11 @@
 
 </details>
 
-<details>
-<summary>💛최유정💛</summary>
+## 
 
----
+<details>
+
+<summary>💛최유정💛</summary>
 
 <details>
 <summary>최유정 개인일정</summary>
@@ -232,10 +241,10 @@
 	
 </details>
 
+## 
+
 <details>
 <summary>💚최윤미💚</summary>
-
----
 
 <details>
 <summary>최윤미 개인일정</summary>
@@ -267,6 +276,8 @@
 </details>
 
 </details>
+
+---
 
 <details>
 <summary>🔧페이지 별 기능🔧</summary>
@@ -338,6 +349,10 @@
 </details>
 
 ---
+
+</details>
+	
+## 그 외 자료
 	
 <details>
 <summary>🌻Data Base🌻</summary>
@@ -358,12 +373,15 @@
 ![image](https://user-images.githubusercontent.com/110512929/201527926-685c2463-9836-4a57-88cc-86c1043b8bda.png)
 
 </details>
-
----
-
-</details>
 	
 <details>
+<summary>🌲유튜브 링크🌲</summary>
+
+[구현영상](링크)
+
+<details>
+
+---
 
 <summary>🌿추후 개발 목표🌿</summary>
  
@@ -384,8 +402,6 @@
    + 회원탈퇴 기능 오류
    
 </details>
-
----
 
 <details>
 <summary> 자료 출처 </summary>
