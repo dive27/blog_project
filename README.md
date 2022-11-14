@@ -53,7 +53,7 @@
 
 
 <details>
-<summary>성지혜</summary>
+<summary>성지혜❤️</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -84,7 +84,7 @@
 </details> 
 
 <details>
-<summary>최예은</summary>
+<summary>최예은🧡</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -121,7 +121,7 @@
 </details>
 
 <details>
-<summary>최유정</summary>
+<summary>최유정💛</summary>
 
 <details>
 <summary>최유정 개인일정</summary>
@@ -218,7 +218,7 @@
 </details>
 
 <details>
-<summary>최윤미</summary>
+<summary>최윤미💚</summary>
 
 <details>
 <summary>최윤미 개인일정</summary>
