@@ -275,7 +275,7 @@
 
 [배경이미지](https://m.blog.naver.com/PostList.naver?blogId=westar4501&categoryNo=0)
 
-<summary> <a> href="https://youtu.be/om6nuNUTVm0" 실행영상 </a> </summary>
+실해영상 "https://youtu.be/om6nuNUTVm0"
 
 </details>
 
