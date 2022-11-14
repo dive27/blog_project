@@ -11,8 +11,8 @@ let choecedate = -1;										// 날짜 선택 안하고 작성 눌렀을 경우
 let emo_no = -1;											// 선택한 하트 / 선택 안한 경우 -1
 let choice_emo = document.querySelector('.choice_emo')		// 클릭한 하트
 let emosrc = null;											// 클릭한 하트 이미지 경로
-let emotionlist = document.querySelectorAll('.emotioninput')// 감정 설명 부분
-	
+let emotionlist =null// 감정 설명 부분
+
 /* 배경 이미지 변경 */
 let backno = 1;
 let emotableimg = document.querySelector('.emotableimg')
@@ -55,9 +55,11 @@ if( cy_num > 0 ){
 			success : function(re){
 				let json = JSON.parse(re)
 				 for( let i = 0 ; i <json.length; i++ ){
-				 	html += '<tr><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img ondblclick="getemoindex()" class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
+				 	html += '<tr onmouseover="alarmchangeemo()" ><td onclick="choiceemono('+json[i].emo_no+');" class="emo_img'+i+'"><img ondblclick="getemoindex()" class="emoji emoji'+json[i].emo_no+'" src="/blog/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
 				 }
+				 
 				document.querySelector('.c_emobox').innerHTML = html
+				 emotionlist = document.querySelectorAll('.emotioninput')// 감정 설명 부분
 			}
 		})
 	}
@@ -285,7 +287,7 @@ if( cy_num > 0 ){
 
 
 ///////////////////////////// 잘되다가 안돼서 뺌ㅠㅠ
-/*
+
 	function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드 [ 완 ]
 		if(confirm('감정 수정이 가능해요! 수정할까요?')){
 			emotionlist[i].readOnly=false;											// 잘만 되다가 갑자기 왜이럴가?
@@ -326,4 +328,3 @@ if( cy_num > 0 ){
 			oncealarmemo--;
 		}
 	}
-*/

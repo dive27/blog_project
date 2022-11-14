@@ -81,9 +81,7 @@
 									<span class="day"> Updated news </span>
 									<ul>
 
-										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/1.new/best.jsp')"> ♡BEST </a></li>
-										<li><a class="nav-link" href="#"> 05 </a></li>
-										<li><a class="nav-link" href="#"> 06 </a></li>
+										<li><a class="nav-link" onclick="pagechange('/blog/updated_news/1.new/best.jsp')"> BEST </a></li>
 										
 									</ul>
 								</div>
@@ -91,10 +89,10 @@
 								<div class="clist"> <!-- 두번재 카테고리  -->
 									<span class="day"> 일상 </span>
 									<ul>
-										<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> ♡게시판 </a></li>
-									    <li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> ♡갤러리 </a></li>
+										<li><a class="nav-link" onclick="pagechange('/blog/board/tlist.jsp')"> 게시판 </a></li>
+									    <li><a class="nav-link" onclick="pagechange('/blog/gallery/plist.jsp')"> 갤러리 </a></li>
 									    <% if( blogid.equals(loginid) ){ %>
-									    <li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> ♡다이어리 </a></li>
+									    <li><a class="nav-link" onclick="pagechange('/blog/diary/Diary2.jsp')"> 다이어리 </a></li>
 									    <%} %>
 									    
 									</ul>

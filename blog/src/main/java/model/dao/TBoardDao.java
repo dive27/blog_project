@@ -168,9 +168,9 @@ public class TBoardDao extends Dao{
 		String sql = "";
 		// 검색이 있을 경우
 		if( !key.equals("") && !keyword.equals("") ) {
-			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num "+blogno +" and "+key+" like '%"+keyword+"%'";
+			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num ="+blogno +" and "+key+" like '%"+keyword+"%'";
 		}else {  // 검색이 없을경우
-			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num "+blogno;
+			sql = "select count(*) from cywold_signup m, board b where m.cy_num = b.cy_num and b.cy_num ="+blogno;
 		}
 		try {
 			ps = con.prepareStatement(sql);

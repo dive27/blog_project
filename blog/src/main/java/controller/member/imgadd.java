@@ -27,13 +27,19 @@ public class imgadd extends HttpServlet {
 		if( mno == 0  ) { // 0 이면 현재 로그인된 회원번호로 이미지 호출 
 			int cy_num = MemberDao.getInstance().getcy_id((String) request.getSession().getAttribute("cy_id"));
 			String img = MemberDao.getInstance().getimg( cy_num );
+			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(img);
+			
 		}else if( mno == -1){
 			int cy_num = (Integer)request.getSession().getAttribute("blogno");
 			String img = MemberDao.getInstance().getimg( cy_num );
+			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(img);
 		}else { // 0이 아니면 요청으로 부터 가져온 회원번호로 이미지 호출  [이웃회원들]
 			String img = MemberDao.getInstance().getimg( mno );
+			response.setCharacterEncoding("UTF-8");
+			
+			
 			response.getWriter().print(img);
 		}
 		

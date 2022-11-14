@@ -254,7 +254,7 @@
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			<img class="emotableimg"  alt="감정테이블배경" src="/blog/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<div class="emotabletextbox" ></div>
-			<table class="c_emobox" >
+			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
 	</table>

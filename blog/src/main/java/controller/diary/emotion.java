@@ -54,11 +54,13 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		int emono = Integer.parseInt(request.getParameter("emono"));
+		int cy_num = MemberDao.getInstance().getcy_id( 
+	            (String)request.getSession().getAttribute("cy_id") );
 		
 		String emotion = request.getParameter("emotion");
 		
 		
-		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono);
+		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono , cy_num);
 		
 		
 		

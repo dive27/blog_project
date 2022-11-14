@@ -67,12 +67,13 @@ public class DiaryDao extends Dao{
 		return list;
 	}
 	
-	public boolean updateemtion( String emotion , int emono ) { 							// 감정 설명 수정 메소드
-		String sql = "update emotion set emotion = ? where emo_no = ?";
+	public boolean updateemtion( String emotion , int emono , int cy_num ) { 							// 감정 설명 수정 메소드
+		String sql = "update emotion set emotion = ? where emo_no = ? and cy_num = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 ,emotion );
 			ps.setInt( 2, emono );
+			ps.setInt( 3, cy_num );
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println(e+"감정 설명 수정 메소드 오류");}
