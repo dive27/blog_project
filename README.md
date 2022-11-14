@@ -277,6 +277,6 @@
 
 </details>
 
-<h4>실행영상</h4> "https://youtu.be/om6nuNUTVm0"
+<h4>실행영상 :  "https://youtu.be/om6nuNUTVm0"</h4> <br>
 
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
