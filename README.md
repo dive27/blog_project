@@ -212,6 +212,7 @@
 <details>
 <summary>다이어리📆</summary>
 
+## 주요 기능
 + 당일 일기 작성 기능
 + 당일 일기 수정 기능
 + 일기 작성 시 테마 / 감정 선택 기능 및 저장
@@ -219,6 +220,62 @@
 + 선택한 날짜의 일기 불러오기 시 감정 / 테마 / 내용 불러오기 기능
 + 그 외 작성한 날과 작성하지 않은 날 구분을 위한 css
 + 당일이 아닌 날 테마수정/감정선택/일기작성 및 수정 막는 변수 사용해 기존 기능 보존
+        
+<details>
+<summary>다이어리 주요 코드📆</summary>
+
+
+         function load_diary(){			// - 선택한 날짜의 일기 불러오기
+	    getToday()
+		date = document.getElementById('date').value			// 캘린더에서 선택한 값을 date변수에 넣어주고
+		document.getElementById('date').innerText = date;		// 그걸 캘린더에 넣어주고 ?? 왜했더라
+		document.querySelector('.todaydate').innerText = date	// 오늘 날짜 나타내는 곳에 넣어줌
+		
+		$.ajax({
+			url : "/blog/Diary" ,
+			type : "post" ,
+			async:false,
+			data : { "date" : date  , "cy_num" : cy_num } ,
+			success : function(re){	
+				choecedate = 0;					// 날짜를 선택하면 0이 돼서 이때만 글 작성 가능
+				let json = JSON.parse( re )	
+				if( re != 'null' ){	// 일기가 있으면
+						if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}									// 하트를 아직 선택 안했으면 투명으로
+						else{ emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc; }	// 선택했으면 선택한 이미지로 변경
+				
+						if( date != today ){ // 일기가 있고 오늘이 아니면 글 불러오기
+									document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
+									document.querySelector('#content').value = '';							// 일기장 비워주기
+									document.querySelector('#content').value = json[0].di_content;			// 이전 내용 불러오기
+									document.getElementById('content').readOnly=true;						// 글 수정 불가
+									document.querySelector('.stamp').src = "/blog/img/도장.png";				// 도장 찍어주기	
+									changebackno()															// 꾸미기 및 감정 가져옴
+
+						}else if( date == today ){		
+							  loadtoday() 																	// 일단은 비워주고
+							  ifalreadywr()																	// 오늘 일기가 있는지 확인하는 함수 호출
+							  return;
+						}
+							
+					}else if( re == 'null' ){
+						alert('일기를 쓰지 않은 날이에요😅')
+							back_img.src = "/blog/img/배경1.png"											// 기본 이미지로 변경
+							emotableimg.src = "/blog/img/배경1.png"
+							datebox.src = "/blog/img/날짜상자1.png"
+							document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
+							document.querySelector('#content').value = '';								// 일기장 비워주기
+							choice_emo.src='/blog/img/투명.png';											// 감정 없애주기
+						if( date != today ){
+							document.getElementById('content').readOnly=true;							// 글 수정 불가
+						}else{
+							loadtoday()
+						}
+							
+					}
+			}
+		})
+	}        
+
 
 </details>
 </details>
