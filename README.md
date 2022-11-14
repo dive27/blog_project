@@ -278,9 +278,11 @@
 
 
 </details>
+	
 </details>
 
 ---
+	
 <details>
 <summary>🌻Data Base🌻</summary>
 
@@ -303,6 +305,8 @@
 
 ---
 
+</details>
+	
 <details>
 
 <summary>🌿추후 개발 목표🌿</summary>
