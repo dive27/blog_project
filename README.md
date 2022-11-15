@@ -19,6 +19,8 @@
 
 ---
 
+## 프로젝트 관련
+
 <details>
 <summary>🖐️역할분담🖐️</summary>
 
@@ -48,12 +50,13 @@
 </details>
 
 <details>
-<summary>🕐개인일정🕞</summary>
-
-
+<summary>🕐개인일정 및 주요코드🕞</summary>
 
 <details>
-<summary>성지혜</summary>
+<summary>❤️성지혜❤️</summary>
+
+<details>
+<summary>성지혜 개인일정</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -81,10 +84,27 @@
 ||각 페이지 CSS 적용 안되는 페이지 수정|
 |11/11|글 보기 페이지 이전, 이후 페이지로 이동하는 기능 추가 구현|
 
-</details>
+</details> 
 
 <details>
-<summary>최예은</summary>
+
+<summary>성지혜 주요코드</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201586350-8ab2a094-8e9c-409d-ad6d-0d6fb1420857.png)
+![image](https://user-images.githubusercontent.com/110512929/201586373-2a56799c-c06d-4219-9173-5d4f67763c81.png)
+
+</details>
+
+</details>
+
+## 
+
+<details>
+<summary>🧡최예은🧡</summary>
+
+<details>
+
+<summary>최예은 개인일정</summary>
 
 |날짜|구현 기능|
 | -- | -- |
@@ -103,12 +123,33 @@
 |11/6|클릭하면 상단으로 이동하는 script 제작|
 |11/7|main페이지 제작(프론트만)|
 |11/10|프로필사진 수정하기|
-
+	
 </details>
 
 <details>
-<summary>최유정</summary>
+	
+<summary>주요 코드 </summary>
+	
+![image](https://user-images.githubusercontent.com/110512929/201577888-d8944694-833b-4f36-ba4c-3db2d0bed7d8.png)
+![image](https://user-images.githubusercontent.com/110512929/201577568-8a93000f-39b5-4929-9ad3-0c20dafaff00.png)
+![image](https://user-images.githubusercontent.com/110512929/201577888-d8944694-833b-4f36-ba4c-3db2d0bed7d8.png)
+![image](https://user-images.githubusercontent.com/110512929/201577933-e81ad941-1c0e-49c8-8b3b-04d5f71c2fb3.png)
+![image](https://user-images.githubusercontent.com/110512929/201577955-ae079379-f1b1-402a-a55b-845e5a241304.png)
 
+	
+</details>
+
+</details>
+
+## 
+
+<details>
+
+<summary>💛최유정💛</summary>
+
+<details>
+<summary>최유정 개인일정</summary>
+	
 |날짜|구현 기능|
 | -- | -- |
 |10/31|다이어리 글쓰기 메소드 구현 및 다이어리 css|
@@ -138,11 +179,76 @@
 ||글꼴 적용|
 |11/11|이미 테이블 가지고 있는지 확인하는 함수,css 수정|
 
+
 </details>
 
 <details>
-<summary>최윤미</summary>
+<summary> 주요 코드</summary>
 
+
+         function load_diary(){			                                // - 선택한 날짜의 일기 불러오는 함수 / input type="date" 에 onchange로 이벤트 부여
+	    getToday()
+		date = document.getElementById('date').value			// 캘린더에서 선택한 값을 date변수에 넣어주고
+		document.getElementById('date').innerText = date;		// 선택한 날짜 나타내는 부분에 넣어줌
+		document.querySelector('.todaydate').innerText = date		// 오늘 날짜를 input type="hidden"에 넣어줌 ( 오늘 날짜를 다른곳에서 가져오기 위해 )
+		
+		$.ajax({							// ajax 이용
+			url : "/blog/Diary" ,					// 서블릿 경로
+			type : "post" ,						// 서블릿 타입
+			async:false,						// 다른 이벤트와 충돌 막기 위해 작성함
+			data : { "date" : date  , "cy_num" : cy_num } ,		// 보낼 데이터 - 선택한 날짜 , 작성자 식별 번호
+			success : function(re){					
+				choecedate = 0;					// 날짜를 선택해야만 이벤트( 작성/수정 등 ) 작동 하도록 변수로 제어
+				let json = JSON.parse( re )	
+				if( re != 'null' ){				// 일기가 있으면
+						if( emo_no == -1 ){emosrc = '/blog/img/투명.png'}					  // 하트를 아직 선택 안했으면 투명으로
+						else{ emosrc = '/blog/img/입체하트'+json[0].em_no+'.png'; choice_emo.src=emosrc; }	// 선택했으면 선택한 이미지로 변경(DB)
+						if( date != today ){ // 일기가 있고 오늘이 아니면 글 불러오기
+									document.querySelector('.todaydate').value = date	   // 선택한 날짜 보이도록
+									document.querySelector('#content').value = '';		   // 일기장 한번 비워준 후
+									document.querySelector('#content').value = json[0].di_content;	// 이전 내용 불러오기
+									document.getElementById('content').readOnly=true;		// 지난 일기는 수정 불가
+									document.querySelector('.stamp').src = "/blog/img/도장.png";    // 일기 작성완료 도장 찍어주기	
+									changebackno()						// 지난 일기 감정 및 테마 불러오는 함수
+
+						}else if( date == today ){						// 만약 오늘 일기면		
+							  loadtoday() 							// 일기 기본으로 돌려주는 함수로 비워주고
+							  ifalreadywr()							// 오늘 일기가 있는 지 확인하는 함수로 변경
+							  return;
+						}
+							
+					}else if( re == 'null' ){
+						alert('일기를 쓰지 않은 날이에요😅')
+							back_img.src = "/blog/img/배경1.png"											// 기본 이미지로 변경
+							emotableimg.src = "/blog/img/배경1.png"
+							datebox.src = "/blog/img/날짜상자1.png"
+							document.querySelector('.stamp').src = "/blog/img/일기안씀.png";				// 도장 찍어주기	
+							document.querySelector('#content').value = '';								// 일기장 비워주기
+							choice_emo.src='/blog/img/투명.png';											// 감정 없애주기
+						if( date != today ){
+							document.getElementById('content').readOnly=true;							// 글 수정 불가
+						}else{
+							loadtoday()
+						}
+							
+					}
+			}
+		})
+	}        
+
+
+</details>
+	
+</details>
+
+## 
+
+<details>
+<summary>💚최윤미💚</summary>
+
+<details>
+<summary>최윤미 개인일정</summary>
+	
 |날짜|구현 기능|
 | -- | -- |
 |10/28|임시 깃 생성|
@@ -158,7 +264,20 @@
 
 </details>
 
+<details>
+
+<summary>최윤미 주요코드</summary>
+
+![image](https://user-images.githubusercontent.com/110512929/201578776-e99e5fd2-970c-4a5c-92aa-2ffc84089e5a.png)
+![image](https://user-images.githubusercontent.com/110512929/201578801-60c94a5b-2593-466d-9af5-41dee769e362.png)
+	
 </details>
+	
+</details>
+
+</details>
+
+---
 
 <details>
 <summary>🔧페이지 별 기능🔧</summary>
@@ -167,6 +286,7 @@
 <details>
 <summary> 메인💻</summary>
 
+## 주요기능
 + 로그인후 처음 보게되는 화면 내 블로그로 이동 기능
 + 로그인한 회원 이름 상단에 띄워 알려주는 기능
 </details>
@@ -174,24 +294,28 @@
 <details>
 <summary>index📄</summary>
 
+## 주요기능
 + 내 블로그 기본 화면
 + a 태그를 이용한 카테고리 이동 기능
 + 왼쪽에 고정해 항상 왼쪽에 존재하도록 제작
 + 선택한 카테고리 이동 기능
 + 카테고리 hover 시 색상 변경
 + 친구추가 기능
+	
 </details>
 
 <details>
 <summary>best👍</summary> 
 
+## 주요기능
 + 상단 이미지 hover시 글 제목을 포함한 박스 올라오는 css
 
 </details>
 
 <details>
 <summary>갤러리🎨</summary>
-
+	
+## 주요기능
 + 첨부파일을 포함한 글 작성 기능
 + 작성한 글 중 사진만 3*3으로 출력
 
@@ -200,6 +324,7 @@
 <details>
 <summary>board📘</summary>
 
+## 주요기능
 + 첨부파일을 포함한 글쓰기 기능
 + 작성취소 버튼에 onclick으로 reset 기능을 이용하여 작성 취소를 누르면 작성중인 내용이 지워지는 이벤트 부여
 + 등록하기 버튼에 onclick으로 이벤트를 부여해 페이지 전환 기능 부여
@@ -212,6 +337,7 @@
 <details>
 <summary>다이어리📆</summary>
 
+## 주요 기능
 + 당일 일기 작성 기능
 + 당일 일기 수정 기능
 + 일기 작성 시 테마 / 감정 선택 기능 및 저장
@@ -219,11 +345,15 @@
 + 선택한 날짜의 일기 불러오기 시 감정 / 테마 / 내용 불러오기 기능
 + 그 외 작성한 날과 작성하지 않은 날 구분을 위한 css
 + 당일이 아닌 날 테마수정/감정선택/일기작성 및 수정 막는 변수 사용해 기존 기능 보존
-
-</details>
+	
 </details>
 
 ---
+
+</details>
+	
+## 그 외 자료
+	
 <details>
 <summary>🌻Data Base🌻</summary>
 
@@ -243,10 +373,15 @@
 ![image](https://user-images.githubusercontent.com/110512929/201527926-685c2463-9836-4a57-88cc-86c1043b8bda.png)
 
 </details>
-
----
+	
+<details>
+<summary>🌲유튜브 링크🌲</summary>
+	
+[구현영상](https://youtu.be/om6nuNUTVm0)
 
 <details>
+
+---
 
 <summary>🌿추후 개발 목표🌿</summary>
  
@@ -268,15 +403,11 @@
    
 </details>
 
----
-
 <details>
 <summary> 자료 출처 </summary>
 
 [배경이미지](https://m.blog.naver.com/PostList.naver?blogId=westar4501&categoryNo=0)
 
 </details>
-
-<h4>실행영상 :  "https://youtu.be/om6nuNUTVm0"</h4> <br>
 
 <img src="https://img.shields.io/badge/js-C66477?style=flat-square&logo=js&logoColor=C66477"/><img src="https://img.shields.io/badge/jsp-8BC664?style=flat-square&logo=jsp&logoColor=8BC664"/><img src="https://img.shields.io/badge/mysql-FFF33D?style=flat-square&logo=mysql&logoColor=FFF33D"/>
