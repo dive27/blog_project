@@ -376,8 +376,7 @@
 	
 <details>
 <summary>🌲유튜브 링크🌲</summary>
-
-[구현영상](링크)
+[구현영상](https://youtu.be/om6nuNUTVm0)
 
 <details>
 
