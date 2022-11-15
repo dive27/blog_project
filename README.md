@@ -379,9 +379,11 @@
 	
 [구현영상](https://youtu.be/om6nuNUTVm0)
 
-<details>
+</details>
 
 ---
+
+<details>
 
 <summary>🌿추후 개발 목표🌿</summary>
  
